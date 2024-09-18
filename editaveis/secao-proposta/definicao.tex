@@ -12,63 +12,84 @@ A literatura indica que priorizar funcionalidades para desenvolvimento com base 
 
 \subsection{Caso}
 
-O objeto de estudo desta investigação é um produto de \textit{software} desenvolvido por uma empresa privada brasileira, que oferece uma solução de ambiente virtual de aprendizagem. Este \textit{SaaS} é utilizado por cerca de quinhentas escolas brasileiras e atende a uma base de aproximadamente 100 mil usuários. A plataforma possui um código-base com cerca de 740 mil linhas.
+O objeto de estudo desta investigação é um produto de \textit{software} desenvolvido por uma empresa privada brasileira, que oferece uma solução de ambiente virtual de aprendizagem. Este \todo[color=yellow]{incluir a definicao de SaaS} \textit{SaaS} é utilizado por cerca de quinhentas escolas brasileiras e atende a uma base de aproximadamente 100 mil usuários. A plataforma possui um código-base com cerca de 740 mil linhas.
 
-O produto se trata de uma plataforma \textit{web} escrita em \textit{TypeScript}, uma linguagem de programação derivada do \textit{JavaScript}. Hoje, é mantido por cerca de 30 desenvolvedores, de diferentes níveis de experiência, divididos em 5 equipes que também possuem outros profissionais, como \textit{designers}, gerentes, consultores de negócio e analistas de qualidade.
+O produto se trata de uma plataforma \textit{web} escrita em \textit{TypeScript}, uma linguagem de programação derivada do \textit{JavaScript}. Hoje, é mantido por cerca de 30 desenvolvedores, de diferentes níveis de experiência \todo[color=yellow]{quais são esses diferentes niveis de experiência?}, divididos em 5 equipes que também possuem outros profissionais, como \textit{designers}, gerentes, consultores de negócio e analistas de qualidade.
 
-O produto foi selecionado por seu desenvolvimento obedecer a cadência de desenvolvimento contínuo, o que viabiliza a implantação de um processo de Experimentação Contínua. Outro fator importante é a larga população de usuários que, permitirá a definição de amostras com significância estatística, aumentando a confiabilidade das análises estatísticas. Por fim, a empresa demonstrou disposição em colaborar com a pesquisa, o que também possibilita a coleta de dados sob a perspectiva dos colaboradores envolvidos.
+O produto foi selecionado por seu desenvolvimento obedecer a cadência de desenvolvimento contínuo, o que viabiliza a implantação de um processo de Experimentação Contínua. Outro fator importante é a larga população de usuários que, permitirá a definição de amostras com significância estatística, aumentando a confiabilidade das análises estatísticas. Por fim, a empresa demonstrou disposição em colaborar com a pesquisa, o que também possibilita a coleta de dados sob a perspectiva dos colaboradores envolvidos. \todo[color=yellow]{Outro fator determinante para escolha foi o fato da geek já possuir a cultura de desenvolvimento com feature flag}
 
 
 \subsection{Trabalhos Relacionados}
 
 Durante a revisão da literatura, descrita no Capítulo \ref{ch:revisao}, foram selecionados estudos que pudessem servir de insumo para a construção desta monografia.
 
-A principal influência deste trabalho foi o estudo de \citeonline{erthal_characterization_2023}, que realizou uma caracterização do estado da arte do desenvolvimento orientado a dados e propôs um processo combinado baseado nos modelos e práticas encontrados em sua revisão da literatura. Com base neste modelo, foi mapeado o atual processo de desenvolvimento do projeto analisado, para elencar as atividades necessárias para esquematizar um sistema de experimentação contínua.
+A principal influência deste trabalho foi o estudo de \citeonline{erthal_characterization_2023}, que realizou uma caracterização do estado da arte do desenvolvimento orientado a dados e propôs um processo combinado baseado nos modelos e práticas encontrados em sua revisão da literatura. Com base neste modelo, foi mapeado o atual processo de desenvolvimento do \textcolor{red}{\st{projeto}} \textcolor{blue}{\st{produto}} analisado, para elencar as atividades necessárias para esquematizar um sistema de experimentação contínua.
 
 O trabalho de \citeonline{melegati_understanding_2021} apresenta a chamada \textit{Hypotheses Engineering} e suas práticas, trazendo uma revisão da literatura cinza para descrever como essas práticas são utilizadas no mercado. A engenharia de hipóteses, proposta por \citeonline{melegati_hypotheses_2019}, descreve as atividades necessárias para a formalização de hipóteses, etapa essencial para a realização de experimentos que validam as suposições dos responsáveis pelo desenvolvimento do produto.
 
 Já o estudo de \cite{fabijan_three_2019} traz \textit{checklists} em forma de listas de verificação, com três listas que servem de guia para a execução de experimentos controlados: uma na fase de \textit{design} do experimento, outra na sua execução, e uma terceira na etapa de análise de dados. O propósito é listar atividades que garantam a execução apropriada do experimento e uma tomada de decisão confiável.
 
-Outros modelos que visam à sistematização do processo em sua totalidade ou à descrição de atividades específicas também foram encontrados \cite{fagerholm_right_2017, issa_mattos_hurrier_2023, olsson_opinions_2014}. Além disso, na literatura há estudos de caso realizados em diferentes orgnizaçõe, mapeamentos e revisões que, semelhantes a esta monografia, buscam avaliar a experimentação e compreender suas práticas, benefícios e desafios \cite{kevic_characterizing_2017, kuhrmann_activity_2018, fernandes_hitting_2015, sauvola_towards_2015, issa_mattos_hurrier_2023, kohavi_online_2013, fabijan_benefits_2017, quin_b_2024, erthal_characterization_2023, larsen_statistical_2024}. Embora nem todos os artigos citados sejam influências diretas no processo proposto, suas leituras foram essenciais para a compreensão das atividades a serem realizadas neste trabalho.
+Outros modelos que visam à sistematização do processo em sua totalidade ou à descrição de atividades específicas também foram encontrados \cite{fagerholm_right_2017, issa_mattos_hurrier_2023, olsson_opinions_2014}. Além disso, na literatura há estudos de caso realizados em diferentes orgnizações, mapeamentos e revisões que, semelhantes a esta monografia, buscam avaliar a experimentação e compreender suas práticas, benefícios e desafios \cite{kevic_characterizing_2017, kuhrmann_activity_2018, fernandes_hitting_2015, sauvola_towards_2015, issa_mattos_hurrier_2023, kohavi_online_2013, fabijan_benefits_2017, quin_b_2024, erthal_characterization_2023, larsen_statistical_2024}. Embora nem todos os artigos citados sejam influências diretas no processo proposto, suas leituras foram essenciais para a compreensão das atividades a serem realizadas neste trabalho.
 
-Outros estudos focam em descrever os desafios da experimentação contínua, ajudando a desenhar um processo mais robusto e análises com maior acurácia. O trabalho de \citeonline{larsen_statistical_2024} destaca desafios estatísticos na realização de experimentos; um exemplo particularmente relevante para o contexto deste estudo é o chamado \textit{optional stopping}, que envolve monitorar as métricas durante a execução do experimento para interromper o processo se necessário. Esse processo é crucial para detectar, antes da liberação de uma \textit{release}, se uma alteração prejudica o usuário. Para mitigar esse risco, o estudo propõe a liberação gradativa das mudanças.
+Outros estudos focam em descrever os desafios da experimentação contínua, ajudando a desenhar u \textcolor{red}{\st{ um processo mais robusto e análises com maior acurácia.}} \textcolor{blue}{o o processo a ser utlizado neste estudo.} O trabalho de \citeonline{larsen_statistical_2024} destaca desafios estatísticos na realização de experimentos; um exemplo particularmente relevante para o contexto deste estudo é o chamado \textit{optional stopping}, que envolve monitorar as métricas durante a execução do experimento para interromper o processo se necessário. Esse processo é crucial para detectar, antes da liberação de uma \textit{release}, se uma alteração prejudica o usuário. Para mitigar esse risco, o estudo propõe a liberação gradativa das mudanças.
+
+
 
 Ainda nesse contexto, o trabalho de \citeonline{crook_seven_2009} identifica armadilhas comuns, como a validação do \textit{design} experimental. Os autores enfatizam a importância dessa etapa para garantir a qualidade do teste e sugerem que, antes do desenvolvimento, o experimento seja validado através da coleta de dados de uso antes mesmo da construção da nova versão para avaliação de padrões inesperados, para assegurar que as versões corretas serão atribuídas aos usuários e que o comportamento das populações estão alinhadas e seguindo o esperado.
 
-Neste estudo, inicialmente serão formalizadas hipóteses a partir de diferentes insumos, como \textit{feedback} de clientes, estado do mercado e conhecimento de negócio. Após a formalização, documentação e priorização das hipóteses, uma será escolhida para avaliação. Antes do desenvolvimento, será preparada a coleta de dados, com a definição das métricas de uso a serem observadas durante o período da execução do experimento. Além disso, será realizado um pré-estudo para avaliar o \textit{design} do experimento.
+Nesta pesquisa, inicialmente serão formalizadas hipóteses a partir de diferentes insumos, como \textit{feedback} de clientes, estado do mercado e conhecimento de negócio. Após a formalização, documentação e priorização das hipóteses, uma será escolhida para avaliação. Antes do desenvolvimento, será preparada a coleta de dados, com a definição das métricas de uso a serem observadas durante o período da execução do experimento. Além disso, será realizado um pré-estudo para avaliar o \textit{design} do experimento.
 
 Com as métricas definidas, a nova versão do produto será desenvolvida e lançada para um grupo selecionado de usuários, e os dados começarão a ser coletados. Por fim, a partir dessa coleta, os dados serão analisados e testes estatísticos serão realizados para verificar se há uma diferença significativa entre as versões. Essa análise determinará se a hipótese é confirmada e a nova versão deve ser liberada para todos os usuários, ou se o tratamento não se sustenta e deve ser abandonado.
 
 
 \subsection{Questão de Pesquisa}
 
-Buscando responder à questão principal de pesquisa do trabalho, apresentada na Seção \ref{sec:questao} (Como a adoção de práticas de experimentação contínua pode auxiliar a tomada de decisão sobre a implantação de novas versões de um produto de software web?), foram derivadas questões específicas para o estudo de caso, juntamente com as métricas que serão utilizadas para sua avaliação, seguindo a abordagem GQM. Essas questões e métricas são apresentadas a seguir.
+\todo[inline, color=pink]{Os principais problemas dessa subseção não foram resolvidos}
+
+
+Buscando responder à questão principal de pesquisa do trabalho, apresentada na Seção \ref{sec:questao} \textit{(Como a adoção de práticas de experimentação contínua pode auxiliar a tomada de decisão sobre a implantação de novas versões de um produto de software web?)}, foram derivadas questões específicas para o estudo de caso, juntamente com as métricas que serão utilizadas para sua avaliação, seguindo a abordagem GQM. Essas questões e métricas são apresentadas a seguir.
+
 
 \begin{itemize}
-    \item \textbf{Questão Específica 1:} Durante o experimento controlado, foi possível identificar diferenças significativas nas métricas de uso escolhidas para avaliar a hipótese?
+    \item \textbf{Questão Específica 1.1:}  \textcolor{red}{\st{Durante o experimento controlado, foi possível identificar diferenças significativas nas métricas de uso escolhidas para avaliar a hipótese?}}  \textcolor{blue}{Durante o experimento, foi possível identificar a diferença de eficácia das versões de controle (A) e nova versão (B) do produto, a partir do uso?}
 
+ 
     \begin{itemize}
-        \item \textbf{Métrica 1.1:} Diferença estatística entre as distribuições de dados das versões de controle e tratamento. A métrica específica depende da hipótese a ser testada, que será definida inicialmente, antes do desenvolvimento da nova versão. Uma vez definida a funcionalidade, as métricas serão escolhidas para refletir o comportamento dos usuários durante o uso do produto e dizer qual versão se desempenha melhor. 
+        \item \textbf{Métrica 1.1.1:} Diferença estatística entre as distribuições de dados das versões de controle e tratamento. A métrica específica depende da hipótese a ser testada, que será definida inicialmente, antes do desenvolvimento da nova versão. Uma vez definida a funcionalidade, as métricas serão escolhidas para refletir o comportamento dos usuários durante o uso do produto e dizer qual versão se desempenha melhor. 
+    
+     
+     \todo[inline, color=pink]{Métrica não é uma descrição textual. Ela até pode existir para explicar a métrica. QUAL É MÉTRICA/MEDIDA????? Naquela NBR que eu te enviei tem. Ela(s) precisam aparecer aqui. Leia novamente o cap. 3 do livro do Wohlin. A descrição de uma métricas/medida precisa considerar tais questões). Além disso, eu já havia feito um comentário sobre essa questão de " Diferença estatística entre as distribuições de dados das versões de controle e tratamento." Eu não entendo essa frase.}
+
+        
+       
     \end{itemize}
     
-    \item \textbf{Questão Específica 2:} Foi possível rejeitar a hipótese nula e aceitar a versão de tratamento como superior?
+    
+    
+    \item\textcolor{red}{\st{\textbf{Questão Específica 1.2:} Foi possível rejeitar a hipótese nula e aceitar a versão de tratamento como superior?}}
 
     \begin{itemize}
-        \item \textbf{Métrica 2.1:} Diferença nas médias dos valores observados nos dois conjuntos de dados, de tratamento e de controle.
+        \item\textcolor{red}{\st{\textbf{Métrica 1.2.1:} Diferença nas médias dos valores observados nos dois conjuntos de dados, de tratamento e de controle.}}
     \end{itemize}
   
-    \item \textbf{Questão Específica 3:} O processo de experimentação contribuiu para uma tomada de decisão baseada em dados?
+    \item\textbf{Questão Específica 3:} O processo de experimentação contribuiu para uma tomada de decisão baseada em dados?
 
     \begin{itemize}
-        \item \textbf{Métrica 3.1:} Se as atividades pretendidas conseguiram ser realizadas em sua completude.
+        \item\textcolor{red}{\st{\textbf{Métrica 3.1:} Se as atividades pretendidas conseguiram ser realizadas em sua completude.}}
     \end{itemize}
 
     \begin{itemize}
-        \item \textbf{Métrica 3.2:} Opinião dos colaboradores envolvidos em relação ao nível de contribuição do processo aplicado na tomada de decisão.
+        \item\textbf{Métrica 3.2:} Opinião dos colaboradores envolvidos em relação ao nível de contribuição do processo aplicado na tomada de decisão.
+         
+         
+       \todo[inline, color=pink]{Respostas obtidas via questionário de opinião dos colaboradores. É importante frisar que este questionário será elaborado no trabalho de tcc2. }
+
+        
+        
     \end{itemize}
 
     \begin{itemize}
-        \item \textbf{Métrica 3.2:} Opiniões qualitativas dos colaboradores envolvidos em relação ao processo aplicado de modo geral.
+        \item\textcolor{red}{\st{\textbf{Métrica 3.2:} Opiniões qualitativas dos colaboradores envolvidos em relação ao processo aplicado de modo geral.}}
     \end{itemize}
     
 \end{itemize}
@@ -79,4 +100,4 @@ A fonte de dados quantitativos será o uso da plataforma pelos usuários. Uma ve
 
 Como a funcionalidade implementada será apresentada em duas versões diferentes, espera-se que os dados coletados sejam significativamente distintos entre as duas populações de usuários. Esses dados devem ser suficientes para uma análise estatística que irá determinar qual versão é mais adequada para os clientes.
 
-Além disso, a opinião dos colaboradores envolvidos no processo também será coletada, através de formulários de opinião, como uma fonte adicional de dados, visando entender se a metodologia ajudou na tomada de decisões e se houve uma evolução percebida em comparação ao processo existente na empresa.
+Além disso, a opinião dos colaboradores envolvidos no processo também será coletada como uma fonte adicional de dados, visando entender se a metodologia ajudou na tomada de decisões e se houve uma evolução percebida em comparação ao processo existente na empresa.
