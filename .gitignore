@@ -1,0 +1,8 @@
+*.aux
+*.idx
+*.ilg
+*.ind
+*.log
+*.pdf
+*.synctex.gz
+*.tpbuild
