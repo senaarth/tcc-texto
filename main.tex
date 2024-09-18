@@ -1,0 +1,97 @@
+\documentclass[12pt,openright,oneside,a4paper,english,french,spanish]{abntex2}
+
+\usepackage{cmap}	
+\usepackage{lmodern}	
+\usepackage[T1]{fontenc}	
+\usepackage[utf8]{inputenc}		
+\usepackage{lastpage}		
+\usepackage{indentfirst}
+\usepackage{color}	
+\usepackage{graphicx}	
+% \usepackage{units}
+\usepackage[brazilian,hyperpageref]{backref}
+\usepackage[alf]{abntex2cite}
+\usepackage{bold-extra}
+\usepackage{eso-pic}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{graphicx}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{xspace}
+\usepackage[ruled,linesnumbered]{algorithm2e}
+\usepackage{pdfpages}
+\usepackage{caption}
+\usepackage{graphicx}
+% \usepackage{tabularx}
+% \usepackage{booktabs}
+\usepackage{longtable}
+
+% \usepackage{etoolbox}
+\usepackage{ragged2e}
+\usepackage{amsmath}
+\usepackage{booktabs,makecell,tabularx}
+\usepackage{siunitx}
+\usepackage{adjustbox}
+\usepackage{array,booktabs}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\renewcommand\theadfont{\small}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+
+\newcommand{\itractool}{DTEST\xspace}
+
+%Comandos para revisão
+\newcommand{\rev}[1]{{\color{green}#1}\xspace}
+\newcommand{\del}[1]{{\color{red}#1}\xspace}
+
+%Comandos para impedir linhas órfãs e viúvas
+\clubpenalty=10000
+\widowpenalty=10000
+
+\input{fixos/comandos}
+\usepackage{fixos/customizacoes}
+
+\input{editaveis/informacoes}
+\input{fixos/informacoes}
+\input{fixos/setup}
+
+\begin{document}
+
+\frenchspacing 
+\imprimircapa
+\imprimirfolhaderosto*
+
+%\input{fixos/fichaCatalografica}
+% \input{editaveis/errata}
+\input{fixos/folhaDeAprovacao}
+%\input{editaveis/dedicatoria}
+\input{editaveis/agradecimentos}
+\input{editaveis/epigrafe}
+\input{editaveis/resumo}
+\input{editaveis/abstract}
+\input{fixos/listasAutomaticas}
+\input{editaveis/abreviaturas}
+\input{fixos/indiceAutomatico}
+
+\textual
+
+\input{editaveis/introducao}
+\input{editaveis/referencialteorico}
+\input{editaveis/revisao}
+\input{editaveis/proposta}
+\input{editaveis/condicao}
+\bookmarksetup{startatroot} 
+
+\postextual
+%{bibliografia}
+\justifying 
+\bibliography{bibliography} %{<mybib>} 
+% \bibliography{}
+
+% \bibliographystyle {}
+%\input{editaveis/anexos}
+\input{editaveis/apendices}
+\printindex
+\end{document}
+

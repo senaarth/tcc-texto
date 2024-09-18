@@ -1,0 +1,120 @@
+\section{Resultados}
+\label{sec:rsl-resultados}
+
+Durante a leitura integral dos artigos selecionados, realizou-se a etapa final da revisão, a extração de dados. O formulário utilizado foi apresentado na Tabela \ref{tab:protocolo-busca} e o resultado consolidado dos dados está acessível \href{https://docs.google.com/spreadsheets/d/1LyB3fCxzzelQDfBpfCC4t2Z91LUd1-lA/edit?usp=sharing&ouid=105055060757466273844&rtpof=true&sd=true}{nesta planilha}, disponibilizada publicamente. Para além da extração de dados, nesta subseção são apresentados os resultados da revisão estruturada da literatura, descrevendo como o material responde às questões de pesquisa definidas e como estes resultados influenciam o processo sistematizado para a proposta de estudo de caso deste trabalho.
+
+\subsection{Quais são os processos/modelos utilizados no desenvolvimento orientado a dados?}
+
+Diferentes processos e modelos são apresentados na literatura e o escopo deles varia quanto ao que se propõem a sistematizar. Alguns tratam de atividades específicas da experimentação, já outros se propõem a esquematizar todo o processo de desenvolvimento, elencando papéis, atividades, artefatos etc. Há também aqueles que tratam do nível organizacional, especificando os passos que devem ser tomados para se adequar a cultura da empresa ao desenvolvimento orientado a dados.
+
+Visando responder a questão de pesquisa, esta seção irá apresentar os modelos encontrados, os dividindo em categorias, explanando brevemente sobre as suas atividades e destacando quais deles influenciaram o pesquisador na construção da proposta desta monografia. Posteriormente, os principais modelos estudados para a proposta de estudo de caso serão destacadas, assim como suas determinadas influências.
+
+
+\subsubsection{Modelos de Processo de Desenvolvimento}
+
+\begin{itemize}
+
+    \item \textbf{\textit{Combined Experimentation Process}:} O estudo de \citeonline{erthal_characterization_2023} busca caracterizar a literatura sobre Experimentação Contínua, oferecendo uma visão abrangente das principais atividades envolvidas na experimentação. Esse processo representa o principal resultado da revisão realizada pelos autores e visa discriminar atividades, fontes de informação e tomadas de decisão, separando o procedimento em três estágios \textit{build}, \textit{measure} e \textit{learn} (construção, metrificação e aprendizado), influenciado pela metodologia \textit{Lean Startup};
+    
+    \item \textbf{\textit{Hypex Model}:} Este modelo busca resolver o desafio identificado por \citeonline{olsson_opinions_2014}, denominado pelos autores como \textit{Open-loop Problem}, que se refere ao atraso entre os lançamentos de software e a avaliação por meio de processos de \textit{feedback}, dificultando a priorização de requisitos baseada em dados e tornando-a dependente de opiniões. O processo abrange diversas atividades, desde a construção do \textit{backlog}, passando pela priorização de funcionalidades, implementação e instrumentação, até a análise de dados. Além de delinear as atividades necessárias, os autores também discutem os desafios que motivaram a criação do modelo e as questões relacionadas à sua validação;
+    
+    \item \textbf{\textit{The RIGHT Model}:} Apresentado por \citeonline{fagerholm_right_2017}, o modelo também se baseia no ciclo \textit{Build-Measure-Learn} e busca integrar a visão de produto, estratégia de negócios e desenvolvimento de \textit{software} no processo de experimentação. O objetivo é unificar atividades como elicitação de requisitos, \textit{design}, implementação, testes, implantação e manutenção, utilizando os aprendizados obtidos nos experimentos. Além dessa proposta, os autores apresentam um estudo de caso múltiplo que forneceu os insumos necessários para consolidação do modelo e também discutem a infraestrutura necessária para sua implementação abordando papéis, ferramentas e artefatos;
+    
+    \item \textbf{\textit{The HURRIER Continuous Experimentation Process}:} Foi desenvolvido por \citeonline{issa_mattos_hurrier_2023} para sistemas B2B críticos, que exigem escalabilidade e inovação contínua, porém precisam mitigar os riscos o máximo possível. Envolve atividades de quatro áreas principais: \textit{R\&D} (Pesquisa e Desenvolvimento), validação interna, com um cliente e com múltiplos. Além disso, é uma abordagem flexível, que permite a utilização de partes separadas à depender do escopo do produto.
+\end{itemize}
+\subsubsection{Modelos de Evolução Organizacional}
+
+\begin{itemize}
+    
+    \item \textbf{\textit{Stairway to Heaven Model}:} \citeonline{olsson2013towards} propõem um modelo que descreve um passo a passo composto de cinco etapas para empresas que desejam evoluir seus processos de trabalho. Foi desenvolvido visando guiar companhias que desejam evoluir as suas práticas de desenvolvimentos de \textit{software}. Um dos estudos selecionados através de \textit{snowballing}, \citeonline{fernandes_hitting_2015}, extende o modelo, utilizando dados coletados através de um estudo de caso. Os autores trazem práticas que caracterizam o passo a passo, dividas em quatro categorias: negócio, arquitetura, processo e organizacional; e
+    
+    \item \textbf{\textit{Experimentation Evolution Model}:} Visa apresentar um modelo de transição para uma empresa que trabalha apenas com opiniões e visa consolidar um processo de experimentação contínua. O modelo trata das diferentes fases que devem ser seguidas nessa evolução e as dividem em três dimensões: técnica, organizacional e negócios. Os autores descrevem cada fase e como se progredir em cada uma, falando sobre desafios e atividades \citeonline{fabijan_evolution_2017}.
+    
+\end{itemize}
+
+
+\subsubsection{Modelos de Execução de Atividades Específicas}
+
+\begin{itemize}
+    
+    \item \textbf{\textit{Hypotheses Engineering}:} Este processo foca na geração de hipóteses para a posterior validação por meio de experimentos. Os autores fazem um contraponto entre o desenvolvimento orientado a requisitos e do orientado a experimentos, apontando para a necessidade de um processo contínuo de geração e priorização de ideias. O processo é separado em quatro atividades, geração, documentação, análise e priorização \cite{melegati_hypotheses_2019}. Além da publicação citada, alguns dos autores realizaram uma posterior revisão de literatura cinza, visando entender como as atividades propostas no modelo são utilizadas na prática no mercado \cite{melegati_understanding_2021};
+
+    \item \textbf{\textit{QCD Model}:} Visando unir dados quantitativos e qualitativos durante o processo de avaliação de funcionalidades, \citeonline{olsson_towards_2015} propõe o chamado \textit{Qualitative/quantitative Customer-driven Development}. O modelo trata os requisitos como hipóteses que devem ser avalidas junto aos clientes antes de se formalizar o que será desenvolvido, se formando um procedimento de validação contínua. O propósito é que seja executada uma rodada da chamada técnica \textit{Customer Feedback} antes da validação experimental, que consiste em observações, questionários e entrevistas para coleta de dados. Os autores advogam que esta fase pode facilitar o processo de experimentação, dado que não é necessária a implementação do \textit{software}, além de que os dados qualitativos podem ajudar a trazer sentido aos dados quantitativos;
+    
+    \item \textbf{\textit{Sequential Score Test}:} O \textit{framework} apresentado por \cite{yu_new_2020} foca na análise dos dados, e visa mitigar possíveis más práticas nos testes de hipóteses. Os autores advogam que para um teste de hipótese acontecer corretamente se deve definir o tamanho da amostra antes do período de teste e que efeitos heterogêneos devem ser observados, o que comumente não acontece no ritmo acelerado da indústria, o que pode gerar resultados enviesados. São propostas atividades de testes sequenciais que visam tratar destas lacunas;
+    
+    \item \textbf{\textit{The Online Controlled Experiment Lifecycle}:} O ciclo proposto por \citeonline{kohavi_online_2013} visa apresentar as etapas dos experimentos controlados \textit{online}, que são a ideação, o desenvolvimento e a análise. Os autores, além de caracterizar as etapas, descrevem suas atividades e mitigações de risco, visando prover uma visão geral sobre \textit{OCEs}. Embora seja um ciclo de vida, não apresenta um sistema que possa ser considerado um processo completo de desenvolvimento; e
+    
+    \item \textbf{\textit{Three Key Checklists for Trustworthy Analysis of OCEs}:} \citeonline{fabijan_three_2019} apresentam três conjuntos de listas de tarefas para servirem de guia na execução de experimentos. O propósito destas tarefas é garantir que os principais fatores que garantem o sucesso de um experimento sejam endereçados. Elas são separadas em três, uma para a parte da ideação, outra para a fase de execução e a última para o momento da análise.
+    
+    
+\end{itemize}
+
+Após conhecer os modelos existentes na literatura, optou-se por utilizar do modelo proposto por \citeonline{erthal_characterization_2023}, o \textit{Combined Experimentation Process}, como base para a proposta deste trabalho.
+
+Além disso, também foi escolhido o modelo de Engenharia de Hipóteses, apresentado por \citeonline{melegati_hypotheses_2019}. Este material servirá de apoio para a realização da atividade de ideação e formulação de hipóteses que precede a execução dos experimentos.
+
+Outro modelo que deve servir de guia para a execução das atividades é a lista de tarefas apresentada por \citeonline{fabijan_three_2019}. As três \textit{checklists} que o artigo apresenta são de grande contribuição para a construção de um \textit{guideline} para a execução de experimentos. O propósito é utilizar da influência do modelo para criar uma lista de tarefas similar que possa ser utilizada no contexto do produto investigado.
+
+
+
+\subsection{Quais são as estratégias utilizadas no desenvolvimento orientado a dados?}
+
+O tipo de estratégia mais comum encontrada é o Teste A/B, também chamado de OCE (ou \textit{Online Controlled Experiment}), foi citado por todos os artigos lidos. Existem algumas variações desse teste, como, por exemplo, o MVP ou MVF (\textit{Minimal Viable Product} ou \textit{Minimal Viable Feature}), onde a versão mais simples possível da nova funcionalidade é desenvolvida e testada para gerar aprendizados que possam orientar o desenvolvimento da versão completa \cite{fabijan_online_2020} \cite{chen_understanding_2024} \cite{kohavi_online_2013} \cite{fagerholm_right_2017} \cite{sauvola_towards_2015} \cite{melegati_hypotheses_2019} \cite{kuhrmann_activity_2018}.
+
+Além disso, há estratégias que visam gerar aprendizados em vez de apenas validar novas funcionalidades. Nesse contexto, temos os Testes A/A, que coletam dados de duas populações utilizando a mesma versão do \textit{software} para estudar o comportamento dos usuários \cite{fabijan_evolution_2017} \cite{fabijan_three_2019} \cite{kuhrmann_activity_2018} \cite{crook_seven_2009} \cite{fabijan_benefits_2017}. Também existem os Experimentos Reversos, onde funcionalidades aparentemente obsoletas são removidas, diminuindo a complexidade do código, e as métricas observadas buscam garantir que não houve impacto negativo para o usuário \cite{fabijan_benefits_2017}. Outros exemplos incluem testes negativos, experimentos de calibração/otimização, entre outros \cite{kohavi_online_2013} \cite{issa_mattos_hurrier_2023}.
+
+Outro tipo de estratégia refere-se ao tipo de \textit{release} que será realizado pela empresa, visando minimizar o risco de entregas que possam causar danos ao usuário. Alguns exemplos são \textit{canary releases}, \textit{dark launches}, \textit{gradual rollouts}, entre outros \cite{chen_understanding_2024} \cite{issa_mattos_hurrier_2023} \cite{bures_infrastructure_2021}.
+
+\subsection{Quais ferramentas/tecnologias comumente utilizadas na indústria para instrumentalização de experimentos?}
+
+Com relação a ferramentas existentes no mercado, nesta revisão estruturada da literatura foram identificadas poucas opções, já que os artigos selecionados focaram na definição de um processo e descrição das atividades a serem realizadas. Entretanto houveram algumas citações a tecnologias, as mesmas são apresentadas na Tabela \ref{tab:rsl-ferramentas}.
+
+\begin{table}[]
+\centering
+    \caption{Ferramentas Citadas na Literatura}
+
+    \begin{tabular}{|p{2cm}|p{3cm}|p{9cm}|}
+        \hline
+        \textbf{Tecnologia} & \textbf{Citado por} & \textbf{Descrição} \\ \hline
+        Analytics Experimentation Platform & \citeonline{kevic_characterizing_2017}. & Criada pela Google para realização de testes A/B integrados ao Google Analytics com segmentação de público. Foi descontinuada em 2024 \cite{analytics_experimentation_framework}. \\ \hline
+        Maxymiser & \citeonline{fabijan_evolution_2017}. & Criada para a realização de testes A/B e também multivariáveis, permite analisar o comportamento dos usuários em tempo real. Solução proprietária da Oracle que foi descontinuada em 2020 \cite{maxymiser}. \\ \hline
+        Mixpanel & \citeonline{fabijan_evolution_2017}. & Plataforma de análise e engajamento que facilita o rastreamento e a compreensão do comportamento dos usuários em aplicações \textit{web} e \textit{mobile}. Dentre outras funcionalidades, permite a análise detalhada de eventos, a segmentação de usuários e a criação de funis de conversão, além de uma API robusta para personalização e automação. Solução proprietária que oferece modelos sob assinatura com uma opção de plano gratuito \cite{mixpanel2024}. \\ \hline
+        Optimizely & \citeonline{fabijan_evolution_2017}, \citeonline{kohavi_online_2013} e \citeonline{bures_infrastructure_2021}. & Esta ferramenta, dentre outras funcionalidades, permite a criação de testes A/B para otimizar interfaces. Oferece um editor visual para criação de experimentos sem código. Permite testar aplicações \textit{web} e \textit{mobile}. Solução proprietária que oferece modelos sob assinatura.\cite{optimizely}. \\ \hline
+        PlanOut & \citeonline{kevic_characterizing_2017}. & O PlanOut é uma plataforma de código aberto criada pelo Facebook para facilitar a execução e iteração de experimentos complexos. Oferece uma implementação em Python, além de versões para outras linguagens, como Java, JavaScript e PHP. Inclui classes extensíveis para definir experimentos e um interpretador para executar \textit{scripts}. A última atualização pública do repositório foi no ano de 2020, tendo sido arquivado pela empresa em 2021, cerca de 3 anos antes do desenvolvimento desta monografia \cite{planout}. \\ \hline
+        Wasabi & \citeonline{kohavi_online_2013}. & Plataforma de código livre para realização de experimentos controlados em larga escala. Permite controlar os próprios dados, realizar testes em plataformas \textit{web}, \textit{mobile} e \textit{desktop} e gerir experimentos através de uma interface de gestão. A última atualização no repositório público foi em Agosto de 2019, 5 anos antes do desenvolvimento desta monografia \cite{wasabi}. \\ \hline
+        \multicolumn{3}{|c|}{Continua na Tabela \ref{tab:rsl-ferramentas-2}} \\ \hline
+    \end{tabular}
+
+    \label{tab:rsl-ferramentas}
+    
+    \begin{center}
+        \text Fonte: Autor
+    \end{center}
+\end{table}
+
+\begin{table}[]
+\centering
+    \caption{Continuação das Ferramentas Citadas na Literatura}
+
+    \begin{tabular}{|p{2cm}|p{3cm}|p{9cm}|}
+        \hline
+        \multicolumn{3}{|c|}{Continuação da Tabela \ref{tab:rsl-ferramentas}} \\ \hline
+        \textbf{Tecnologia} & \textbf{Citado por} & \textbf{Descrição} \\ \hline
+        XLNT & \citeonline{kevic_characterizing_2017}. & Foi desenvolvido para atender as necessidades específicas do \textit{LinkedIn} e segue como produto exclusivo da empresa. Permite a criação de testes A/B e multivariados com foco em personalização de experiências. A plataforma oferece uma interface de gestão para o controle e análise de experimentos, permitindo a execução simultânea de múltiplos testes.  \cite{xlnt}. \\ \hline
+        \multicolumn{3}{|c|}{Continua na Tabela \ref{tab:conjunto-final-2}} \\ \hline
+    \end{tabular}
+
+    \label{tab:rsl-ferramentas-2}
+    
+    \begin{center}
+        \text Fonte: Autor
+    \end{center}
+\end{table}
+
+\subsection{Quais os principais desafios e problemas reportados?}
+
+A literatura relata desafios referentes à velocidade de desenvolvimento e são citados a necessidade de sistematização de um processo de desenvolvimento e da coleta dos dados com uma plataforma sólida, fatores que demandam tempo e esforço. Ainda relacionado ao tempo desprendido neste processo, alguns estudos relatam desafios em escalar o processo pela dificuldade de automatizar determinadas atividades, como a geração das hipóteses, \textit{design}, a análise dos dados e execução dos experimentos \cite{erthal_characterization_2023} \cite{fabijan_evolution_2017}  \cite{sauvola_towards_2015} \cite{quin_b_2024} \cite{fernandes_hitting_2015} \cite{fagerholm_right_2017} \cite{kevic_characterizing_2017} \cite{kohavi_online_2013} \cite{bures_infrastructure_2021} \cite{liu_enterprise-level_2019} \cite{chen_automatic_2018} \cite{fabijan_online_2020} \cite{le_goues_towards_2014}.
+
+Em alguns estudos são relatadas dificuldades em trabalhar com as métricas de uso, tanto pela dificuldade de escolher as variáveis corretas quanto para realizar uma análise confiável destes dados. Alguns exemplos de fatores que causam estes problemas são: a dificuldade de traduzir \textit{feedbacks} dos usuários para hipóteses testáveis; inexperiência da equipe com dados e a falta de tempo para realização de todas as atividades necessárias. Esses problemas podem acarretar experimentos mal desenhados e falsos positivos/negativos \cite{quin_b_2024} \cite{erthal_characterization_2023} \cite{issa_mattos_hurrier_2023} \cite{fabijan_evolution_2017} \cite{fernandes_hitting_2015} \cite{fabijan_three_2019} \cite{kuhrmann_activity_2018} \cite{fagerholm_right_2017} \cite{olsson_towards_2015} \cite{kevic_characterizing_2017} \cite{crook_seven_2009} \cite{kohavi_online_2013} \cite{yu_new_2020} \cite{liu_enterprise-level_2019} \cite{kohavi_online_2013} \cite{fabijan_benefits_2017} \cite{le_goues_towards_2014} \cite{larsen_statistical_2024}. Alguns estudos focam nestes tipos de desafios, trazendo conhecimento e propondo atividades para mitigação de riscos \cite{kohavi_seven_2014} \cite{larsen_statistical_2024}.
+

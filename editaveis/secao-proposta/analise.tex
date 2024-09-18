@@ -1,0 +1,12 @@
+\section{Análise de Dados}
+
+
+Antes de testes inferenciais, será realizada uma análise estatística descritiva das amostras, fundamental para compreender a natureza dos dados (Seção \ref{subsec:descritiva}). Esta etapa permite encontrar possívels \textit{outliers} (valores atípicos) e anomalias que possam enviesar os resultados. Esta análise oferece uma visão geral das tendências centrais e dispersão dos dados através de valores como a média, mediana, desvio padrão e distribuição do conjunto. Também serão utilizados métodos de representação gráfica, como \textit{boxplots} ou histogramas para análise da distribuição da amostra. Toda esta análise influência diretamente no teste estatístico adequado.
+
+% Caso os dados coletados sejam contínuos (numéricos) e apresentem uma distribuição normal, o Teste T de Student (Seção \ref{subsec:t-test}) será utilizado para comparar as médias entre os dois grupos de dados (controle e tratamento). Este teste permite verificar se há uma diferença estatística significativa entre as métricas de uso de cada versão analisada. É uma abordagem eficiente para detectar diferenças entre grupos aproximadamente normais e com variâncias semelhantes.
+
+% Por outro lado, caso as métricas escolhidas para análise sejam categóricas ou não sigam a distribuição normal, o Teste de Mann-Whitney U (Seção \ref{subsec:u-test}) será empregado. Este teste é uma alternativa ao T de Studente, pois é não paramétrico, ou seja, não parte do pressuposto de normalidade da amostra, sendo uma abordagem efetiva em casos de dados assimétricos. 
+
+À depender das métricas escolhidas para análise e das características das amostras coletadas, será escolhido o teste de hipótese mais apropriado, conforme apresentado na Seção \ref{sec:ref-analise-dados}. A escolha destes tipos de teste se justifica dado o contexto do estudo de caso: serão comparadas apenas dois conjuntos de dados, e estas amostras são independentes, não havendo necessidade de testes que sirvam para cenários diferentes do descrito. 
+
+Após essa análise quantitativa, com a finalização e documentação do experimento, serão coletados dados qualitativos referentes ao processo realizado, por meio de formulários de opinião com os colaboradores envolvidos. Esse levantamento buscará compreender, através das suas perspectivas, o desempenho e a aplicabilidade do procedimento executado, complementando a análise de dados quantitativos.

@@ -1,0 +1,54 @@
+\section{Planejamento e Protocolo}
+\label{sec:rsl-protocolo}
+
+Inicialmente, realizou-se uma busca \textit{ad hoc} por estudos que tratassem da experimentação contínua com o objetivo de encontrar materiais que caracterizassem a literatura do tema em questão. O conjunto encontrado é apresentado na Tabela \ref{tab:conjunto-inicial}.
+
+\begin{table}[]
+\centering
+\caption{Conjunto Inicial de Artigos}
+    \begin{tabular}{|p{.5cm}|p{6cm}|p{6cm}|p{1.75cm}|}
+        \hline
+        Nº & Título & Fonte de Publicação & Referência \\ \hline
+        1 & \textit{Characterizing Experimentation in Continuous Deployment: A Case Study on Bing} & \textit{2017 IEEE/ACM 39th International Conference on Software Engineering: Software Engineering in Practice Track (ICSE-SEIP)} & \cite{kevic_characterizing_2017} \\ \hline
+        2 & \textit{Controlled Experiments on the Web: Survey and Practical Guide} & \textit{KDD '07: Proceedings of the 13th ACM SIGKDD international conference on Knowledge discovery and data mining} & \cite{kohavi_controlled_2009} \\  \hline
+        3 & \textit{The Evolution of Continuous Experimentation in Software Product Development: From Data to a Data-Driven Organization at Scale} & \textit{2017 IEEE/ACM 39th International Conference on Software Engineering (ICSE)} & \cite{fabijan_evolution_2017} \\ \hline
+        4 & \textit{Designing and Deploying Online Field Experiments} & \textit{WWW '14: Proceedings of the 23rd international conference on World wide web} & \cite{bakshy_designing_2014} \\ \hline
+        5 & \textit{Building Products as Innovation Experiment Systems} & \textit{International Conference on Software Business (ICSOB 2012)} & \cite{van_der_aalst_building_2012} \\ \hline
+        6 & \textit{Overlapping Experiment Infrastructure: More, Better, Faster Experimentation} & \textit{KDD '10: Proceedings of the 16th ACM SIGKDD international conference on Knowledge discovery and data mining} & \cite{tang_overlapping_2010} \\ \hline
+        7 & \textit{Characterization of Continuous Experimentation in Software Engineering: Expressions, models, and strategies} & \textit{Science of Computer Programming} & \cite{erthal_characterization_2023} \\ \hline
+    \end{tabular}
+
+    \begin{center}
+        \text{Fonte: Author}
+        
+    \end{center}
+
+\label{tab:conjunto-inicial}
+\end{table}   
+
+Após a realização destas leituras, optou-se por escolher um dos artigos como estudo de controle para uma posterior busca estruturada na literatura, isto é, ao executar a \textit{string} de busca, o mesmo deveria ser retornado, ajudando a entender como as variações dos termos da \textit{string} afetam os resultados encontrados. Esta escolha não foi casual, porém estratégica, por se tratar de um estudo secundário, publicado em revista, e que tem como objetivo caracterizar o corpo de conhecimento existente na área da experimentação, trazendo diferentes modelos, expressões e estratégias encontradas nos estudos primários analisados, publicados entre os anos de 2015 e 2022 \cite{erthal_characterization_2023}.
+
+% Publicado recentemente, no ano anterior ao desenvolvimento desta monografia, aborda diversas questões que podem servir de investigação para um trabalho de graduação na área do desenvolvimento orientado a dados. Para seguir com a revisão da literatura de forma estruturada, optou-se por adaptar a busca realizado no artigo, olhando para publicações realizadas a partir do ano de 2023 e reformulando o método de pesquisa utilizado pelos autores.
+
+Escolhido o estudo de controle, partiu-se para a formalização do protocolo de pesquisa. Apesar deste trabalho não se tratar de uma revisão sistemática, utilizou-se da estrutura proposta por \citeonline{kitchenham_rsl}, o que torna possível a replicabilidade e a aferência dos resultados. O intuito principal da pesquisa foi encontrar outros trabalhos que caracterizassem a literatura na área da experimentação, por isso o foco em estudos secundários/terciários, levantando, desta forma, um conjunto que pudesse servir de semente para um processo de \textit{snowballing}. O protocolo consolidado é apresentado na Tabela \ref{tab:protocolo-busca}.
+
+Definiu-se que o \textit{snowballing} seria realizado selecionando referências citadas nestes primeiros artigos filtrados pelos critérios do protocolo de revisão da literatura, especificamente aquelas que indicassem abordar algum tópico pertinente às questões de pesquisa deste trabalho.
+
+
+\begin{table}[]
+\centering
+\caption{Protocolo de Busca}
+\begin{tabular}{|p{4cm}|p{11cm}|}
+\hline
+Questões de Pesquisa & 1. Quais são os processos/modelos utilizados no desenvolvimento orientado a dados? \newline 2. Quais são as estratégias utilizadas no desenvolvimento orientado a dados? \newline 3. Quais ferramentas/tecnologias comumente utilizadas na indústria para instrumentalização de experimentos? \newline 4. Quais os principais desafios e problemas reportados? \\ \hline
+String de Busca & Ver Tabela \ref{tab:string-busca} \\ \hline
+Critérios de Inclusão & 1. O artigo deve conter informações para responder ao menos uma questão de pesquisa. \newline 2. O artigo deve estar no contexto da Experimentação Contínua. \newline 3. O artigo deve ser um estudo secundário ou terciário. \\ \hline
+Critérios de Exclusão. & 1. Duplicação/Auto Plágio. \newline 2. O artigo não está em inglês \newline 3. O artigo trata de outro domínio que não o \textit{Web}. \\ \hline
+Formulário de Extração de Dados & Q1. Título \newline Q2. Resumo \newline Q3. Ano de Publicação \newline Q4. Fonte de Publicação \newline Q5. Autores \newline Q6. Key-words \newline Q7. Processo/Modelo de Desenvolvimento \newline Q8. Estratégias de Desenvolvimento \newline Q9. Ferramentas/Tecnologias Utilizadas \newline Q10. Principais Desafios Reportados \\ \hline
+\end{tabular}
+\begin{center}
+\text{Fonte: Autor}
+    
+\end{center}
+\label{tab:protocolo-busca}
+\end{table}

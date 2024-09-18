@@ -1,0 +1,8 @@
+\section{\textit{Feature Toggles}}
+\label{sec:ref-feature-toggle}
+
+Nos últimos anos, empresas de \textit{software} têm priorizado cada vez mais a entrega contínua de funcionalidades para os seus usuários, diminuindo o tempo entre \textit{releases} \cite{humble_farley_2010}. Com isso, o processo de integração se torna mais complexo, já que é necessário unir diferentes entregas de diversas equipes de desenvolvedores a fim de gerar uma nova versão funcional e estável do produto \cite{berczuk_appleton_2002}.
+
+Por ser um processo complicado, diversas soluções já surgiram no mercado; uma delas é a arquitetura de \textit{Feature Toggles} (também conhecidos como \textit{feature gates} ou \textit{feature flags}). Esta solução é um conceito simples: variáveis condicionais que envolvem determinados blocos de código, podendo ser habilitadas ou desabilitadas dependendo do contexto (por exemplo, ativar apenas para testes internos ou usuários beta). Essa abordagem em aplicações modernas permite que funcionalidades sejam ligadas ou desligadas em tempo de execução no lado do cliente, sem a necessidade de uma nova compilação \cite{rahman_feature_toggle_2016}.
+
+Uma das desvantagens da utilização dessas \textit{flags} é a dívida técnica que elas geram, já que, uma vez que a funcionalidade tenha sido testada e liberada para a base total de usuários, a parte remanescente do código se torna obsoleta e inutilizada \cite{rahman_feature_toggle_2016}. Apesar disso, por viabilizar a divisão dos usuários entre versões diferentes de funcionalidades, esta arquitetura se mostra uma possível maneira de realizar experimentos e já é uma prática utilizada no mercado \cite{issa_mattos_hurrier_2023}.

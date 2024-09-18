@@ -1,0 +1,90 @@
+\section{Experimentação na Engenharia de Software}
+\label{subsec:experimentacao}
+
+A experimentação é um domínio fundamental da investigação empírica, oferecendo uma abordagem disciplinada e quantificável para a análise de fenômenos de interesse. Na engenharia de software, essa abordagem é crucial, pois trata-se de uma área multidisciplinar que depende diretamente da avaliação da atividade humana. A pesquisa científica se torna especialmente relevante em momentos de tomada de decisão sobre como softwares são desenvolvidos, contribuindo para o avanço do conhecimento por meio da avaliação das atividades realizadas por pessoas em seus diferentes contextos \cite{wohlin_experimentation_2012}.
+
+\citeonline{basili_experimental_1993} apresentou quatro métodos de pesquisa na Engenharia de \textit{Software}: \textit{Scientific}, \textit{Engineering}, \textit{Empirical} e \textit{Analytical}. Dentre eles, o método Empírico (\textit{Empirical}) é amplamente utilizado em ciências sociais e psicologia para estudar o comportamento humano em contextos onde leis formais não se aplicam, sendo igualmente aplicável à Engenharia de \textit{Software} quando se é necessário lidar com aspectos que não são puramente técnicos \cite{wohlin_experimentation_2012}.
+
+Entre as estratégias de investigação empírica está o \textbf{Estudo de Caso}, que utiliza diversas fontes de dados para investigar um fenômeno em seu contexto real. Este método avalia o caso em questão de forma quantitativa ou qualitativa, sem intervenção ou controle, sendo, portanto, um estudo observacional \cite{runeson_case_study_2012}.
+
+Outra estratégia é o \textbf{Experimento}, que, ao contrário do estudo de caso, busca um controle sistemático e direto sobre a situação estudada. Para isto, identifica o contexto de interesse e coleta amostras de variáveis para validar teorias, confirmar ou explorar relacionamentos. É normalmente utilizado quando o objetivo é comparar diferentes tratamentos para uma mesma situação \cite{wohlin_experimentation_2012}.
+
+Utilizada no contexto deste trabalho, há também a \textbf{Revisão Sistemática da Literatura}, que busca reunir evidências empíricas de diversas fontes literárias através de buscas em portais, bancos de dados acadêmicos ou outras fontes. Dessa forma, através do seu protocolo, é possível sintetizar o estado da arte do domínio desejado por meio de uma avaliação sistemática das informações encontradas na literatura \cite{kitchenham_rsl}.
+
+\subsection{Experimento}
+
+Este método de investigação permite a exploração e validação de relacionamentos através de testes de hipótese e análises estatísticas. Seguindo o apresentado por \citeonline{wohlin_experimentation_2012}, serão apresentados os principais artefatos envolvidos neste processo, bem como as etapas necessárias para sua realização.
+
+\subsubsection{Artefatos}
+
+\begin{itemize}
+    \item \textbf{Variáveis}: ao conduzir um experimento, se observa o comportamento de determinadas variáveis durante o processo escolhido. Aquelas que são alteradas para gerar os resultados são chamadas de \textbf{variáveis independentes}, ou \textbf{fatores}. Já aquelas que são responsáveis por informar os efeitos encontrados, são as \textbf{variáveis dependentes};
+    \item \textbf{Tratamentos}: valor particular e específico aplicado a um fator. Cada tratamento representa uma configuração particular que é testada no experimento;
+    \item \textbf{Objetos}: são os elementos ou itens sobre os quais os tratamentos são aplicados e avaliados, ou seja, quaisquer artefatos ou processos que estejam sendo estudados ou testados, e
+    \item \textbf{Sujeitos}: participantes do experimento. Aqueles que são expostos aos diferentes tratamentos.
+\end{itemize}
+
+\subsubsection{Processo}
+
+\begin{itemize}
+    \item \textbf{Definição de Escopo:} onde se define claramente o problema, os objetivos e as metas do estudo. É crucial estabelecer o escopo para direcionar adequadamente o experimento, o que inclui a formulação inicial da hipótese, a definição do objeto de estudo, o propósito, o foco de qualidade, a perspectiva e o seu contexto;
+    \item \textbf{Planejamento:} nesta fase são elaborados os detalhes necessários para a execução do estudo. A hipótese a ser testada é formalizada, são indetificadas as variáveis independentes e dependentes, escolhe-se o \textit{design} do experimento e são preparados os instrumentos necessários. É importante determinar os valores das variáveis e preparar os objetos de estudo, assim como desenvolver diretrizes para a coleta de dados e avaliar a validade dos resultados esperados;
+    \item \textbf{Operação:} condução efetiva do experimento. Esta fase inclui a preparação dos sujeitos e materiais, a execução do experimento conforme o planejamento e a validação dos dados coletados para garantir que são corretos e representativos. A execução deve seguir o plano estabelecido para assegurar a integridade dos resultados;
+    \item \textbf{Análise e Interpretação:} envolve analisar e interpretar os dados coletados. Utiliza-se estatísticas descritivas para compreender os dados e realiza-se testes de hipótese para avaliar a relação entre as variáveis. A análise pode incluir a redução de dados e a interpretação dos resultados, ajudando a validar as conclusões do experimento;
+    \item \textbf{Apresentação e Empacotamento:} concentra-se na documentação e apresentação dos resultados do experimento. O objetivo é comunicar os achados de forma clara e eficaz, o que pode incluir a preparação de relatórios, a publicação dos resultados e a criação de pacotes de laboratório para facilitar a replicação do estudo. Uma documentação completa e detalhada é essencial para garantir que os resultados possam ser replicados e utilizados para futuras pesquisas.
+\end{itemize}
+
+
+\subsection{Estudo de Caso}
+
+Permite uma compreensão aprofundada e contextualizada dos fenômenos de interesse através de investigações dentro de seus contextos reais. Além disso, é flexível, o que possibilita ajustes iterativos em diferentes momentos do processo. A seguir, serão definidas suas etapas de realização: definição, preparação e coleta de dados, análise de dados e relato dos resultados \cite{yin_case_study_2009}.
+
+\subsubsection{Definição}
+
+Segundo \citeonline{wohlin_experimentation_2012}, é a etapa inicial, nela são definidas as bases da pesquisa, através do levantamento dos seguintes artefatos:
+
+\begin{itemize}
+    \item \textbf{Objetivo:} inicialmente, é formulado de forma genérica, com um foco principal que será refinado ao longo do estudo. Define o que o pesquisador pretende alcançar e as perguntas que guiarão a investigação;
+    \item \textbf{Caso:} definição do objeto de estudo da pesquisa. Pode ser um projeto, um processo, um grupo de pessoas, ou qualquer outro fenômeno que esteja sendo investigado. O caso deve necessariamente ser observado em seu contexto real, permitindo que o pesquisador capture as complexidades e nuances do ambiente;
+    \item \textbf{Trabalhos Relacionados:} resultado de uma revisão sobre o estado geral da área de conhecimento à ser estudada, visando pontos de partida em outros trabalhos. Ajuda a identificar lacunas de pesquisa, construir o referencial teórico e fornecer embasamento para a formulação das questões de pesquisa;
+    \item \textbf{Questões de Pesquisa:} devem ser claras e orientadoras. Funcionam como um norte para o estudo, direcionando o processo de coleta e análise de dados. Perguntas bem formuladas garantem que o estudo permaneça focado e relevante, abordando as principais preocupações do fenômeno em análise;
+    \item \textbf{Métodos:} abordagem de coletas de dados à serem adotadas, dependem das questões de pesquisa e do contexto. A definição clara dos métodos contribui para a validade e confiabilidade do estudo. E
+    \item \textbf{Seleção:} refere-se à escolha das fontes de dados e dos participantes do estudo. É crucial que essas escolhas sejam feitas de maneira consciente, considerando a relevância e representatividade das fontes em relação ao objetivo do estudo.
+\end{itemize}
+
+\subsubsection{Preparação e Coleta de Dados}
+Aqui, o pesquisador deve estruturar cuidadosamente o processo, garantindo que os dados coletados sejam pertinentes e válidos. \citeonline{wohlin_experimentation_2012} destacam a importância da triangulação, que envolve o uso de múltiplas fontes de dados para fortalecer a validade dos resultados. 
+
+A coleta de dados é uma etapa crítica e pode ocorrer de maneira contínua ao longo do estudo. A combinação de diferentes métodos e fontes de dados fortalece a pesquisa e proporciona uma visão mais abrangente do fenômeno. De acordo com \citeonline{lethbridge2005studying},  as técnicas de coleta de dados são divididas em três graus:
+
+\begin{itemize}
+    \item \textbf{Primeiro Grau:} técnicas que exigem contato direto com os participantes, como entrevistas, questionários e grupos de discussão. Essas técnicas fornecem dados ricos e detalhados, mas exigem maior envolvimento do pesquisador e podem ser mais caras e demoradas.
+    
+    \item \textbf{Segundo Grau:} envolve a observação direta do ambiente de estudo sem interação com os participantes. Exemplos incluem a observação do trabalho de uma equipe ou a coleta de métricas de um sistema em funcionamento. Essas técnicas permitem captar o comportamento natural dos participantes, mas podem ser limitadas em termos de profundidade.
+    
+    \item \textbf{Terceiro Grau:} utiliza dados já existentes, como documentação e registros históricos. Embora menos intrusivos, esses métodos podem ser limitados pela qualidade e relevância dos dados disponíveis. No entanto, são úteis para complementar as técnicas de primeiro e segundo grau.
+\end{itemize}
+
+\subsubsection{Análise de Dados}
+
+Processo de interpretação e  busca de padrões nos dados coletados, e que permite ao pesquisador identificar as relações entre as variáveis e os resultados observados \cite{yin_case_study_2009}. Segundo \citeonline{wohlin_experimentation_2012}, a análise de dados pode ser realizada por meio de técnicas qualitativas, quantitativas ou uma combinação de ambas, dependendo da natureza dos dados e dos objetivos da pesquisa.
+
+Para garantir uma análise robusta, \citeonline{wohlin_experimentation_2012} sugerem a adoção de estratégias de categorização dos dados, onde os dados são organizados em categorias ou temas, facilitando a identificação de padrões e a construção de teorias baseadas nas evidências empíricas. O uso de software de análise qualitativa pode ser útil para codificar e categorizar grandes volumes de dados textuais.
+
+Além disso, a análise de dados pode incluir a verificação de validade interna e a validação cruzada dos resultados, assegurando que as conclusões não sejam apenas fruto de coincidências ou de vieses do pesquisador, mas que realmente representem o fenômeno estudado \cite{yin_case_study_2009}.
+
+\subsubsection{Relato}
+
+\citeonline{robson2002real} destaca que o relato é essencial não apenas para comunicar os resultados da pesquisa, mas também para permitir a avaliação da qualidade do estudo por parte de outros pesquisadores, e que, para isto, deve abordar os seguintes aspectos:
+
+\begin{itemize}
+\item \textbf{Contexto:} Descrição detalhada do ambiente em que o estudo foi conduzido, incluindo informações sobre os participantes, o período e as condições específicas que podem ter influenciado os resultados. Essa seção deve permitir ao leitor compreender as particularidades do caso estudado, ajudando a contextualizar os resultados.
+
+\item \textbf{Procedimentos:} Explicação das etapas seguidas ao longo do estudo, desde a definição do caso até a coleta e análise dos dados. A clareza na descrição dos procedimentos garante a transparência metodológica, permitindo que outros pesquisadores avaliem a robustez do estudo e, eventualmente, o repliquem.
+
+\item \textbf{Resultados:} Apresentação dos achados de forma estruturada, utilizando ferramentas como tabelas, gráficos e citações diretas dos participantes, quando aplicável, para ilustrar os pontos principais. Deve-se fornecer "instantâneos" relevantes dos dados coletados que sustentem as conclusões apresentadas, garantindo uma cadeia de evidências sólida.
+
+\item \textbf{Discussão:} Interpretação dos resultados à luz da literatura existente, identificando as contribuições do estudo, suas limitações e as implicações práticas ou teóricas. A discussão deve situar os achados no contexto mais amplo do campo de estudo, explorando como eles se relacionam com pesquisas anteriores e quais novas questões surgem a partir das descobertas.
+
+\item \textbf{Conclusões:} Resumo das principais descobertas e sugestões para pesquisas futuras. As conclusões devem sintetizar as contribuições do estudo e indicar como ele avança o conhecimento na área, além de propor direções para estudos subsequentes.
+\end{itemize}
