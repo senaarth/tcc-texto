@@ -8,3 +8,11 @@
 *.tpbuild
 editaveis/.DS_Store
 /.DS_Store
+*.lof
+*.lot
+*.toc
+*.bbl
+*.blg
+*.brf
+*.fdb_latexmk
+*.fls
