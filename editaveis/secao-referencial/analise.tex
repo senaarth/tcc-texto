@@ -26,15 +26,15 @@ A mediana, também pode ser representada como \(x_{50\%}\), o que indica que ela
 
 \citeonline{wohlin_experimentation_2012} também apresentam as medidas de distribuição, que por sua vez visam apresentar quão concentrado está o conjunto de dados. Para isto utiliza-se de medidas como a \textbf{variância (\textit{\( s^2 \)})}, o \textbf{desvio padrão (\textit{s})} e a \textbf{amplitude}. A amplitude é a distância entre os valores máximos e mínimos do conjunto. A variância é a média dos quadrados das distâncias entre os valores da amostra e sua média. O desvio padrão é a raiz quadrada da variância. Então, sendo \textit{s} o desvio padrão, \( s^2 \) a variância, \textit{n} o número de dados observados e \(x_i \) o i-ésimo dado observado, as medidas citadas podem ser representadas da seguinte forma:
 \[
-\text{amplitude} = x_{\text{max}} - x_{\text{min}}
+\text{amplitude} = x_{\text{max}} - x_{\text{min}}\text{,}
 \]
 
 \[
-\textit{s} = \sqrt{s^2}
+\textit{s} = \sqrt{s^2}\text{, e}
 \]
 
 \[
-s^2 = \frac{1}{n} \sum_{i=1}^{n} (x_i - \bar{x})^2
+s^2 = \frac{1}{n} \sum_{i=1}^{n} (x_i - \bar{x})^2\text{.}
 \]
 
 
@@ -105,7 +105,7 @@ Utiliza-se da regra de decisão de diferença entre médias para se avaliar a si
 Para calcular o valor de \textit{z} se utiliza a seguinte fórmula, onde \textit{S} é alguma medida da amostra (média, desvio padrão, etc), e \(\mu_S\) e \(\sigma_S\) são respectivamente a média e o desvio padrão desta medida:
 
 \[
-z = \frac{S - \mu_S}{\sigma_S}
+z = \frac{S - \mu_S}{\sigma_S} \text{.}
 \]
 
 Assim, os valores mais distantes se encontram nas regiões críticas, como apresentado na Figure \ref{fig:z-score}, que demonstra que os valores encontrados nelas teriam um \textit{z-score} maior que 1.96 ou menor que -1.96 (no exemplo o nível de significância é de 0.05, ou 5\%).
@@ -151,9 +151,10 @@ O grau de liberdade é calculado a partir da quantidade de amostras a serem test
 Para se calcular o valor \textit{t} utiliza-se a fórmula:
 
 \[
-t = \frac{\bar{x} - \mu}{s / \sqrt{n}}
+t = \frac{\bar{x} - \mu}{s / \sqrt{n}} \text{,}
 \]
 
+\noindent
 onde \(\bar{x}\) é a média amostral, \(\mu\) é a média da população (ou a média de outra amostra), \(s\) é o desvio padrão amostral e \(n\) é o tamanho da amostra. O valor calculado de t é então comparado com os valores críticos da tabela t, que são ajustados para diferentes níveis de significância e graus de liberdade. Esses valores críticos ajudam a determinar se a diferença observada é estatisticamente significativa. A tabela t de Student é gerada a partir de cálculos que levam em consideração a distribuição das amostras \cite{juristo_basics_2001}.
 
 
@@ -167,22 +168,23 @@ O teste de Mann-Whitney U, também conhecido como teste U, é uma alternativa n�
 \citeonline{juristo_basics_2001} demonstram que para se realizar o teste de Mann-Whitney U, as observações das duas amostras são organizadas em ordem crescente e substituídas pelos seus postos ou \textit{ranks}. Quando há empates, cada valor é substituído pela média dos \textit{ranks} correspondentes. A soma dos \textit{ranks} para cada amostra é calculada e utilizada para determinar o valor da estatística \textit{u}. A fórmula para o cálculo de \textit{u} é:
 
 \[
-u = r_1 - \frac{n_1 (n_1 + 1)}{2}
+u = r_1 - \frac{n_1 (n_1 + 1)}{2} \text{,}
 \]
 
+\noindent
 onde \(r_1\) é a soma dos \textit{ranks} da primeira amostra e \(n_1\) é o número de observações na primeira amostra. A distribuição amostral de \(u\) é simétrica e, quando o tamanho das amostras é suficientemente grande (geralmente \(n_1 \geq 8\) e \(n_2 \geq 8\)), a distribuição de \(u\) pode ser aproximada por uma distribuição normal com média (\(\bar{x}\)) e variância (\textit{s}) dadas por:
 
 \[
-\bar{x} = \frac{N_1 N_2}{2}
+\bar{x} = \frac{N_1 N_2}{2} \text{, e}
 \]
 \[
-\text{s} = \frac{n_1 n_2 (n_1 + n_2 + 1)}{12}
+\text{s} = \frac{n_1 n_2 (n_1 + n_2 + 1)}{12} \text{.}
 \]
 
-O valor \(z\) é calculado como:
+Já o valor \(z\) é calculado como:
 
 \[
-z = \frac{u - \bar{x}}{s}
+z = \frac{u - \bar{x}}{s} \text{.}
 \]
 
 Esse valor \(z\) é então comparado com os valores críticos da tabela padrão normal para determinar se a diferença observada entre as amostras é estatisticamente significativa. Se \(z\) cair fora do intervalo crítico definido (por exemplo, -1.96 a 1.96 para um nível de significância de 0.05), rejeita-se a hipótese nula e conclui-se que há uma diferença significativa entre as amostras \cite{juristo_basics_2001}.
@@ -193,9 +195,10 @@ Esse valor \(z\) é então comparado com os valores críticos da tabela padrão 
 O teste qui-quadrado também é um teste não paramétrico. É utilizado para analisar a diferença entre as frequências observadas e esperadas de uma variável categórica. O objetivo do teste é verificar se há uma diferença significativa entre as frequências esperadas, sob uma hipótese nula \(h_0\), e as frequências observadas. É um teste indicado para amostras grandes, diferindo do Mann-Whitney, que é mais apropriado para amostras pequenas \cite{juristo_basics_2001}. Para realização deste teste se utiliza a estatística qui-quadrado (\(\chi^2\)), que é calculada usando a seguinte fórmula:
 
 \[
-\chi^2 = \sum_{i=1}^{k} \frac{(o_i - e_i)^2}{e_i}
+\chi^2 = \sum_{i=1}^{k} \frac{(o_i - e_i)^2}{e_i} \text{,}
 \]
 
+\noindent
 onde \(o_i\) são as frequências observadas, \(e_i\) são as frequências esperadas sob a hipótese nula, e \(k\) é o número de eventos ou categorias. O valor calculado de \(\chi^2\) é então comparado a um valor crítico da tabela qui-quadrado, que varia de acordo com o número de graus de liberdade (\(\nu = k - 1\)) e o nível de significância escolhido \cite{juristo_basics_2001}.
 
 Se o valor calculado de \(\chi^2\) for maior que o valor crítico da tabela (como \(\chi^2_{0.95}\), para um nível de significância de 0,05), a hipótese nula é rejeitada, indicando uma diferença significativa entre as frequências observadas e esperadas. Caso contrário, não há evidência suficiente para rejeitar a hipótese nula \cite{juristo_basics_2001}.
