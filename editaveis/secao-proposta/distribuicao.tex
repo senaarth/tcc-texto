@@ -1,4 +1,4 @@
-\subsection{Atribuição das Variantes}
+\subsubsection{Atribuição das Variantes}
 
 Para realizar a coleta de dados sobre o uso das diferentes versões do produto, ambas precisam ser distribuídas e apresentadas de maneira consistente aos clientes, a fim de observar como elas se comportam no mesmo período de tempo. Para isso, será utilizada a técnica de \textit{Feature Toggle}, descrita na Seção \ref{sec:ref-feature-toggle}.
 
@@ -24,15 +24,50 @@ Esse modelo permite a realização de testes com versões ainda em desenvolvimen
 
 Inicialmente, será definida uma \textit{feature flag} para representar o experimento, que será ativada para os usuários beta no momento da liberação da versão de tratamento, marcando o início da coleta de dados. A remoção do \textit{toggle} será realizada, juntamente com a do código-fonte a ser descartado, após a decisão sobre a versão que será implantada definitivamente.
 
-A utilização de \textit{feature toggles} no contexto do experimento deste trabalho é exemplificada na Figura \ref{fig:toggle}. No exemplo há um componente chamado \textit{SomeComponent} e o mesmo utiliza da função \textit{useFeature} para verificar qual versão deve retornar, o controle ou o tratamento. A função \textit{useFeature}, por sua vez, possui a lista de \textit{flags} ativadas para o usuário, proveniente de uma solicitação prévia para o serviço de gerência de \textit{toggles}.
+A utilização de \textit{feature toggles} no contexto do experimento deste trabalho é exemplificada à seguir. Na linha 6 há um componente chamado \textit{SomeComponent} e o mesmo utiliza da função \textit{useFeature} (declarada na linha 1) para verificar qual versão deve retornar, o controle ou o tratamento (linha 3). A função \textit{useFeature}, por sua vez, possui a lista de \textit{flags} (linha 2) ativadas para o usuário, proveniente de uma solicitação prévia para o serviço de gerência de \textit{toggles}.
 
+\vspace{\onelineskip}
 
-\begin{figure}
-    \centering
-    \caption{Exemplo de Utilização de \textit{Feature Toggles} Para Atribuição de Variantes}
-    \includegraphics[width=1\linewidth]{figuras/toggle.png}
-    \begin{center}
-        \text{Fonte: Autor}
-    \end{center}
-    \label{fig:toggle}
-\end{figure}
+% Definição de estilo para o código
+\definecolor{backgroundGray}{rgb}{0.95, 0.95, 0.95} % Cinza suave
+\definecolor{commentColor}{rgb}{0.5,0.5,0.5}       % Cinza para comentários
+\definecolor{keywordColor}{rgb}{0.75,0.2,0.2}      % Vermelho para palavras-chave
+\definecolor{stringColor}{rgb}{0.1,0.5,0.9}        % Azul para strings
+\definecolor{functionColor}{rgb}{1,0.5,0}          % Laranja para funções
+
+\lstdefinestyle{customJS}{
+  language=Python,
+  backgroundcolor=\color{backgroundGray},
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{keywordColor}\bfseries,
+  stringstyle=\color{stringColor},
+  commentstyle=\color{commentColor}\itshape,
+  identifierstyle=\color{functionColor},
+  morekeywords={function, const, return, if, else},
+  numbers=left,
+  showspaces=false,
+  showstringspaces=false,
+  showtabs=false,
+  tabsize=2,
+  breaklines=true,
+  frame=single, % Borda ao redor do código
+  rulecolor=\color{black},
+  captionpos=b
+}
+
+\begin{lstlisting}[style=customJS]
+function useFeature(featureFlag: string) {
+    const userFeatures = [];
+    return userFeatures.some((userFlag) => userFlag === featureFlag);
+}
+
+function SomeComponent() {
+    const isFeatureTreatmentEnabled = useFeature('experiment/study-case-treatment');
+
+    return (
+    isFeatureTreatmentEnabled
+        ? <SomeComponentTreatment />
+        : <SomeComponentControl />
+    );
+}
+\end{lstlisting}
