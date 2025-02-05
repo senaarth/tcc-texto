@@ -1,1 +1,218 @@
-\subsection{Desenvolvimento do Tratamento e Execução do Experimento}
+\subsection{Desenvolvimento do Tratamento e Execução do Experimento}\subsection{Desenvolvimento do Tratamento}
+
+Primeiramente, foi desenvolvida a versão de tratamento se adicionando uma condicional no código que definia em qual posição mostrar o filtro de nível de dificuldade. Esta condicional estava atrelada à um \textit{feature gate}, com o nome \textit{experiment/difficulty-filter-position}. Seguindo o processo padrão da companhia de liberação de novas versões, foi realizado todo o procedimento de revisão de código e análise de código. Assim que a versão estava apta a ser liberada para os usuários a \textit{toggle} foi atividada para todos os usuários beta, iniciando a coleta dos dados. O trecho de código à seguir representa um trecho similar de código ao escrito na versão de tratamento.
+
+\vspace{\onelineskip}
+\begin{lstlisting}[style=customJS]
+function FiltersComponent() {
+    const isFiltersOrderExperimentEnabled = useFeature(
+        'experiment/difficulty-filter-position'
+    );
+
+    return (
+      <ScrollView>
+        {otherFilter}
+        {otherFilter}
+        {otherFilter}
+        {isFiltersOrderExperimentEnabled 
+            ? estimatedDifficultyFilter 
+            : null}
+        {otherFilter}
+        {otherFilter}
+        {otherFilter}
+        {otherFilter}
+        {isFiltersOrderExperimentEnabled 
+            ? null 
+            : estimatedDifficultyFilter}
+      </ScrollView>
+    );
+}
+\end{lstlisting}
+
+\subsection{Execução do Experimento}
+\label{subsec:experimento}
+
+Os dados dos usuários utilizando as diferentes versões foram coletados durante 2 semanas, de 05 a 18 de novembro de 2024. Foram coletados 80198 eventos de filtragens realizadas e 30731 de listas de exercícios criadas. O primeiro passo foi dividir os dados coletados entre usuários únicos, começando pelo número de usos do filtro de dificuldade. Neste conjunto, foram ignorados usuários que não utilizaram o filtro nenhuma vez, dado que estes representaram 85\% dos usuários observados e este valor interferiria diretamente nas medidas de tendência central do conjunto.
+
+Desta forma, o conjunto inicial que de 3504 docentes, foi reduzido para 517, sendo 429 do grupo de controle e 88 do grupo de tratamento. Então, para estes docentes, foram separadas as métricas de número de listas de exercícios criadas e questões selecionadas no período. Nestes conjuntos então foram aplicados métodos de estatística descritiva para se compreender o comportamento dos usuários, observando um diagrama de caixa e medidas de tendência central.
+
+Foi observada uma quantidade considerável de \textit{outliers}, por isso foi utilizada a método de intervalo interquartil, sendo este o método adequado para o caso, já que os conjuntos não eram normalmente distribuídos (a Subseção \ref{subsec:reduction} apresenta em detalhe os cálculos realizados neste processo). Foram removidos 78 \textit{outliers}, restando 439 usuários, 363 de controle e 76 de tratamento.
+
+Quanto ao número de filtros, os gráficos de caixa antes e depois da remoção dos \textit{outliers} podem ser verificados nas Figuras \ref{fig:box-uses-before} e \ref{fig:box-uses-after}, respectivamente. Já as medidas de tendência central, nas Figuras \ref{fig:mtc-uses-before} e \ref{fig:mtc-uses-after}.
+
+\begin{figure}
+    \centering
+    \caption{Gráfico de Caixa do Número de Usos do Filtro Antes da Remoção de \textit{Outliers}}
+    \includegraphics[width=0.85\linewidth]{figuras/boxplot_uses_before.png}
+    \begin{center}
+        \text{Fonte: Autor}
+    \end{center}
+    \label{fig:box-uses-before}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \caption{Gráfico de Caixa do Número de Usos do Filtro Após Remoção de \textit{Outliers}}
+    \includegraphics[width=0.85\linewidth]{figuras/boxplot_uses_after.png}
+    \begin{center}
+        \text{Fonte: Autor}
+    \end{center}
+    \label{fig:box-uses-after}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \caption{Medidas de Tendência Central do Número de Usos do Filtro Antes da Remoção de \textit{Outliers}}
+    \includegraphics[width=0.45\linewidth]{figuras/mtc_uses_before.png}
+    \begin{center}
+        \text{Fonte: Autor}
+    \end{center}
+    \label{fig:mtc-uses-before}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \caption{Medidas de Tendência Central do Número de Usos do Filtro Após Remoção de \textit{Outliers}}
+    \includegraphics[width=0.45\linewidth]{figuras/mtc_uses_after.png}
+    \begin{center}
+        \text{Fonte: Autor}
+    \end{center}
+    \label{fig:mtc-uses-after}
+\end{figure}
+
+Em relação ao número de listas de exercícios criadas, os gráficos de caixa antes e depois da remoção dos \textit{outliers} podem ser verificados nas Figuras \ref{fig:box-acts-before} e \ref{fig:box-acts-after}, respectivamente. Já as medidas de tendência central, nas Figuras \ref{fig:mtc-acts-before} e \ref{fig:mtc-acts-after}.
+
+\begin{figure}
+    \centering
+    \caption{Gráfico de Caixa do Número de Listas Criadas Antes da Remoção de \textit{Outliers}}
+    \includegraphics[width=0.85\linewidth]{figuras/boxplot_acts_before.png}
+    \begin{center}
+        \text{Fonte: Autor}
+    \end{center}
+    \label{fig:box-acts-before}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \caption{Gráfico de Caixa do Número de Listas Criadas Após Remoção de \textit{Outliers}}
+    \includegraphics[width=0.85\linewidth]{figuras/boxplot_acts_after.png}
+    \begin{center}
+        \text{Fonte: Autor}
+    \end{center}
+    \label{fig:box-acts-after}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \caption{Medidas de Tendência Central do Número de Listas Criadas Antes da Remoção de \textit{Outliers}}
+    \includegraphics[width=0.45\linewidth]{figuras/mtc_acts_before.png}
+    \begin{center}
+        \text{Fonte: Autor}
+    \end{center}
+    \label{fig:mtc-acts-before}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \caption{Medidas de Tendência Central do Número de Listas Criadas Após Remoção de \textit{Outliers}}
+    \includegraphics[width=0.45\linewidth]{figuras/mtc_acts_after.png}
+    \begin{center}
+        \text{Fonte: Autor}
+    \end{center}
+    \label{fig:mtc-acts-after}
+\end{figure}
+
+Por último, os conjuntos referentes aos números de exercícios selecionados têm seu gráficos de caixa apresentados antes e depois da remoção dos \textit{outliers} nas Figuras \ref{fig:box-exs-before} e \ref{fig:box-exs-after}, respectivamente. Já as medidas de tendência central, nas Figuras \ref{fig:mtc-exs-before} e \ref{fig:mtc-exs-after}.
+
+\begin{figure}
+    \centering
+    \caption{Gráfico de Caixa do Número de Exercícios Selecionados Antes da Remoção de \textit{Outliers}}
+    \includegraphics[width=0.85\linewidth]{figuras/boxplot_exs_before.png}
+    \begin{center}
+        \text{Fonte: Autor}
+    \end{center}
+    \label{fig:box-exs-before}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \caption{Gráfico de Caixa do Número de Exercícios Selecionados Após Remoção de \textit{Outliers}}
+    \includegraphics[width=0.85\linewidth]{figuras/boxplot_exs_after.png}
+    \begin{center}
+        \text{Fonte: Autor}
+    \end{center}
+    \label{fig:box-exs-after}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \caption{Medidas de Tendência Central do Número de Exercícios Selecionados Antes da Remoção de \textit{Outliers}}
+    \includegraphics[width=0.45\linewidth]{figuras/mtc_exs_before.png}
+    \begin{center}
+        \text{Fonte: Autor}
+    \end{center}
+    \label{fig:mtc-exs-before}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \caption{Medidas de Tendência Central do Número de Exercícios Selecionados Após Remoção de \textit{Outliers}}
+    \includegraphics[width=0.45\linewidth]{figuras/mtc_exs_after.png}
+    \begin{center}
+        \text{Fonte: Autor}
+    \end{center}
+    \label{fig:mtc-exs-after}
+\end{figure}
+
+Esta etapa de estatística descritiva foi crucial para a remoção dos \textit{outliers}. Apesar destes não serem pontos de dados falsos, eram muito distantes do resto dos conjuntos, podendo enviar processos de cálculo dos indicadores de qualidade em uso. Finalizado este processo, foi realizado o processo de normalização das métricas, utilizando a união dos métodos de de máximo e mínimo e transformação \textit{box-cox} (ambos são desenvolvidos na Subseção \ref{subsec:normalization}).
+
+O método \textit{box-cox} foi utilizado inicialmente por se tratar de uma melhor alternativa no atual contexto, já que os conjuntos analisados eram todos assimétricos positivamente, ou seja, se distanciavam bastante de uma distribuição normal (isso pode ser observado através dos gráficos de caixa previamente apresentados). Além disso, foi utilizado o método de máximo e mínimo para que as métricas coletadas fossem traduzidas em valores entre os limites de 0 e 1 necessários para o cálculo do indicador agregado de qualidade em uso.
+
+Finalizados todos os procedimentos de análise de estatística descritiva, redução dos conjuntos de dados e normalização das métricas os dois conjuntos de dados somados possuíam 439 pontos, cada um representando um usuário único, sendo 363 do grupo de controle e 76 de tratamento. Porém, antes de se agregar os valores encontrados, foi necessário traduzir a opinião dos colaboradores envolvidos em pesos quantitativos, através do método AHP.
+
+Utilizando as importâncias relativas e níveis de certeza apresentados nas Tabelas \ref{tab:ahp-metrics} e \ref{tab:ahp-characteristics} foram encontrados os seguintes pesos:
+
+\begin{itemize}
+    \item Característica de Satisfação: 0.8333;
+    \item Característica de Eficácia: 0.1667;
+    \item Métrica de Número de Listas Criadas: 0.8889;
+    \item Métrica de Número de Exercícios Selecionados: 0.1111.
+\end{itemize}
+
+Desta forma, foi realizada a agregação para cada usuário da seguinte forma:
+
+\[
+Q = 0.8333(f) + 0.1667(0.8889(l) + 0.1111(e)).
+\]
+
+Onde \textit{Q} é o indicador final, \textit{f} é valor normalizado do número de vezes que o usuário utilizou o filtro, \textit{l} é o valor normalizado do número de listas criadas pelo docente no período e \textit{e} é o número de exercícios selecionados pelo mesmo. Desta forma, cada usuário recebeu um valor único entre 0 e 1 que representa a percepção da qualidade em uso pelo mesmo. Estes foram separados em grupos, cujas distribuições são apresentadas na Figura \ref{fig:scores-dist}, sendo o conjunto azul o de controle, e o marrom, de tratamento. Além disso, são apresentadas na Figura \ref{fig:mtc-scores} as medidas de tendência central dos indicadores de ambos os grupos.
+
+\begin{figure}
+    \centering
+    \caption{Distribuições dos Indicadores de Qualidade em Uso Percebida}
+    \includegraphics[width=0.85\linewidth]{figuras/scores_dist.png}
+    \begin{center}
+        \text{Fonte: Autor}
+    \end{center}
+    \label{fig:scores-dist}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \caption{Medidas de Tendência Central dos Indicadores de Qualidade em Uso Percebida}
+    \includegraphics[width=0.45\linewidth]{figuras/mtc_scores.png}
+    \begin{center}
+        \text{Fonte: Autor}
+    \end{center}
+    \label{fig:mtc-scores}
+\end{figure}
+
+Feitas as análises de estatística descritiva dos conjuntos dos indicadores calculados, optou-se por se utilizar o teste de Mann-Whitney U para se comparar os mesmo. Para um nível de significância de 5\%, não foi contrada diferença entre os valores encontrados em cada população, resultando em um p-valor de 0.1261 e estatística U de 13923. Este resultado então, demonstra que \textbf{não foi possível identificar diferença na qualidade em uso entre as versões de controle e de tratamento} \footnote{Os dados coletados foram anonimizados e disponibilizados em repositório público, bem como todas as análises realizadas. Endereço: \href{https://github.com/senaarth/tcc-notebooks/blob/main/experiment.ipynb}{https://github.com/senaarth/tcc-notebooks}}.
+
+Não encontrada diferença na qualidade em uso das versões, outras análises foram realizadas para servir de insumos para a tomada de decisão da equipe. A partir da suposição inicial que gerou a hipótese deste experimento, foram realizados testes referentes a frequência de adoção da funcionalidade de filtro por nível de dificuldade entre os grupos. A partir dos eventos de uso do filtro, foi contabilizado quantos usuários de cada grupo utilizaram ao menos uma vez o filtro da categoria em questão. Por se tratar de um valor categórico, foi utilizado o teste chi-quadrado para verificar a existência de uma diferença estatística significativa entre os dados coletados de cada grupo.
+
+Somados os conjuntos, este teste foi realizado pra uma população de 3504 usuários, sendo 508 do grupo de tratamento e 2996 de controle. Com um p-valor de aproximadamente 0,0896 e valor da estatística chi-quadrado de 2,88, o teste apontou não haver diferença estatística significativa na adoção da funcionalidade entre os diferentes grupos, para um nível de confiança de 5\%. Porém, apesar do p-valor estar acima do nível de significância definido, ainda se tratava de um valor muito próximo, por isso uma nova iteração do experimento foi realizada, sendo coletados dados durante mais duas semanas (do dia 19 de novembro até o dia 3 de dezembro de 2024), a fim de se evitar um erro do tipo II.
+
+Passado então o novo período de coleta, foi realizado o mesmo teste, desta vez com uma população de 4467 usuários, onde 608 eram usuários beta e 3859 eram usuários do grupo de controle. O novo resultado, com a amostra aumentada, apontou uma diferença significativa na adoção da funcionalidade entre os grupos, com um p-valor de aproximadamente 0,0032 e uma estatística chi-quadrado de aproximadamente 8,71. Este resultado confirma que alterar a posição do filtro afeta a adoção do mesmo.
+
+% Neste contexto então, foi realizado um último teste para o mesmo conjunto de dados, onde, ao invés de verificar a adoção do filtro de nível de dificuldade

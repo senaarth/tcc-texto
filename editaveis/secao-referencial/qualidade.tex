@@ -12,6 +12,132 @@ A avaliação da qualidade de um produto de \textit{software} em uso é essencia
 \label{fig:quality-in-use}
 \end{figure}
 
-O foco desta monografia está nas características e subcaracterísticas da qualidade em uso. A norma \citeonline{nbr9241} estabelece que, para avaliar uma característica específica, devem ser definidas medidas de critério. Como exemplo, ela sugere diferentes indicadores para cada subcaracterística: ao avaliar a eficácia, pode-se observar o número de tarefas concluídas com sucesso; já para aferir a satisfação do usuário, é possível analisar quantas vezes determinada funcionalidade foi utilizada.
+O foco desta monografia está nas características e subcaracterísticas da qualidade em uso. A norma \citeonline{nbr9241} estabelece que, para avaliar uma característica específica, devem ser definidas medidas de critério. Como exemplo, ela sugere diferentes indicadores para cada subcaracterística: ao avaliar a eficácia, pode-se observar o número de tarefas concluídas com sucesso; já para aferir a satisfação do usuário, é possível analisar quantas vezes determinada funcionalidade foi utilizada, demonstrando a utilidade da mesma pela sua frequência de uso.
 
 Os experimentos controlados visam, dentre outros objetivos, aumentar a qualidade do \textit{software}, entregando apenas as funcionalidades que realmente agregam valor para o usuário \cite{fabijan_online_2020}. As métricas observadas no momento de avaliar o tratamento em um experimento são escolhidas para validar se os usuários realmente preferem utilizar a nova versão, o que pode ser interpretado como uma maior qualidade na usabilidade.
+
+\subsection{Modelo QATCH}
+\label{subsec:qatch}
+
+No contexto da avaliação de qualidade de software, diversos modelos surgem para auxiliar na tomada de decisão. Entre eles, destaca-se o proposto por \citeonline{qatch}, que utiliza métricas de qualidade e a opinião de \textit{stakeholders} para ponderar e agregar essas métricas, gerando pontuações que representam a qualidade do produto. Esse modelo busca resolver problemas como falta de adaptabilidade ao contexto do produto e a subjetividade nas avaliações.
+
+Para garantir objetividade e transparência, \citeonline{qatch} sugerem que os pesos das métricas sejam definidos previamente pelos \textit{stakeholders}, aplicando uma adaptação da técnica de Processo Analítico Hierárquico (AHP) \cite{ahp}. Essa técnica hierárquica permite organizar as métricas de forma estrutural, sendo compatível com a abordagem de agregação do QATCH, onde os escores das propriedades formam as pontuações das características, que por sua vez são agregadas para compor os aspectos principais do modelo de qualidade.
+
+O processo de agregação no QATCH utiliza a \textit{média ponderada}, um método intuitivo que considera a importância relativa das propriedades e características. Os pesos atribuídos refletem o impacto de cada propriedade sobre as características e de cada característica na qualidade geral do software.
+
+O escore geral de qualidade (\( Q \)) do produto é calculado como:
+
+\[
+Q = \sum_{i=1}^N w_{ci}q_{ci} = w_{c1}q_{c1} + w_{c2}q_{c2} + \dots + w_{cN}q_{cN},
+\]
+\noindent
+onde:
+
+\begin{itemize}
+    \item \( q_{ci} \) é o escore de qualidade da \( i \)-ésima característica;
+    \item \( w_{ci} \) é o peso associado à \( i \)-ésima característica, variando entre \([0,1]\);
+    \item \( N \) é o número total de características no modelo.
+\end{itemize}
+
+Cada escore de característica (\( q_{ci} \)) é obtido por meio da agregação dos escores das propriedades relacionadas, também utilizando a média ponderada:
+
+\[
+q_{ci} = \sum_{j=1}^M w_{pij}q_{pj} = w_{pi1}q_{p1} + w_{pi2}q_{p2} + \dots + w_{piM}q_{pM}, \quad \forall i \in [1, N],
+\]
+\noindent
+onde:
+
+\begin{itemize}
+    \item \( q_{pj} \) é o escore de qualidade da \( j \)-ésima propriedade;
+    \item \( w_{pij} \) é o peso do impacto da \( j \)-ésima propriedade na \( i \)-ésima característica, variando entre \([0,1]\);
+    \item \( M \) é o número total de propriedades relacionadas à característica.
+\end{itemize}
+
+O processo de avaliação segue uma abordagem \textit{bottom-up}, onde os escores das propriedades são usados para calcular os escores das características, que, por sua vez, compõem o escore geral do produto (\( Q \)). O resultado final é um valor entre 0 e 1, permitindo uma interpretação quantitativa da qualidade. Para facilitar a compreensão, esse valor é traduzido para uma classificação em estrelas (de 1 a 5), com intervalos bem definidos.
+
+Os valores dos pesos (\( w_{ci} \) e \( w_{pij} \)) são definidos com base em opiniões de especialistas, aplicando técnicas de decisão multicritério. Esse método sistemático oferece uma forma objetiva e compreensível de avaliar a qualidade de produtos de software, promovendo transparência e permitindo melhorias contínuas no desenvolvimento de sistemas. Adicionalmente, o modelo reconhece que uma propriedade pode influenciar mais de uma característica, ficando à critério da visão dos \textit{stakeholders} do contexto sendo avaliado. Desta forma, a agregação realizada pode ser visualizada na Figura \ref{fig:qatch}.
+
+\begin{figure}[h]
+\centering
+\caption{Processo de Agregação do Modelo QATCH}
+\includegraphics[width=1\linewidth]{figuras/qatch.png}
+\text{Fonte: \citeonline{qatch}}
+\label{fig:qatch}
+\end{figure}
+
+\subsection{Processo AHP}
+\label{subsec:ahp}
+
+O \textit{Analytic Hierarchy Process} (AHP), proposto por \citeonline{ahp}, é uma abordagem estruturada para a tomada de decisões em problemas multicritério hierárquicos. Ele permite que decisões complexas sejam simplificadas ao organizar os critérios e alternativas de maneira hierárquica e aplicando comparações paritárias entre os elementos. O AHP é amplamente utilizado em problemas que envolvem um objetivo principal, um conjunto de critérios que influenciam a decisão e um conjunto de alternativas.
+
+Nesta abordagem, as decisões são fundamentadas em comparações paritárias realizadas pelos tomadores de decisão, que avaliam a importância relativa de cada critério ou alternativa. Para isso, é construída uma \textbf{matriz de comparação paritária}, representada como:
+
+\[
+A = 
+\begin{bmatrix}
+    1 & a_{12} & a_{13} & \cdots & a_{1n} \\
+    \frac{1}{a_{12}} & 1 & a_{23} & \cdots & a_{2n} \\
+    \frac{1}{a_{13}} & \frac{1}{a_{23}} & 1 & \cdots & a_{3n} \\
+    \vdots & \vdots & \vdots & \ddots & \vdots \\
+    \frac{1}{a_{1n}} & \frac{1}{a_{2n}} & \frac{1}{a_{3n}} & \cdots & 1
+\end{bmatrix}.
+\]
+
+Nesta matriz:
+\begin{itemize}
+    \item \( a_{ij} \) representa a importância relativa do elemento \( i \) em relação ao elemento \( j \);
+    \item Os valores \( a_{ij} \) são determinados pelos tomadores de decisão com base em uma escala de razão, variando entre 1 e 9, onde \( 1 \) indica que ambos os elementos são igualmente importantes, e \( 9 \) indica que um elemento é extremamente mais importante que o outro;
+    \item A diagonal principal contém valores iguais a \( 1 \), pois um elemento comparado consigo mesmo tem importância relativa igual.
+\end{itemize}
+
+A parte triangular inferior da matriz é preenchida com os recíprocos dos valores da parte superior (\( a_{ji} = \frac{1}{a_{ij}} \)).
+
+Os pesos dos critérios ou alternativas são calculados a partir da matriz \( A \). Para isso, é necessário determinar o \textbf{autovetor principal} associado ao maior autovalor (\( \lambda_{\text{máx}} \)) da matriz. O autovetor principal (\( w \)) é normalizado para que a soma de seus elementos seja igual a 1:
+
+\[
+w_i = \frac{a_i}{\sum_{j=1}^{n} a_j}, \quad \forall i \in \{1, 2, \dots, n\},
+\]
+
+\noindent
+onde:
+\begin{itemize}
+    \item \( w_i \) é o peso relativo do \( i \)-ésimo elemento;
+    \item \( a_i \) é o componente correspondente do autovetor principal.
+\end{itemize}
+
+No modelo QATCH \cite{qatch}, o AHP é utilizado para calcular os pesos tanto das \textbf{características} quanto das \textbf{propriedades} do modelo de qualidade. Esses pesos são então utilizados nas fórmulas de média ponderada para calcular os escores de qualidade em diferentes níveis de avaliação.
+
+O escore geral de qualidade (\( Q \)) é calculado agregando os escores das características (\( q_{ci} \)) com base em seus pesos (\( w_{ci} \)):
+
+\[
+Q = \sum_{i=1}^N w_{ci}q_{ci}.
+\]
+
+De forma similar, o escore de cada característica (\( q_{ci} \)) é calculado com base nos escores das propriedades relacionadas (\( q_{pj} \)) e seus respectivos pesos (\( w_{pij} \)):
+
+\[
+q_{ci} = \sum_{j=1}^M w_{pij}q_{pj}, \quad \forall i \in \{1, 2, \dots, N\}.
+\]
+
+Além disso, apesar do AHP convencional fornecer um método estruturado e matematicamente sólido, ele depende de julgamentos humanos que podem ser subjetivos e suscetíveis a incertezas. Para lidar com essas limitações, o \textbf{Fuzzy AHP} estende o AHP incorporando lógica \textit{fuzzy}. Nesse contexto:
+
+\begin{itemize}
+    \item Os especialistas atribuem valores linguísticos, como "Muito Alto" ou "Moderado", em vez de números precisos;
+    \item Esses valores são convertidos em \textbf{números fuzzy triangulares}, representados como \( (l, m, u) \), onde:
+    \begin{itemize}
+        \item \( l \): limite inferior;
+        \item \( m \): valor modal;
+        \item \( u \): limite superior.
+    \end{itemize}
+\end{itemize}
+
+Os pesos \textit{fuzzy} são calculados usando o método dos \textbf{Mínimos Quadrados Logarítmicos Fuzzy} e, posteriormente, defuzzificados para produzir valores exatos (\textit{crisp}) que podem ser usados nas fórmulas de média ponderada. O processo de defuzzificação utiliza o método do centro de massa:
+
+\[
+F = \frac{\int x \mu(x) dx}{\int \mu(x) dx},
+\]
+
+\noindent
+onde \( \mu(x) \) é a função de pertinência \textit{fuzzy}.
+
+Desta forma, o AHP e sua extensão \textit{fuzzy} oferecem uma abordagem robusta para elicitar pesos em problemas de decisão multicritério, permitindo que julgamentos qualitativos sejam traduzidos em medidas quantitativas. No contexto do QATCH, essa metodologia garante que os pesos refletem a percepção dos especialistas sobre a qualidade do software, resultando em avaliações mais precisas e adaptáveis.
