@@ -1,4 +1,5 @@
 \subsubsection{Atribuição das Variantes}
+\label{subsubsec:variants}
 
 Para realizar a coleta de dados sobre o uso das diferentes versões do produto, ambas precisam ser distribuídas e apresentadas de maneira consistente aos clientes, a fim de observar como elas se comportam no mesmo período de tempo. Para isso, será utilizada a técnica de \textit{Feature Toggle}, descrita na Seção \ref{sec:ref-feature-toggle}.
 
@@ -57,17 +58,19 @@ A utilização de \textit{feature toggles} no contexto do experimento deste trab
 
 \begin{lstlisting}[style=customJS]
 function useFeature(featureFlag: string) {
-    const userFeatures = [];
-    return userFeatures.some((userFlag) => userFlag === featureFlag);
+    const userAvailableFeatures = [];
+    return userAvailableFeatures.some(
+        (userAvailableFlag) => userAvailableFlag === featureFlag
+    );
 }
 
 function SomeComponent() {
     const isFeatureTreatmentEnabled = useFeature('experiment/study-case-treatment');
 
     return (
-    isFeatureTreatmentEnabled
-        ? <SomeComponentTreatment />
-        : <SomeComponentControl />
+        isFeatureTreatmentEnabled
+            ? <SomeComponentTreatment />
+            : <SomeComponentControl />
     );
 }
 \end{lstlisting}

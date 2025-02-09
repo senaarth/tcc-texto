@@ -1,11 +1,11 @@
 \subsection{Procedimentos}
 \label{sec:procedimentos}
 
-Neste trabalho foi proposto um processo que deve guiar o desenvolvimento durante a execução deste estudo de caso. A partir da revisão da literatura descrita em \ref{ch:revisao}, procurou-se compreender as atividades envolvidas na experimentação continua e encontrar modelos ou processos já existentes na literatura. 
+Neste trabalho foi proposto um processo que deve guiar o desenvolvimento durante a execução deste estudo de caso. A partir da revisão da literatura descrita no Capítulo \ref{ch:revisao}, procurou-se compreender as atividades envolvidas na experimentação continua e encontrar modelos ou processos já existentes na literatura. 
 
 Em seguida, buscou se analisar o processo atual da empresa, compreendendo as atividades já existentes e realizadas pelos desenvolvedores do produto para posterior definição de atividades que viabilizariam a execução de experimentos controlados. Esta formalização se baseou principalmente no modelo \textit{Combined Process for Experimentation}, proposto por \citeonline{erthal_characterization_2023} e já apresentado na Figura \ref{fig:erthal-process}.
 
-Feita essa formalização, através dos insumos encontrados na literatura, foi proposto um novo processo, visando a introdução de práticas de experimentação contínua e que servirá de objeto de estudo desta monografia. A versão inicial, que ilustra o processo de desenvolvimento atualmente utilizado pela empresa, é apresentado na Figura \ref{fig:processo-atual}. Já o processo proposto neste trabalho, adaptado a partir do atual, é apresentada na Figura \ref{fig:processo-novo}, onde os itens destacados de vermelho são as novas atividades e artefatos, trazendo o fluxo que deve ser seguido nesta investigação.
+Finalizada essa formalização, através dos insumos encontrados na literatura, foi proposto um novo processo, visando a introdução de práticas de experimentação contínua. Este novo processo servirá de objeto de estudo desta monografia. A versão inicial, que ilustra o fluxo desenvolvimento atualmente utilizado pela empresa, é apresentado na Figura \ref{fig:processo-atual}. Já as atividades propostas neste trabalho, adaptadas a partir do processo atual, são apresentadas na Figura \ref{fig:processo-novo}, onde os itens destacados de vermelho são as novas atividades e artefatos, trazendo o fluxo que deve ser seguido nesta investigação.
 
 Para a coleta de dados referentes aos resultados das atividades realizadas e como o processo proposto se desempenhou, serão realizados questionários, que devem ser respondidos pelos colaboradores participantes. Já os dados de segunda ordem, ou seja, aqueles coletados por meio de observações, serão as métricas e medidas de qualidade em uso definidas durante a ideação da hipótese a ser testada pelo experimento que será realizado.
 
@@ -52,4 +52,78 @@ Aqui serão descritas as atividades, fases, papeis e artefatos do processo propo
     \item \textbf{Coleta de Opinião:} Após a tomada de decisão referente ao experimento, será coletada a opinião dos colaboradores envolvidos referente ao desempenho do processo empregado.
 \end{itemize}
 
+
+
+\subsubsection{Coleta de Opinião}
+\label{subsubsec:coleta}
+
+A coleta de opinião será realizado após a execução do processo proposto, visando entender sua viabilidade e impacto através de dados qualitativos sobre sua contribuição no processo de tomada de decisão. Por isso, o público-alvo desta coleta serão os colaboradores envolvidos no desenvolvimento do produto de software avaliado.
+
+Serão conduzidos questionários estruturados, conforme recomendado por \citeonline{torchiano2016surveys}, que destacam que esta é uma técnica eficiente para capturar percepções de indivíduos envolvidos no processo de desenvolvimento de \textit{software}. Questionários são particularmente úteis para coletar informações sobre a adoção de práticas e as dificuldades encontradas durante a implementação de novas metodologias.
+
+De acordo com \citeonline{linaker2015guidelines}, é essencial planejar adequadamente os questionários para evitar vieses e garantir que as respostas sejam relevantes para os objetivos do estudo. Assim, o questionário seguirá boas práticas, como:
+\begin{itemize}
+    \item Utilização de perguntas fechadas baseadas em escalas Likert para avaliar a percepção dos participantes sobre a efetividade e os desafios do processo implementado.
+    \item Inclusão de perguntas abertas para permitir que os participantes forneçam comentários qualitativos detalhados, enriquecendo a análise com insights subjetivos.
+    \item Anonimização dos entrevistados para garantir a confidencialidade e incentivar os participantes a expressarem suas percepções com liberdade.
+\end{itemize}
+
+Essa abordagem visa garantir que os resultados sejam representativos e possam contribuir para responder às questões de pesquisa deste trabalho. Desta forma, o questionário aplicado seguirá a seguinte estrutura:
+
+
+\begin{enumerate}
+    \item Há quanto tempo você trabalha na empresa?
+    \begin{itemize}
+        \item ( ) Menos de 1 ano
+        \item ( ) Entre 1 e 3 anos
+        \item ( ) Mais de 3 anos
+    \end{itemize}
+
+    \item Você já tinha experiência prévia com experimentação contínua ou alguma forma de desenvolvimento orientado a dados antes da implementação deste processo?
+    \begin{itemize}
+        \item ( ) Sim
+        \item ( ) Não
+    \end{itemize}
+
+    \item Como você avalia a clareza com a qual processo de experimentação foi implementado?  
+    \textit{(Escala Likert de 1 a 5: 1 = Muito pouco claro, 5 = Muito claro)}
+
+    \item O processo foi bem integrado ao fluxo de desenvolvimento da equipe?  
+    \textit{(Escala Likert de 1 a 5: 1 = Nada integrado, 5 = Muito bem integrado)}
+
+    \item Você acredita que o uso de experimentação contínua contribuiu para melhorar a qualidade das decisões sobre as versões do produto?  
+    \textit{(Escala Likert de 1 a 5: 1 = Nada, 5 = Muito)}
+
+    \item Quais benefícios você observou com a experimentação contínua? (Marque todas as opções que se aplicam)
+    \begin{itemize}
+        \item ( ) Maior confiabilidade nas decisões sobre as versões publicadas
+        \item ( ) Redução de erros e retrabalho
+        \item ( ) Melhor alinhamento com as necessidades do usuário
+        \item ( ) Maior agilidade na identificação de problemas
+        \item ( ) Outro: \_\_\_\_\_\_\_\_\_
+    \end{itemize}
+
+    \item Quais desafios você enfrentou durante a adoção da experimentação contínua?
+    \begin{itemize}
+        \item ( ) Dificuldade de adaptação ao novo processo
+        \item ( ) Falta de capacitação sobre a metodologia
+        \item ( ) Tempo adicional necessário para coleta e análise de dados
+        \item ( ) Resistência da equipe às mudanças
+        \item ( ) Outro: \_\_\_\_\_\_\_\_\_
+    \end{itemize}
+
+    \item O tempo de tomada de decisão sobre uma nova versão foi afetado com o processo de experimentação?  
+    \textit{(Escala Likert de 1 a 5: 1 = Foi aumentado, 5 = Foi reduzido)}
+
+    \item Você recomendaria a continuidade do uso da experimentação no processo de avaliação das versões do produto?
+    \begin{itemize}
+        \item ( ) Sim
+        \item ( ) Não
+        \item ( ) Outro: \_\_\_\_\_\_\_\_\_
+    \end{itemize}
+
+    \item Você tem alguma sugestão para melhorar o processo de experimentação executado?  
+    \textit{(Campo aberto para resposta livre)}
+
+\end{enumerate}
 
