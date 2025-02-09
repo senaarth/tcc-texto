@@ -86,6 +86,92 @@ Além das medidas existentes na estatística descritiva, \citeonline{wohlin_expe
 
 A identificação dos \textit{outliers} por meio destes processos de representação gráfica é crucial para a chamada \textbf{redução dos dados}. Valores que se desviam significativamente dos demais podem comprometer a qualidade do conjunto de dados e prejudicar a análise. Portanto, é fundamental identificá-los e avaliar a necessidade de sua remoção. Caso um valor resulte de um evento raro, ele pode ser removido; no entanto, um ponto que revele informações valiosas deve ser analisado separadamente \cite{wohlin_experimentation_2012}.
 
+\subsection{Redução dos Dados}
+\label{subsec:reduction}
+
+O processo de redução de dados, como citado anteriormente é crucial para a realização de testes estatísticos e a eficácia destes métodos estatísticos depende da qualidade dos dados de entrada. Se estes não representarem corretamente o que se pretende analisar, as conclusões derivadas dessas análises podem ser incorretas. A eliminação de \textit{outliers}, aumentam a confiabilidade dos resultados e evitam interpretações equivocadas  \cite{wohlin_experimentation_2012}. Para se realizar este processo, existem diferentes métodos estatísticos, abaixo são apresentados dois destes.
+
+\subsubsection{Por Distância Interquartil}
+
+Uma maneira eficaz de identificar pontos de dados extremos é por meio do \textbf{intervalo interquartil}. Utilizando os quartis, é possível detectar valores que se encontram significativamente afastados do restante dos dados. Para realizar a remoção desses pontos, define-se um limite com base no intervalo interquartil, \textit{IQR}, que é calculado subtraindo o primeiro quartil do terceiro, conforme a fórmula abaixo:
+
+\[
+IQR = Q_3 - Q_1.
+\]
+
+Os limites inferior e superior são então estabelecidos a partir do valor de \textit{IQR}, e quaisquer valores que ultrapassem esses limites são classificados como \textit{outliers}. O cálculo desses limites é dado por:
+
+\begin{align*}
+\text{Limite Inferior} &= Q_1 - 1.5 \cdot IQR, \\
+\text{Limite Superior} &= Q_3 + 1.5 \cdot IQR.
+\end{align*}
+
+Essa técnica não pressupõe que a distribuição do conjunto seja normal, pois a identificação de \textit{outliers} baseia-se na ordenação dos dados. Por isso, ela apresenta um bom desempenho em conjuntos de dados assimétricos.
+
+\subsubsection{Por Desvio Padrão}
+
+Outra forma de identificar valores extremos em um conjunto é através do método do \textit{Z-Score}, que utiliza \textbf{a média e o desvio padrão da distribuição}. O \textit{Z-Score} mede o quão distante, em termos de desvios padrão, um dado ponto está da média do conjunto. Ele é calculado usando a seguinte fórmula:
+
+\[
+Z = \frac{x - \mu}{\sigma},
+\]
+
+onde:
+\begin{itemize}
+    \item \( Z \) é o \textit{Z-Score};
+    \item \( x \) é o valor do dado;
+    \item \( \mu \) é a média do conjunto de dados;
+    \item \( \sigma \) é o desvio padrão da distribuição.
+\end{itemize}
+
+Nesse caso, \textit{outliers}, são identificados quando o valor absoluto do \textit{Z-Score} excede um limite pré-determinado. Geralmente, utiliza-se \( |Z| > 3 \) como critério para classificar um valor como \textit{outlier}, pois isso corresponde a pontos que estão a mais de 3 desvios padrão da média.
+
+O método do \textit{Z-Score} é mais adequado para dados que seguem uma distribuição aproximadamente normal, uma vez que a média e o desvio padrão são medidas confiáveis de tendência central e dispersão nesse caso.
+
+
+\subsection{Normalização de Dados}
+\label{subsec:normalization}
+
+A normalização de dados é uma técnica amplamente utilizada em pré-processamento, especialmente em algoritmos de aprendizado de máquina e estatística, para ajustar os valores das variáveis a uma escala específica. Isso é feito para reduzir o impacto de diferentes escalas das variáveis e melhorar a performance de modelos. A escolha do método de normalização depende do objetivo e da distribuição dos dados \cite{Dekking2005}.
+
+\subsubsection{Método Máximo e Mínimo}
+
+O método de normalização \textbf{Máximo e Mínimo} transforma os dados para um intervalo fixo, normalmente entre \( [0, 1] \). A fórmula para a normalização de um dado \( x \) é dada por:
+
+\[
+x_{\text{normalizado}} = \frac{x - x_{\text{min}}}{x_{\text{max}} - x_{\text{min}}},
+\]
+
+onde:
+\begin{itemize}
+    \item \( x \) é o valor original do dado;
+    \item \( x_{\text{min}} \) e \( x_{\text{max}} \) são os valores mínimo e máximo no conjunto de dados.
+\end{itemize}
+
+Este método é útil quando é necessário restringir os valores em um intervalo fixo. No entanto, ele é sensível a \textit{outliers}, já que valores extremos podem distorcer a escala dos dados.
+
+\subsubsection{Transformação Box-Cox}
+
+Esta técnica é utilizada para transformar os dados de modo que se aproximem de uma distribuição normal, reduzindo assimetria e estabilizando a variância. A fórmula da transformação é:
+
+\[
+y = 
+\begin{cases} 
+\frac{x^\lambda - 1}{\lambda}, & \text{se } \lambda \neq 0, \\
+\ln(x), & \text{se } \lambda = 0,
+\end{cases}
+\]
+
+onde:
+\begin{itemize}
+    \item \( x \) é o valor original (deve ser estritamente positivo);
+    \item \( y \) é o valor transformado;
+    \item \( \lambda \) é o parâmetro de transformação, determinado através de diferentes métodos estatísticos para maximizar a normalidade dos dados.
+\end{itemize}
+
+A transformação Box-Cox é mais adequada quando os dados apresentam assimetria ou variância não constante. É frequentemente usada em modelos estatísticos, como regressão linear, para atender às suposições de normalidade e homocedasticidade.
+
+
 \subsection{Teste de Hipóteses}
 
 O objetivo de um teste de hipótese é verificar se é possível rejeitar uma hipótese nula a partir da análise de um determinado conjunto de dados. Ou seja, \(x_i \) descreve determinadas propriedades e o teste visa negar estas características com determinado nível de significância \cite{wohlin_experimentation_2012}. 
