@@ -1,16 +1,16 @@
-\subsection{Definição}
+\section{Definição}
 
 Um Estudo de Caso é um método de investigação que visa analisar um fenômeno em seu contexto real e contemporâneo. Diferentes fontes de dados e técnicas podem ser utilizadas para essa abordagem, como pesquisas bibliográficas, entrevistas e observações \cite{wohlin_experimentation_2012}. \citeonline{yin_case_study_2009} ressalta que esse método parte do pressuposto de que um fenômeno de interesse não é separável de seu contexto.
 
 Costuma ser aplicado na Engenharia de Software quando se busca compreender um fenômeno em seu contexto real. O principal objetivo de um Estudo de Caso é coletar e analisar dados, a fim de realizar inferências que possam auxiliar no estabelecimento de relações entre os objetos de estudo \cite{wohlin_experimentation_2012}.
 
 
-\subsubsection{Objetivo}
+\subsection{Objetivo}
 
 A literatura indica que priorizar funcionalidades para desenvolvimento com base apenas em opiniões pode resultar em um desalinhamento com o que realmente agrega valor ao usuário e ao negócio. Nesse contexto, as empresas tem buscado a investigação experimental para assegurar a tomada de decisão e a avaliação da qualidade de uso de seu \textit{software} baseadas em evidências \cite{olsson_opinions_2014}. No entanto, sistematizar um processo de experimentação é complexo e requer esforço organizacional não apenas no nível tecnológico, mas também nos níveis culturais e de negócios \cite{fabijan_evolution_2017}. Dessa forma, o presente estudo visa investigar como a adoção de práticas de experimentação contínua pode auxiliar na tomada de decisões estratégicas e na análise da qualidade em uso de um \textit{software}.
 
 
-\subsubsection{Caso}
+\subsection{Caso}
 
 O objeto de estudo desta investigação é um produto de \textit{software} desenvolvido por uma empresa privada brasileira, que oferece uma solução de ambiente virtual de aprendizagem. Este \textit{SaaS}\footnote{Modelo de distribuição e comercialização de \textit{software} onde o fornecedor disponibiliza o sistema para o cliente através da \textit{internet} mediante pagamento pelo serviço.} é utilizado por cerca de quinhentas escolas brasileiras e atende a uma base de aproximadamente 100 mil usuários. A plataforma possui um código-base com cerca de 740 mil linhas.
 
@@ -23,7 +23,7 @@ Outro fator relevante é a ampla base de usuários, o que possibilita a definiç
 De forma geral, o caso envolve um produto com uma base considerável de usuários, em um contexto ágil de desenvolvimento, com a coleta de dados de uso já devidamente instrumentalizada. O processo proposto parte desse cenário, considerando que a coleta de dados já está integrada ao fluxo de desenvolvimento diário. É importante ressaltar que não há, no momento, uma integração desse processo com a infraestrutura existente, o que significa que a tomada de decisão sobre a publicação de versões deve ocorrer de forma manual, baseada em análises estatísticas, e não de maneira automatizada.
 
 
-\subsubsection{Trabalhos Relacionados}
+\subsection{Trabalhos Relacionados}
 
 Durante a revisão da literatura, descrita no Capítulo \ref{ch:revisao}, foram selecionados estudos que pudessem servir de insumo para a construção desta monografia.
 
@@ -31,7 +31,7 @@ A principal influência deste trabalho foi o estudo de \citeonline{erthal_charac
 
 O trabalho de \citeonline{melegati_understanding_2021} apresenta a chamada \textit{Hypotheses Engineering} e suas práticas, trazendo uma revisão da literatura cinza para descrever como essas práticas são utilizadas no mercado. A engenharia de hipóteses, proposta por \citeonline{melegati_hypotheses_2019}, descreve as atividades necessárias para a formalização de hipóteses, etapa essencial para a realização de experimentos que validam as suposições dos responsáveis pelo desenvolvimento do produto.
 
-Já o estudo de \cite{fabijan_three_2019} traz \textit{checklists} em forma de listas de verificação, com três listas que servem de guia para a execução de experimentos controlados: uma na fase de \textit{design} do experimento, outra na sua execução, e uma terceira na etapa de análise de dados. O propósito é listar atividades que garantam a execução apropriada do experimento e uma tomada de decisão confiável.
+Já o estudo de \citeonline{fabijan_three_2019} traz \textit{checklists} em forma de listas de verificação, com três listas que servem de guia para a execução de experimentos controlados: uma na fase de \textit{design} do experimento, outra na sua execução, e uma terceira na etapa de análise de dados. O propósito é listar atividades que garantam a execução apropriada do experimento e uma tomada de decisão confiável.
 
 Outros modelos que visam à sistematização do processo em sua totalidade ou à descrição de atividades específicas também foram encontrados \cite{fagerholm_right_2017, issa_mattos_hurrier_2023, olsson_opinions_2014}. Além disso, na literatura há estudos de caso realizados em diferentes orgnizações, mapeamentos e revisões que, semelhantes a esta monografia, buscam avaliar a experimentação e compreender suas práticas, benefícios e desafios \cite{kevic_characterizing_2017, kuhrmann_activity_2018, fernandes_hitting_2015, sauvola_towards_2015, issa_mattos_hurrier_2023, kohavi_online_2013, fabijan_benefits_2017, quin_b_2024, erthal_characterization_2023, larsen_statistical_2024}. Embora nem todos os artigos citados sejam influências diretas no processo proposto, suas leituras foram essenciais para a compreensão das atividades a serem realizadas neste trabalho.
 
@@ -43,7 +43,7 @@ Um desafio que é citado por ambos estudos, tanto \citeonline{crook_seven_2009},
 
 Este desafio é discutido em diferentes contextos do desenvolvimento de \textit{software}, abrangendo não apenas a experimentação, mas também a avaliação de heurísticas de usabilidade e qualidade em uso \cite{qatch} \cite{towards_sarmiento2024}. Apesar do surgimento de diversos modelos de qualidade ao longo das últimas décadas, nenhum deles alcançou ampla aceitação ou aplicação generalizada, dada a dificuldade de abordar as subjetividades inerentes ao conceito de qualidade \cite{qatch}. 
 
-Nesse contexto, destaca-se o modelo apresentado por \citeonline{qatch}, que propõe a hierarquização de características de qualidade a serem avaliadas, permitindo que os pesos de uma determinada avaliação sejam definidos previamente. Para isso, o modelo utiliza a metodologia proposta por \citeonline{ahp}, que transforma a opinião dos \textit{stakeholders} em pesos aplicáveis na ponderação das avaliações. Essa abordagem adapta-se a diferentes cenários, demonstrando ser uma alternativa flexível para realizar avaliações quantitativas, integrando diversas métricas de forma consistente.
+Nesse contexto, destaca-se o modelo QATCH, apresentado por \citeonline{qatch}, que propõe a hierarquização de características de qualidade a serem avaliadas, permitindo que os pesos de uma determinada avaliação sejam definidos previamente. Para isso, o modelo utiliza a metodologia proposta por \citeonline{ahp}, que transforma a opinião dos \textit{stakeholders} em pesos aplicáveis na ponderação das avaliações. Essa abordagem adapta-se a diferentes cenários, demonstrando ser uma alternativa flexível para realizar avaliações quantitativas, integrando diversas métricas de forma consistente.
 
 Então, visando endereçar a dificuldade citada, o modelo proposto por \citeonline{qatch} será utilizado. Serão escolhidas medidas que visem representar características e subcaracterísticas de qualidade em uso tomando como referências as normas \citeonline{iso25010} e \citeonline{nbr9241}. Uma vez escolhidas estas medidas, o peso de cada uma será discutido com a equipe envolvida no processo, permitindo que possa haver o cálculo de um indicador único que represente a qualidade em uso da versão de \textit{software} sendo havaliada (uma maior explanação sobre o cálculo do indicador é feita na Subseção \ref{subsec:qatch}).
 
@@ -52,7 +52,7 @@ Nesta pesquisa, inicialmente serão formalizadas hipóteses a partir de diferent
 Com as métricas e seus respectivos pesos definidos, a nova versão do produto será desenvolvida e lançada para um grupo selecionado de usuários, e os dados começarão a ser coletados. Por fim, a partir dessa coleta, os dados serão analisados e testes estatísticos serão realizados para verificar se há uma diferença significativa entre os indicadores de qualidade em uso observados nas versões. Essa análise, unida a outras avaliações caso necessário, determinará se a hipótese é confirmada e a nova versão deve ser liberada para todos os usuários, ou se o tratamento não se sustenta e deve ser abandonado.
 
 
-\subsubsection{Questão de Pesquisa}
+\subsection{Questão de Pesquisa}
 \label{subsec:estudo-questao}
 
 Buscando responder à questão principal de pesquisa do trabalho, apresentada na Seção \ref{sec:questao} \textit{(Como a adoção de práticas de experimentação contínua pode auxiliar a tomada de decisão sobre a implantação de novas versões de um produto de software?)}, foram derivadas questões específicas para o estudo de caso, juntamente com as métricas que serão utilizadas para sua avaliação, seguindo a abordagem GQM.
@@ -73,7 +73,7 @@ Para a realização do teste da hipótese selecionada, serão coletadas métrica
     
 \end{itemize}
 
-\subsubsection{Fonte de Dados}
+\subsection{Fonte de Dados}
 
 A fonte de dados quantitativos será o uso da plataforma pelos usuários. Uma vez que o \textit{software} esteja preparado para coletar os dados de uso da plataforma, assim que os usuários utilizarem a funcionalidade testada, métricas relacionadas ao seu uso serão coletadas como, por exemplo, tempo de uso, quantidade de cliques.
 
