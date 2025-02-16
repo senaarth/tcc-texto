@@ -1,16 +1,16 @@
-\subsection{Definição}
+\section{Definição}
 
 Um Estudo de Caso é um método de investigação que visa analisar um fenômeno em seu contexto real e contemporâneo. Diferentes fontes de dados e técnicas podem ser utilizadas para essa abordagem, como pesquisas bibliográficas, entrevistas, observações, e mesmo, experimentos controlados \cite{wohlin_experimentation_2012}. \citeonline{yin_case_study_2009} ressalta que esse método parte do pressuposto de que um fenômeno de interesse não é separável de seu contexto.
 
 Costuma ser aplicado na Engenharia de Software quando se busca compreender um fenômeno em seu contexto real. O principal objetivo de um Estudo de Caso é coletar e analisar dados, a fim de realizar inferências que possam auxiliar no estabelecimento de relações entre os objetos de estudo \cite{wohlin_experimentation_2012}.
 
 
-\subsubsection{Objetivo}
+\subsection{Objetivo}
 
 A literatura indica que, priorizar funcionalidades para desenvolvimento com base apenas em opiniões, pode resultar em um desalinhamento com o que realmente gera valor ao usuário e ao negócio. Nesse contexto, as empresas tem buscado aplicar a experimentação em engenharia de software, para assegurar a tomada de decisão e a avaliação da qualidade de uso de seus produtos de \textit{software}, baseadas em evidências \cite{olsson_opinions_2014}. No entanto, sistematizar um processo de experimentação é complexo e requer esforço organizacional não apenas no nível tecnológico, mas também nos níveis culturais e de negócios \cite{fabijan_evolution_2017}. Dessa forma, o presente estudo visa investigar como a adoção de práticas de experimentação contínua pode auxiliar na tomada de decisões estratégicas e na análise da qualidade em uso de um \textit{software}.
 
 
-\subsubsection{Caso}
+\subsection{Caso}
 
 O objeto de estudo desta pesquisa é um produto de \textit{software} desenvolvido por uma empresa privada brasileira, que oferece um ambiente virtual de aprendizagem na modalidade \textit{Software como Serviço (SaaS)}\footnote{\textit{Software as a Service} (SaaS) é um modelo de distribuição e comercialização de \textit{software} no qual o fornecedor disponibiliza o sistema ao cliente via \textit{internet}, mediante pagamento pelo serviço.}. A solução é utilizada por aproximadamente 500 escolas privadas brasileiras nos segmentos de ensino infantil, fundamental e médio, atendendo a uma base de cerca de 100 mil usuários, incluindo estudantes, professores e coordenadores. Mantida desde 2017, a plataforma possui um código-fonte com cerca de 740 mil linhas, acumulando sete anos de evolução até o período de realização desta pesquisa.
 
@@ -29,7 +29,7 @@ De modo geral, o estudo envolve um produto amplamente utilizado, inserido em um 
 Por fim, cabe destacar que, no momento, não há integração entre esse processo e a infraestrutura existente. Dessa forma, a decisão sobre a publicação de novas versões ainda ocorre manualmente, baseada em análises estatísticas, sem a automação desse fluxo.
 
 
-\subsubsection{Trabalhos Relacionados}
+\subsection{Trabalhos Relacionados}
 
 Durante a revisão da literatura, descrita no Capítulo \ref{ch:revisao}, foram selecionados estudos que pudessem servir de insumo para a construção desta monografia.
 
@@ -57,7 +57,8 @@ Nesta pesquisa, inicialmente serão formalizadas hipóteses a partir de diferent
 
 Com as métricas e seus respectivos pesos definidos, a nova versão do produto será desenvolvida e lançada para um grupo selecionado de usuários, e os dados começarão a ser coletados. Por fim, a partir dessa coleta, os dados serão analisados e testes estatísticos serão realizados para verificar se há uma diferença significativa entre os indicadores de qualidade em uso observados nas versões. Essa análise, unida a outras avaliações caso necessário, determinará se a hipótese é confirmada e a nova versão deve ser liberada para todos os usuários, ou se o tratamento não se sustenta e deve ser abandonado.
 
-\subsubsection{Questão de Pesquisa}
+
+\subsection{Questão de Pesquisa}
 \label{subsec:estudo-questao}
 
 Buscando responder à questão principal de pesquisa do trabalho, apresentada na Seção \ref{sec:questao} \textit{(Como a adoção de práticas de experimentação contínua pode auxiliar a tomada de decisão sobre a implantação de novas versões de um produto de software?)}, foram derivadas questões específicas para o estudo de caso, juntamente com as métricas que serão utilizadas para sua avaliação, seguindo a abordagem GQM.
@@ -78,7 +79,7 @@ Para a realização do teste da hipótese selecionada, serão coletadas métrica
     
 \end{itemize}
 
-\subsubsection{Fonte de Dados}
+\subsection{Fonte de Dados}
 
 A fonte de dados quantitativos será o uso da plataforma pelos usuários. Uma vez que o \textit{software} esteja preparado para coletar os dados de uso da plataforma, assim que os usuários utilizarem a funcionalidade testada, métricas relacionadas ao seu uso serão coletadas como, por exemplo, tempo de uso, quantidade de cliques.
 
