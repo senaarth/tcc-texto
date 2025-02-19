@@ -1,12 +1,34 @@
-\subsection{Planejamento do Experimento}
+\subsection{Planejamento do Experimento Controlado}
 
-Após a fase de ideação, inicia-se o planejamento do experimento. O teste deve responder à primeira questão específica de pesquisa do estudo de caso, avaliando a qualidade em uso de duas versões do produto por meio de métricas que representem esse aspecto no contexto funcionalidade avaliada.
+Após a fase de ideação, iniciou-se o planejamento do experimento. Este estudo visa responder à primeira questão específica de pesquisa do estudo de caso, descrita na subseção \ref{subsec:estudo-questao}. Neste experimento, duas versões do produto são comparadas avaliando aspectos relacioandos a visão da qualidade em uso do produto.
 
-A literatura destaca a dificuldade em definir métricas que representem com precisão a entrega de valor desejada \cite{crook_seven_2009, larsen_statistical_2024}. Para evitar limitações de uma única medida, foram selecionadas métricas que refletem os objetivos de longo prazo do negócio, utilizando normas de referência para garantir maior confiabilidade e relevância dos resultados. 
+A literatura destaca a dificuldade em definir métricas que representem com precisão a entrega de valor desejada \cite{crook_seven_2009, larsen_statistical_2024}. Para evitar limitações de uma única medida, foram selecionadas métricas que refletem alguns dos objetivos de longo prazo do negócio, utilizando normas de referência para garantir maior confiabilidade e reprodutibilidade dos resultados. 
 
-As métricas foram escolhidas com base na norma \citeonline{nbr9241}, considerando o contexto do filtro de nível de dificuldade e da criação de atividades, funcionalidades diretamente relacionadas à suposição analisada. As métricas adotadas incluem: o número de vezes que cada usuário utilizou o filtro, representando a satisfação por meio da subcaracterística de utilidade; o número de atividades criadas e o número de exercícios selecionados, ambos relacionados à eficácia do produto em auxiliar o usuário a alcançar seus objetivos na plataforma.
 
-Além disso, para considerar a opinião dos \textit{stakeholders} na ponderação dos resultados, o peso de cada métrica foi determinado pelo método AHP, conforme proposto pelo modelo QATCH, convertendo avaliações qualitativas em pesos quantitativos (ver Subseções \ref{subsec:qatch} e \ref{subsec:ahp}). Esse processo define a importância relativa de cada métrica e característica em diferentes níveis de agregação (ver Figura \ref{fig:qatch_experiment}). O resultado está apresentado nas Tabelas \ref{tab:ahp-metrics} e \ref{tab:ahp-characteristics}.
+\todo[inline, color=pink]{Atenção: Aqui é necessário trazer toda aquela parte conceitual, aplicada, sobre metrica, medida. Informações como o tipo de escalas, objetiva-subjetiva, direta-indireta Releia o cap. 3 do livro do Wohlin} 
+
+
+
+As métricas foram escolhidas com base na norma \citeonline{nbr9241}, considerando o contexto do filtro de nível de dificuldade e da criação de atividades, funcionalidades diretamente relacionadas à suposição analisada. 
+
+
+As métricas adotadas são \textcolor{blue}{são}\todo[color=yellow]{explicar melhor. Está confuso }: 
+
+\begin{itemize}
+  \item o número de vezes que cada usuário utilizou o filtro - representando uma percepção quantitativa da característica de qualidade satisfação de usuário. Esta, por sua vez, foi observada por meio da subcaracterística de utilidade;
+  \item o número de atividades criadas e o número de exercícios selecionados, ambos relacionados à caracter;istica da quelidade de eficácia do produto - auxilia o usuário a alcançar seus objetivos na plataforma. 
+\end{itemize}
+
+\todo[inline, color=pink]{Crie uma tabela com uma estrutura semelhante a apresentada no q-rapids. Confira na pg. 5  \url{https://github.com/fga-eps-mds/Analytics/blob/master/q-rapids\%20model-doc.pdf}}  
+
+ Além disso, utilizamos o  método AHP para capturar a opinião dos \textit{stakeholders} sobre suas preferências relativas em relação a grau de importancia entre medidas e indicadores, conforme proposto no modelo QATCH. Assim, utilizamos uma escala intervalar para mapear as relações qualitativas e quantitativas. de forma a transformar as preferências relativas, em representações numéricas, conforme apresentado da tabala XXX....
+ 
+ \todo[inline, color=pink]{Crie uma tabela com essas informações. Desde o nível das medidas até as características }   
+
+\todo[inline, color=pink]{Ainda, toda a definição das categorias Importante, Muito mais Importante,.... precisam ser explicadas. Por ex: medida em escalar intervalar; relações qualitativa X quantitativa quanto; intervalos, grau de incerteza;... } 
+
+\textcolor{blue}{na ponderaçãol}\todo[color=yellow]{Reescrever} na ponderação dos resultados, o peso de cada métrica foi determinado pelo método AHP, conforme proposto pelo modelo QATCH, convertendo avaliações qualitativas em pesos quantitativos (ver Subseções \ref{subsec:qatch} e \ref{subsec:ahp}). Esse processo define a importância relativa de cada métrica e característica em diferentes níveis de agregação (ver Figura \ref{fig:qatch_experiment}). O resultado está apresentado nas Tabelas \ref{tab:ahp-metrics} e \ref{tab:ahp-characteristics}.
+
 
 \begin{figure}
     \centering
@@ -22,9 +44,9 @@ Além disso, para considerar a opinião dos \textit{stakeholders} na ponderaçã
     \centering
     \begin{tabular}{|p{4cm}|p{4cm}|p{6.5cm}|}
         \hline
-        Métrica & Nº de Listas Criadas & Nº de Exercícios Selecionados \\ \hline
-        Nº de Listas Criadas & - & Muito Mais Importante \\ \hline
-        Nº de Exercícios Selecionados & - & - \\ \hline
+        Métrica & N. de Listas Criadas & N. de Exercícios Selecionados \\ \hline
+        N. de Listas Criadas & - & Muito Mais Importante \\ \hline
+        N. de Exercícios Selecionados & - & - \\ \hline
     \end{tabular}
     \caption{Importância Relativa das Métricas de Eficácia}
     \label{tab:ahp-metrics}
@@ -44,26 +66,46 @@ Além disso, para considerar a opinião dos \textit{stakeholders} na ponderaçã
 
 Com os níveis de importância estabelecidos, é possível calcular os pesos quantitativos. A métrica de número de listas de exercícios criadas possui peso de 0.8889, enquanto a métrica de número de exercícios selecionados tem peso de 0.111. Juntas, representam a característica de eficácia. Para as características, os pesos são 0.8333 para satisfação e 0.1667 para eficácia. Esses valores, somados, geram um indicador único de qualidade em uso para um usuário específico (para mais detalhes sobre o cálculo, ver Subseção \ref{subsec:qatch}).
 
+\todo[inline, color=pink]{Acerte aquela tabela que começamos fazer em uma de nossas reuniões e represente ela aqui, para explicar as definições dos pesos. Uma espécie de passo-a-passo. Descreva um exemplo.}
+
+Tabela que começamos fazer: \url{https://docs.google.com/spreadsheets/d/1S00LLnvxdgasowrQ79PKTeR8xDZLZBjgEeV3TmjYhXs/edit?gid=0#gid=0}
+
 O experimento foi estruturado da seguinte forma:
 
+\todo[inline, color=pink]{Penso que essa estrutura de marcadores não ficou legal. Alterar para lista numerada}
+
 \begin{itemize}
+    \item \textbf{Objeto:} ???? Eventos de uso do produto, gerados a partir da utilização das funcionalidades A,B C, ... Esses eventos de uso são obtidos no servidor de aplicação XXX, registros no banco de dados, .... Explicar melhor isso.
+    
     \item \textbf{Sujeitos:} Os participantes serão docentes que criam listas de exercícios na plataforma. Eles serão divididos em dois grupos: o de tratamento, composto pelos usuários beta, e o de controle, formado pelos demais usuários da base;
     
-    \item \textbf{Fator:} O fator analisado será a posição do filtro de nível de dificuldade no banco de questões. Dois tratamentos serão aplicados: um em que o filtro permanece na última posição (grupo de controle) e outro em que o filtro aparece em posição superior na listagem (grupo de tratamento);
-    
-    \item \textbf{Variáveis Independentes:} A posição do filtro será mantida de forma persistente para cada grupo, garantindo que cada usuário visualize sempre o filtro na mesma posição;
-    
-    \item \textbf{Variáveis Dependentes:} Número de vezes que cada docente utilizou o filtro, número de listas de exercícios criadas e número de exercícios selecionados. Esses dados serão agregados para compor o indicador \textit{Q} de qualidade em uso;
-    
+    \item \textbf{Fator:} O fator analisado será do comportamento em uso do produto, observado em termos das características qualidade em uso de satisfação e eficácia.
+   
+    \item \textbf{Variável Independente:} \textcolor{blue}{A posição do filtro}\todo[color=yellow]{Quais são exatamente essas posições?} a posição do filtro de nível de dificuldade. As posições do filtro serão mantidas de forma persistente para cada grupo, garantindo que cada usuário visualize sempre o filtro na mesma posição;
+
+\todo[inline, color=pink]{Seria bom ter duas imagens das telas. Uma com o filtro na versão atual e outra com respectiva alteração na interface gráfica.}
+
+    \item \textbf{Variáveis Dependentes:} Número de vezes que cada docente utilizou o filtro, número de listas de exercícios criadas e número de exercícios selecionados. Essas variáveis serão normalizadas, ponderadas e agregadas para compor o indicador quantitativo \textit{Q}, conforme definido no modelo QATCH. Esse indicador funciona como um \textit{surrogate} que expressa a percepção da qualidade em uso, observada em uma determinada vesão do produto;
+
+ 	\item \textbf{Tratamentos:} Dois tratamentos serão aplicados: um em que o filtro permanece na última posição (grupo de controle) e outro em que o filtro aparece em posição superior na listagem (grupo de tratamento);
+
+ 
+   
+ 	\todo[inline, color=pink]{Aqui deve haver um texto com a explanação que explique e conecte o mundo real (suposições dos especialistas sobre o uso do filtro e serem criadas mais questões, listas de exercícios,...). Depois, explicar como isso se reflete na quantificação da percepção da qualidade em uso. A partir disso é que as hipóteses são apresentadas... A hipótese a ser refutada é que não há diferença na percepção da qualidade em uso entre a versão de controle (A) e a de tratamento(B). Em desfavor dessa hipótese nula, são testadas as hipóteses alternativas: 1) a percepção da qualidade em uso é maior na versão de controle(A) em comparação à versão de tratamento(B) e 2) a percepção da qualidade em uso é menor na versão de controle(A) em comparação à versão de tratamento(B)  }
+
     \item \textbf{Hipóteses:}
     \begin{itemize}
-        \item $H_0$: Não há diferença na percepção da qualidade em uso entre a versão de controle e a de tratamento ($Q_a = Q_b$);
-        \item $H_1$: A percepção da qualidade em uso é maior na versão de controle em comparação à versão de tratamento ($Q_a > Q_b$);
-        \item $H_2$: A percepção da qualidade em uso é menor na versão de controle em comparação à versão de tratamento ($Q_a < Q_b$).
+        \item $H_0$: $Q_a = Q_b$
+        \item $H_1$: $Q_a > Q_b$
+        \item $H_2$: $Q_a < Q_b$
     \end{itemize}
 \end{itemize}
 
-Desta forma, para além de se estudar as suposições dos colaboradores sobre o produto, deve ser possível responder a primeira questão de pesquisa específica deste estudo de caso, aprensentada na Subseção \ref{subsec:estudo-questao} (\textit{Durante o experimento, foi possível identificar diferença de qualidade em uso entre as versões de controle (A) e de tratamento (B) do produto, a partir de seu uso?}).
+Dessa forma, ao se estudar as suposições dos colaboradores sobre o produto, deve ser possível responder a primeira questão de pesquisa específica deste estudo de caso, aprensentada na Subseção \ref{subsec:estudo-questao}. Relembrando:
+
+\begin{center}
+\textit{Durante o experimento, foi possível identificar diferença na percepção da qualidade em uso entre as versões do produto, A (controle) e B (tratamento).} \textcolor{blue}{tratamento}\todo[color=yellow]{Reescreva a QP na subseção 4.1.4}
+\end{center}
 
 
 \subsection{Pré-estudo do Experimento}
