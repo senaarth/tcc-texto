@@ -296,17 +296,24 @@ Ao considerar a amostra total, composta por 3504 usuários (sendo 508, 14,5\%, d
  No entanto, apesar do p-valor estar ligeiramente acima do limite de significância definido, ele ainda se encontrava em uma faixa próxima ao limiar. Dessa forma, para minimizar a possibilidade de um erro do tipo II, foi conduzida uma nova iteração do experimento, com uma extensão do período de coleta de dados por mais duas semanas (de 19 de novembro a 3 de dezembro de 2024).
 
 
-\todo[inline, color=pink]{Nossa Arthur! Está muito confuso esse final! Coloque as discussões sobre os erros I-II logo abaixo da conclusão da aceitação ou refutação da hipótese. Estava falando do teste chi-quadrado. Não faz sentido voltar a falar de coleta e amostra, após a conclusão do teste. Eu sei do que você está falando. Porém está uma confusão! Reescreve isso.}
+\todo[inline, color=pink]{Nossa Arthur! Está muito confuso esse final! Coloque as discussões sobre os erros I-II logo abaixo da conclusão da aceitação ou refutação da hipótese. Estava falando do teste chi-quadrado. Não faz sentido voltar a falar de coleta e amostra, após a conclusão do teste. Eu sei do que você está falando. Porém está uma confusão! Por favor, reescreve completamente isso.}
 
 Ao final do novo período de coleta, o teste foi reaplicado com uma amostra ampliada, agora composta por 4467 usuários, sendo 608 (13,6\%) pertencentes ao grupo de tratamento e 3859 (86,4\%) ao grupo de controle. Os novos resultados indicaram uma diferença estatisticamente significativa na adoção da funcionalidade entre os grupos, com um p-valor de aproximadamente 0.0032 e uma estatística qui-quadrado de 8.71 (ver Figura \ref{fig:exp-adocao-dificuldade}). Esse achado indicou que a alteração na posição do filtro influenciou sua adoção pelos usuários.
 
 Por fim, visando se confirmar a suspeita de que a categoria posicionada por último seria a menos utilizada, foi realizado o mesmo teste, porém olhando para a categoria de fonte (esta, na versão de tratamento, se tornou a última). Os resultados apresentaram que sua proporção de adoção também foi maior na população de controle, contradizendo as suposições iniciais da equipe (U$\approx$3.92 e p$\approx$0.47, ver Figura \ref{fig:exp-adocao-fonte}). \textcolor{blue}{Figura}\todo[color=yellow]{Substituir essas figuras por tabelas, conforme mencionei anteriormente.}
 
-\todo[inline, color=pink]{ Substi }
+
+\todo[inline, color=yellow]{Não há absolutamente NENHUMA discussão sobre os resultados do teste de hipótese na perspectiva dos fatores da qualidade em uso, ou seja, as características e subcaracterísticas. Preste atenção em quais são as suas hipóteses e o que você deve responder com o seu estudo, não o que a Geek quer.}
+
+
+\todo[inline, color=yellow]{ Arthur, uma questão que preicisa fincar muito CLARA. O principal objetivo do seu trabalho foi estruturar um ambiente de coleta e executar o experimento. Para que isso acontecece, foi necessario evoluir o atual processo de desenvolvimento, inserindo de atividades de experimentação. O teste chi-quadrado realizado, porderia ser completamente retirado do seu trabalho e esse objetivo continuaria. A única conclusão que você tem nesse teste é que é pouco provável que a frequencia observada no uso do filtro entre os grupos seja devido ao acaso. Portanto, a partir dos dados observados, você tem evidência suficiente para rejeitar H0. O que isso significa? O que isso tem haver com a hipótese do seu experimento? Qual é a hipótese que você está investigando? Do que ainda saber se a quantidade de vezes que o filtro foi acessado foi provavelmente semelhante entre os dois grupos se você não sabe se isso: aumentou/diminuiu o tempo de permanência na plataforma? aumentou/diminuiu o numero questões e lista de exercícios criadas? Sim, há uma probabilidade que a posição do filtro não afete o seu uso. Que uso é esse? Como esse uso é medido?   
+A sua insistência nisso está causando uma confusão no texto e no foco das discussões do resultados.
+
+Repare por exemplo, que o uso do box-cox pode ter enviesado completamente suas conclusões em relação a hipótese do experimento. Dentre tantos outros problemas, é nisso que você deveria estar preocupado.}
 
 \begin{figure}
     \centering
-    \caption{Teste Sobre Adoção do Filtro de Nível de Dificuldade no Experimento}
+    \caption{Teste Sobre Adoção  do Filtro de Nível de Dificuldade no Experimento}
     \includegraphics[width=0.85\linewidth]{figuras/adocao_dificuldade_experimento.png}
     \begin{center}
         \text{Fonte: Autor}
