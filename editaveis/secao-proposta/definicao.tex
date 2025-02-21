@@ -1,8 +1,10 @@
 \section{Definição}
 
-Um Estudo de Caso é um método de investigação que visa analisar um fenômeno em seu contexto real e contemporâneo. Diferentes fontes de dados e técnicas podem ser utilizadas para essa abordagem, como pesquisas bibliográficas, entrevistas, observações, e mesmo, experimentos controlados \cite{wohlin_experimentation_2012}. \citeonline{yin_case_study_2009} ressalta que esse método parte do pressuposto de que um fenômeno de interesse não é separável de seu contexto.
+Nesta pesquisa utilizou-se do protocoloca de um Estudo de Caso, que é um método de investigação que visa analisar um fenômeno em seu contexto real e contemporâneo. Diferentes fontes de dados e técnicas podem ser utilizadas para essa abordagem, como pesquisas bibliográficas, entrevistas, observações, e mesmo, experimentos controlados \cite{wohlin_experimentation_2012}. \citeonline{yin_case_study_2009} ressalta que esse método parte do pressuposto de que um fenômeno de interesse não é separável de seu contexto.
 
-Costuma ser aplicado na Engenharia de Software quando se busca compreender um fenômeno em seu contexto real. O principal objetivo de um Estudo de Caso é coletar e analisar dados, a fim de realizar inferências que possam auxiliar no estabelecimento de relações entre os objetos de estudo \cite{wohlin_experimentation_2012}.
+Dado o cronograma limitado deste trabalho, o protocolo foi adaptado, a fim de ainda ser possível analisar o fenômeno em questão em seu contexto situacional. Esta pesquisa se trata de um estudo descritivo que visa analisar um processo de desenvolvimento de \textit{software} aplicado a um caso único.
+
+Um estudo de caso costuma ser aplicado na Engenharia de Software quando se busca compreender um fenômeno em seu contexto real. O principal objetivo de um Estudo de Caso é coletar e analisar dados, a fim de realizar inferências que possam auxiliar no estabelecimento de relações entre os objetos de estudo \cite{wohlin_experimentation_2012}.
 
 
 \subsection{Objetivo}
@@ -27,9 +29,8 @@ De modo geral, o estudo envolve um produto amplamente utilizado, inserido em um 
 
 Por fim, cabe destacar que, no momento, não há integração entre esse processo e a infraestrutura existente. Dessa forma, a decisão sobre a publicação de novas versões ainda ocorre manualmente, baseada em análises estatísticas, sem a automação desse fluxo.
 
-\subsection{\textit{Design}}
 
-\todo[inline, color=pink]{Descrever o desgin do estudo de caso. Aborde principalmente questões como os propósitos gerais(exploratório, descritivo, explicativo e avaliativo) e quantidade de casos(único, múltiplo).}
+\subsection{Trabalhos Relacionados}
 
 Durante a revisão da literatura, descrita no Capítulo \ref{ch:revisao}, foram selecionados estudos que pudessem servir de insumo para a construção desta monografia.
 
@@ -65,7 +66,6 @@ Buscando responder à questão principal de pesquisa do trabalho, apresentada na
 
 Serão coletadas métricas do comportamento em uso do produto. Também conhecidos como sinais ou eventos, métricas de comportamento em uso podem ser quaisquer interações do usuário com o produto, como quantidade de cliques, tempo de uso, tempo empregado para realização de uma determinada tarefa, etc. No contexto deste estudo de caso, os eventos a serem observados dependerão da hipótese escolhida. Esses dados quantitativos devem caracterizar a qualidade em uso de cada versão, como definido pela norma \citeonline{nbr9241}, onde serão avaliadas diferentes características de qualidade, como a satisfação, a eficácia e a eficiência.
 
- 
 Para responder essas questões específicas foram realizados dois estudos. O primeiro será um experimento controlado, sendo o fator, a percepção da qualidade em uso e dois duas versões do produto, que serão os dois tratamentos que serão comparados. Tratam-se da versão atual do produto e de um nova versão desenvolvida, onde foi implementada uma alteração na interface gráfica. Já o segundo estudo, será um questionário com a opinião de dos especialistas do negócio e do produto.Procuramos analisar a percepção desses participantes em relação aos resultados obtidos no experimento e a tomada de decisão sobre a escolha da versão. Dessa forma, a seguir são apresentadas as questões específicas:
 
 \begin{itemize}
@@ -84,7 +84,8 @@ Para responder essas questões específicas foram realizados dois estudos. O pri
 
 \subsection{Fonte de Dados}
 
-A fonte de dados quantitativos será o ambiente de uso da plataforma pelos usuários. \textcolor{blue}{Descrever melhor essa fonte}\todo[color=yellow]{Trata-se do servidor de produção da empresa,... blá, blá, blá,...}
-Uma vez que o \textit{software} esteja preparado para coletar os dados de uso da plataforma, assim que os usuários utilizarem a funcionalidade testada, métricas relacionadas ao seu uso serão coletadas como, por exemplo, número de questões criadas por cada docente. Como a funcionalidade implementada será apresentada em duas versões diferentes, espera-se que os dados coletados sejam significativamente distintos entre as duas populações de usuários. Esses dados são análisados estatística, de forma a determinar qual versão é mais adequada para os clientes.
+A fonte de dados quantitativos será a utilização da plataforma pelos usuários finais, ou seja, o produto em funcionamento no ambiente de produção. Uma vez que o \textit{software} esteja preparado para coletar dados sobre o uso da plataforma, métricas relacionadas à funcionalidade testada serão registradas assim que os usuários a utilizarem. Exemplos dessas métricas incluem o tempo de uso e a quantidade de cliques.
 
-Além disso, a opinião dos colaboradores envolvidos no processo também será coletada como uma fonte adicional de dados, visando entender se a metodologia ajudou na tomada de decisões e se houve uma evolução percebida em comparação ao processo existente na empresa. {O formulario será foi via googles forms,... blá, blá, blá,...}
+Como a funcionalidade implementada será disponibilizada em duas versões distintas, espera-se que os dados coletados apresentem diferenças estatisticamente significativas entre as duas populações de usuários. Esses dados servirão de base para uma análise estatística que permitirá determinar qual versão é mais adequada para os clientes.
+
+Adicionalmente, a percepção dos colaboradores envolvidos no processo será coletada por meio de um questionário virtual, com o objetivo de avaliar se a metodologia adotada auxiliou na tomada de decisões e se houve uma evolução perceptível em relação ao processo anteriormente adotado na empresa.
