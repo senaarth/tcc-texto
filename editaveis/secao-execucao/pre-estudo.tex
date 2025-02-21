@@ -1,5 +1,5 @@
 \subsection{Planejamento do Experimento Controlado}
-
+\label{subsec:plan_exp}
 Após a fase de ideação, iniciou-se o planejamento do experimento. Este estudo visa responder à primeira questão específica de pesquisa do estudo de caso, descrita na subseção \ref{subsec:estudo-questao}. Neste experimento, duas versões do produto são comparadas avaliando aspectos relacioandos a visão da qualidade em uso do produto.
 
 A literatura destaca a dificuldade em definir métricas que representem com precisão a entrega de valor desejada \cite{crook_seven_2009, larsen_statistical_2024}. Para evitar limitações de uma única medida, foram selecionadas métricas que refletem alguns dos objetivos de longo prazo do negócio, utilizando normas de referência para garantir maior confiabilidade e reprodutibilidade dos resultados. 
@@ -75,7 +75,9 @@ O experimento foi estruturado da seguinte forma:
 \todo[inline, color=pink]{Penso que essa estrutura de marcadores não ficou legal. Alterar para lista numerada}
 
 \begin{itemize}
-    \item \textbf{Objeto:} ???? Eventos de uso do produto, gerados a partir da utilização das funcionalidades A,B C, ... Esses eventos de uso são obtidos no servidor de aplicação XXX, registros no banco de dados, .... Explicar melhor isso.
+ \item \textbf{Escopo:} \textcolor{blue}{Descrever. Veja pg. 85 do livro do Wohlin}   
+    
+    \item \textbf{Objeto:} \textcolor{blue}{???? Eventos de uso do produto, gerados a partir da utilização das funcionalidades A,B C, ... Esses eventos de uso são obtidos no servidor de aplicação XXX, registros no banco de dados, .... Explicar melhor isso.}
     
     \item \textbf{Sujeitos:} Os participantes serão docentes que criam listas de exercícios na plataforma. Eles serão divididos em dois grupos: o de tratamento, composto pelos usuários beta, e o de controle, formado pelos demais usuários da base;
     
@@ -89,16 +91,22 @@ O experimento foi estruturado da seguinte forma:
 
  	\item \textbf{Tratamentos:} Dois tratamentos serão aplicados: um em que o filtro permanece na última posição (grupo de controle) e outro em que o filtro aparece em posição superior na listagem (grupo de tratamento);
 
- 
+ 	\item \textbf{\textit{Design}:} \textcolor{blue}{Descrever. Veja pg. 95 do livro do Wohlin. Crie uma tabela com exemplo para ilustrar. Veja tabelas 8.1  ou 8.2 na pg. 96. Veja também o cap. 7 do livro da Natalia Juristo. }     
    
+    \item \textbf{Hipóteses:}
+ 
  	\todo[inline, color=pink]{Aqui deve haver um texto com a explanação que explique e conecte o mundo real (suposições dos especialistas sobre o uso do filtro e serem criadas mais questões, listas de exercícios,...). Depois, explicar como isso se reflete na quantificação da percepção da qualidade em uso. A partir disso é que as hipóteses são apresentadas... A hipótese a ser refutada é que não há diferença na percepção da qualidade em uso entre a versão de controle (A) e a de tratamento(B). Em desfavor dessa hipótese nula, são testadas as hipóteses alternativas: 1) a percepção da qualidade em uso é maior na versão de controle(A) em comparação à versão de tratamento(B) e 2) a percepção da qualidade em uso é menor na versão de controle(A) em comparação à versão de tratamento(B)  }
 
-    \item \textbf{Hipóteses:}
     \begin{itemize}
         \item $H_0$: $Q_a = Q_b$
         \item $H_1$: $Q_a > Q_b$
         \item $H_2$: $Q_a < Q_b$
     \end{itemize}
+    
+    \item \textbf{Erros do Tipo I e II:} \textcolor{blue}{Descrever as estratégias planejadas para tratar esses erros}  
+
+	\item \textbf{População e Amostra:} \textcolor{blue}{Descrever a estratégia de seleção e o tamanho da amostra em relação a população.}  
+        
 \end{itemize}
 
 Dessa forma, ao se estudar as suposições dos colaboradores sobre o produto, deve ser possível responder a primeira questão de pesquisa específica deste estudo de caso, aprensentada na Subseção \ref{subsec:estudo-questao}. Relembrando:
@@ -111,9 +119,36 @@ Dessa forma, ao se estudar as suposições dos colaboradores sobre o produto, de
 \subsection{Pré-estudo do Experimento}
 \label{subsec:pre-estudo}
 
-Planejado o experimento, antes do desenvolvimento da nova versão, foi conduzido um pré-estudo: dados sobre o uso da plataforma, incluindo a criação de atividades e a aplicação de filtros, foram coletados ao longo de duas semanas. Esses dados foram utilizados para testes A/A, que verificaram a similaridade do comportamento entre os grupos de usuários. Essa análise assegurou que eventuais diferenças futuras pudessem ser atribuídas à nova versão testada com uma maior confiabilidade.
+Planejado o experimento, antes do desenvolvimento da nova versão, foi conduzido um pré-estudo. Neste pré-estudo, foram observados dados sobre o uso do produto, incluindo a criação de atividades e a aplicação de filtros. Esses dados foram coletados ao longo de duas semanas. Esses dados foram utilizados para testes A/A \textcolor{blue}{A/A}\todo[color=yellow]{Não há definição do que é o teste A/A em nenhum lugar anté aqui.}, que verificaram a similaridade do comportamento entre os grupos de usuários. Essa análise assegurou que eventuais diferenças futuras pudessem ser atribuídas à nova versão testada com uma maior confiabilidade.
 
-Esse procedimento ocorreu entre 08 e 21 de outubro de 2024. Foram registrados 41516 eventos de uso de filtros na seleção de exercícios por 2864 usuários únicos, dos quais 401 pertenciam ao grupo de tratamento (14\%). Os dados foram processados para classificar cada uso do filtro por usuário. Isso possibilitou verificar quantos usuários escolheram a opção de nível de dificuldade pelo menos uma vez. Como a variável analisada era categórica, aplicou-se o teste qui-quadrado para comparar os grupos. O resultado apontou ausência de diferença significativa (p-valor \(\approx\) 0.94), como mostrado na Figura \ref{fig:pre-study-adocao}. Isso indica que a proporção de adoção do filtro era similar entre os grupos, permitindo a continuidade do experimento.
+\todo[inline, color=pink]{Citar o estudo do Schermann et. al. sobre teste A/A - We're doing it live: A multi-method empirical study on continuous experimentation}
+
+\begin{comment}
+
+@article{cs5953,
+   author = {Gerald Schermann and Jürgen Cito and Philipp Leitner and Uwe Zdun and C Harald Gall},
+   doi = {10.1016/j.infsof.2018.02.010},
+   issn = {0950-5849},
+   journal = {Information and Software Technology},
+   month = {7},
+   pages = {41-57},
+   title = {We're doing it live: A multi-method empirical study on continuous experimentation},
+   volume = {99},
+   url = {http://eprints.cs.univie.ac.at/5953/},
+   year = {2018}
+}
+
+\end{comment}
+
+\todo[inline, color=pink]{Citar o estudo do Schermann et. al. sobre teste A/A - We're doing it live: A multi-method empirical study on continuous experimentation}
+
+\todo[inline, color=pink]{Aqui, houve uma quebra no encademento das ideiais. Até agora, nas subseções anteriores, tudo que foi dito diz respeito ao experimento minuciosamente planejado. Aí, "do nada" surge esse pré-estudo.  Desde que você rodou isso pela primeira vez, eu já achei estranho e tive uma sensação semelhante. Perceba o rigor da descrição necessária, feita na subseção 5.1.2. É preciso deixar claro que o pré-estudo serviu muito mais para você testar a instrumentação e coleta de dados do que para qualquer outra coisa. Por que esse pré-estudo foi necessário e quais os objetivos e resultados esperados?. Enfim, está um tanto quanto desconexo.  }
+
+
+Esse procedimento ocorreu entre 08 e 21 de outubro de 2024. Foram registrados 41516 eventos de uso de filtros na seleção de exercícios por 2864 usuários únicos, dos quais 401 pertenciam ao grupo de tratamento (14\%). Os dados foram processados para classificar cada uso do filtro por usuário. Isso possibilitou verificar quantos usuários escolheram a opção de nível de dificuldade pelo menos uma vez. Como a variável \textcolor{blue}{variável}\todo[color=yellow]{Que váriável? O que é uma variável categórica? O que isso tem a ver com o experimento planejado?} analisada era categórica, aplicou-se o teste qui-quadrado para comparar os grupos. O resultado apontou ausência de diferença significativa (p-valor \(\approx\) 0.94), como mostrado na Figura \ref{fig:pre-study-adocao}. Isso indica que a proporção de adoção do filtro era similar entre os grupos, permitindo a continuidade do experimento.
+
+\todo[inline, color=pink]{Por que esse pré-estudo foi necessário e quais os objetivos e resultados esperados?. Enfim, está um tanto quanto desconexo.  }
+
 
 \begin{figure}
     \centering
@@ -125,8 +160,42 @@ Esse procedimento ocorreu entre 08 e 21 de outubro de 2024. Foram registrados 41
     \label{fig:pre-study-adocao}
 \end{figure}
 
-Em seguida, realizou-se um teste de hipótese sobre a distribuição do número de utilizações do filtro por docente no período. Como os dados não seguiam uma distribuição normal, aplicou-se o teste Mann-Whitney U. Não foi encontrada diferença significativa entre os grupos para um nível de significância de 5\% (U = 5511, p = 0.7014). A Figura \ref{fig:pre-study-usos} apresenta as distribuições, sendo azul para o grupo de controle e marrom para o de tratamento. Foram analisados 331 docentes que utilizaram o filtro pelo menos uma vez (281 no grupo de controle e 50 no de tratamento). O resultado confirma que, além da similaridade na adoção do filtro, os grupos apresentavam padrões semelhantes de uso da funcionalidade.
 
+
+\todo[inline, color=pink]{Fixe/ancore essa figura (18)  para que ela fique imediantamente após o parágrafo acima, caso ela seja automaticamente pelo latex para outra posição}
+
+Transforme essa imagem em tabelas latex como nestes exemplos: \ref{fig:tabelas-chi-quadrado1} e \ref{fig:tabelas-chi-quadrado2}
+
+\begin{figure}
+    \centering
+    \caption{Exemplo de tabelas para reportar resultado de teste chi-quadrado}
+    \includegraphics[width=0.85\linewidth]{figuras/tabelas-chi-quadrado1.png}
+    \label{fig:abelas-chi-quadrado1}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \caption{Exemplo de tabelas para reportar resultado de teste chi-quadrado}
+    \includegraphics[width=0.85\linewidth]{figuras/tabelas-chi-quadrado2.png}
+    \label{fig:abelas-chi-quadrado2}
+\end{figure}
+
+
+\todo[inline, color=pink]{A propósito, todos os resultados dos testes estatístico daqui para frente precisarão ser apresentados em tabala. Nos próximos, farei esse apontamento direto: [Transformar em tabela latex ou criá-la] }
+
+Em seguida, realizou-se um teste de hipótese sobre a distribuição do número de utilizações do filtro por docente no período. \textcolor{blue}{hipótese}\todo[color=yellow]{Que hipótese é essa? Qual o objetivo deste teste???} Como os dados não seguiam uma distribuição normal, \textcolor{blue}{distribuição normal}\todo[color=yellow]{Como isso é verificado? Qual foi o teste de normalidade utilizado e quais os resultados obtidos?} aplicou-se o teste Mann-Whitney U. 
+
+\todo[inline, color=pink]{Por que é necessário testar a normalidade de uma distribuição? Se não fosse uma distribuição não-paramétrica, qual seria o teste estatístico a ser utilizado } 
+
+Não foi encontrada diferença significativa \textcolor{blue}{diferença significativa}\todo[color=yellow]{Que diferença significativa é essa? Por que isso foi testado? } entre os grupos \textcolor{blue}{que grupos? } para um nível de significância de 5\% (U = 5511, p = 0.7014).
+
+\todo[inline, color=pink]{Por que o nível de sifnificância é de 5\%. O que é U e o que siginifica U= 5511?} 
+
+\todo[inline, color=pink]{O nível de significância (α) é um limiar predefinido (geralmente 0,05) que determina o quão forte precisa ser a evidência contra a H0 para rejeitá-la. Considerando que no teste qui-quadrado, a H0 geralmente assume que não há associação entre as variáveis categóricas em estudo ou que a distribuição observada dos dados corresponde à distribuição esperada, qual é a interpretação para o p-valor=0.7014, obtido nesse teste?} 
+
+
+ Na figura \ref{fig:pre-study-usos} é ilutratado o comportanmento das distribuições dos grupos de controle(azul) e tratamento(marrom). Foram analisados 331 docentes que utilizaram o filtro pelo menos uma vez (281 no grupo de controle e 50 no de tratamento). O resultado observado evidencia a similaridade do comportamento dessas distribuições. Ou seja,  os grupos apresentaram padrões semelhantes em relação ao uso do filtro de nível de dificuldade. Portanto, não houve evidência estatisticamente significativa para concluir que havia associação entre o uso do filtro e os diferentes tratamentos.
+ 
 \begin{figure}
     \centering
     \caption{Distribuições do Número de Utilizações do Filtro no Pré-estudo}
@@ -137,7 +206,11 @@ Em seguida, realizou-se um teste de hipótese sobre a distribuição do número 
     \label{fig:pre-study-usos}
 \end{figure}
 
-Outro teste foi conduzido para avaliar a distribuição do número de listas de exercícios criadas por docente. Novamente, utilizou-se o teste Mann-Whitney U, dada a ausência de normalidade nos dados. Para um nível de significância de 5\%, não houve diferença significativa entre os grupos (U = 4797, p = 0.3166). As distribuições são ilustradas na Figura \ref{fig:pre-study-acts}. No total, foram considerados 269 docentes que criaram ao menos uma atividade e utilizaram o filtro (224 no grupo de controle e 45 no de tratamento).
+Ainda no intuito de testar os procedimentos a serem utilizados na execução do experimento planejado... blá, blá, blá...
+
+Outro teste foi conduzido para avaliar a distribuição do número de listas de exercícios criadas por docente. \textcolor{blue}{docente}\todo[color=yellow]{Qual o objetivo de avaliar essa distribuição?} Novamente, utilizou-se o teste Mann-Whitney U, dada a ausência de normalidade nos dados. Para um nível de significância de 5\%, não houve diferença significativa entre os grupos (U = 4797, p = 0.3166). As distribuições são ilustradas na Figura \ref{fig:pre-study-acts}. No total, foram considerados 269 docentes que criaram ao menos uma atividade e utilizaram o filtro (224 no grupo de controle e 45 no de tratamento).
+
+\todo[inline, color=pink]{No geral, reitero todas  considerações feitas no texto e teste estatístico anterior, especificamente nos dois últimos parágrafos)} 
 
 \begin{figure}
     \centering
@@ -151,6 +224,8 @@ Outro teste foi conduzido para avaliar a distribuição do número de listas de 
 
 Por fim, testou-se a distribuição do número de exercícios selecionados por docente no período. Utilizou-se novamente o teste Mann-Whitney U. Para um nível de significância de 5\%, não foi observada diferença significativa entre os grupos (U = 4780.5, p = 0.4772). As distribuições são apresentadas na Figura \ref{fig:pre-study-exs}. No total, 269 docentes foram analisados (224 do grupo de controle e 45 do grupo de tratamento).
 
+\todo[inline, color=pink]{No geral, reitero todas  considerações feitas no texto e teste estatístico anteriores, especificamente nos três últimos parágrafos)} 
+
 \begin{figure}
     \centering
     \caption{Distribuições do Número de Exercícios Selecionados no Pré-estudo}
@@ -161,4 +236,4 @@ Por fim, testou-se a distribuição do número de exercícios selecionados por d
     \label{fig:pre-study-exs}
 \end{figure}
 
-Após essas análises\footnote{Os dados coletados foram anonimizados e disponibilizados em repositório público, junto com os cadernos de análise. Disponível em: \href{https://github.com/senaarth/tcc-notebooks/blob/main/pre-study.ipynb}{https://github.com/senaarth/tcc-notebooks}}, concluiu-se que não havia diferenças no comportamento dos grupos antes da introdução da nova versão. Esse processo aumentou a confiabilidade das análises subsequentes, conforme recomendado por \citeonline{erthal_characterization_2023} e \citeonline{kohavi_seven_2014}. Assim, deu-se prosseguimento o experimento.
+Após essas análises\footnote{Os dados coletados foram anonimizados e disponibilizados em repositório público, junto com os cadernos de análise. Disponível em: \href{https://github.com/senaarth/tcc-notebooks/blob/main/pre-study.ipynb}{https://github.com/senaarth/tcc-notebooks}}, concluiu-se que não havia diferenças no comportamento dos grupos antes da introdução da nova versão. Esse processo aumentou a confiabilidade das análises subsequentes, conforme recomendado por \citeonline{erthal_characterization_2023} e \citeonline{kohavi_seven_2014}. Assim, deu-se prosseguimento a execução do experimento planejado na subseção anterior, \ref{subsec:plan_exp}.
