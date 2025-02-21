@@ -16,3 +16,4 @@ editaveis/.DS_Store
 *.brf
 *.fdb_latexmk
 *.fls
+*.synctex
