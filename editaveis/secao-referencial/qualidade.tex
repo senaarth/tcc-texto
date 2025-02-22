@@ -30,7 +30,7 @@ Apesar desses avanços, a subjetividade na definição dos pesos e na agregaçã
 \subsection{Modelo QATCH}
 \label{subsec:qatch}
 
-O modelo porposto por \citeonline{qatch} utiliza de métricas de qualidade e da opinião de \textit{stakeholders} para agragar indicadores que representem a qualidade de um \textit{software}, visando resolver problemas de falta de adaptabilidade ao contexto de cada produto e a subjetividade existente nas avaliações de qualidade.
+O modelo proposto por \citeonline{qatch} utiliza métricas de qualidade e a opinião de \textit{stakeholders} para agregar indicadores que representem a qualidade de um \textit{software}, visando resolver problemas de falta de adaptabilidade ao contexto de cada produto e a subjetividade existente nas avaliações de qualidade.
 
 Para garantir objetividade e transparência, \citeonline{qatch} sugerem que os pesos das métricas sejam definidos previamente pelos \textit{stakeholders}, aplicando uma adaptação da técnica de Processo Analítico Hierárquico (AHP) \cite{ahp}. Essa técnica hierárquica permite organizar as métricas de forma estrutural, sendo compatível com a abordagem de agregação do QATCH, onde os escores das propriedades formam as pontuações das características, que por sua vez são agregadas para compor os aspectos principais do modelo de qualidade.
 
@@ -64,17 +64,7 @@ onde:
     \item \( M \) é o número total de propriedades relacionadas à característica.
 \end{itemize}
 
-O processo de avaliação segue uma abordagem \textit{bottom-up}, onde os escores das propriedades são usados para calcular os escores das características, que, por sua vez, compõem o escore geral do produto (\( Q \)). O resultado final é um valor entre 0 e 1, permitindo uma interpretação quantitativa da qualidade. Para facilitar a compreensão, esse valor é traduzido para uma classificação em estrelas (de 1 a 5), com intervalos bem definidos.
-
-Os valores dos pesos (\( w_{ci} \) e \( w_{pij} \)) são definidos com base em opiniões de especialistas, aplicando técnicas de decisão multicritério. Esse método sistemático oferece uma forma objetiva e compreensível de avaliar a qualidade de produtos de software, promovendo transparência e permitindo melhorias contínuas no desenvolvimento de sistemas. Adicionalmente, o modelo reconhece que uma propriedade pode influenciar mais de uma característica, ficando à critério da visão dos \textit{stakeholders} do contexto sendo avaliado. Desta forma, a agregação realizada pode ser visualizada na Figura \ref{fig:qatch}.
-
-\begin{figure}[h]
-\centering
-\caption{Processo de Agregação do Modelo QATCH}
-\includegraphics[width=1\linewidth]{figuras/qatch.png}
-\text{Fonte: \citeonline{qatch}}
-\label{fig:qatch}
-\end{figure}
+O processo de avaliação segue uma abordagem \textit{bottom-up}, onde os escores das propriedades são usados para calcular os escores das características, que, por sua vez, compõem o escore geral do produto (\( Q \)). O resultado final é um valor entre 0 e 1, permitindo uma interpretação quantitativa da qualidade.
 
 \subsection{Processo AHP}
 \label{subsec:ahp}
@@ -94,59 +84,56 @@ A =
 \end{bmatrix}.
 \]
 
-Nesta matriz:
-\begin{itemize}
-    \item \( a_{ij} \) representa a importância relativa do elemento \( i \) em relação ao elemento \( j \);
-    \item Os valores \( a_{ij} \) são determinados pelos tomadores de decisão com base em uma escala de razão, variando entre 1 e 9, onde \( 1 \) indica que ambos os elementos são igualmente importantes, e \( 9 \) indica que um elemento é extremamente mais importante que o outro;
-    \item A diagonal principal contém valores iguais a \( 1 \), pois um elemento comparado consigo mesmo tem importância relativa igual.
-\end{itemize}
+Os valores \( a_{ij} \) são determinados com base na escala de razão conforme a Tabela \ref{tab:ahp_scale}:
 
-A parte triangular inferior da matriz é preenchida com os recíprocos dos valores da parte superior (\( a_{ji} = \frac{1}{a_{ij}} \)).
+\begin{table}[h]
+\centering
+\caption{Escala de comparação do AHP no QATCH}
+\label{tab:ahp_scale}
+\begin{tabular}{|c|l|}
+\hline
+\textbf{Valor} & \textbf{Nível de Importância} \\ \hline
+1 & Igualmente importante \\ \hline
+3 & Pouco mais importante \\ \hline
+5 & Moderadamente mais importante \\ \hline
+7 & Muito mais importante \\ \hline
+9 & Extremamente mais importante \\ \hline
+\end{tabular}
 
-Os pesos dos critérios ou alternativas são calculados a partir da matriz \( A \). Para isso, é necessário determinar o \textbf{autovetor principal} associado ao maior autovalor (\( \lambda_{\text{máx}} \)) da matriz. O autovetor principal (\( w \)) é normalizado para que a soma de seus elementos seja igual a 1:
+\begin{center}
+    \text{Fonte: \citeonline{qatch}}
+\end{center}
+\end{table}
 
-\[
-w_i = \frac{a_i}{\sum_{j=1}^{n} a_j}, \quad \forall i \in \{1, 2, \dots, n\},
-\]
+\subsection{Extensão \textit{Fuzzy} do AHP}
 
-\noindent
-onde:
-\begin{itemize}
-    \item \( w_i \) é o peso relativo do \( i \)-ésimo elemento;
-    \item \( a_i \) é o componente correspondente do autovetor principal.
-\end{itemize}
-
-No modelo QATCH \cite{qatch}, o AHP é utilizado para calcular os pesos tanto das \textbf{características} quanto das \textbf{propriedades} do modelo de qualidade. Esses pesos são então utilizados nas fórmulas de média ponderada para calcular os escores de qualidade em diferentes níveis de avaliação. Desta forma, o escore geral de qualidade (\( Q \)) é calculado agregando os escores das características (\( q_{ci} \)) com base em seus pesos (\( w_{ci} \)):
-
-\[
-Q = \sum_{i=1}^N w_{ci}q_{ci}.
-\]
-
-De forma similar, o escore de cada característica (\( q_{ci} \)) é calculado com base nos escores das propriedades relacionadas (\( q_{pj} \)) e seus respectivos pesos (\( w_{pij} \)):
-
-\[
-q_{ci} = \sum_{j=1}^M w_{pij}q_{pj}, \quad \forall i \in \{1, 2, \dots, N\}.
-\]
-
-Além disso, apesar do AHP convencional fornecer um método estruturado e matematicamente sólido, ele depende de julgamentos humanos que podem ser subjetivos e suscetíveis a incertezas. Para lidar com essas limitações, o \textbf{Fuzzy AHP} estende o AHP incorporando lógica \textit{fuzzy}. Nesse contexto:
+O \textit{Fuzzy} AHP aprimora o método ao incorporar conceitos da lógica \textit{fuzzy}, permitindo a modelagem da incerteza inerente aos julgamentos subjetivos dos especialistas \cite{qatch}. Essa abordagem possibilita uma avaliação mais realista e flexível ao atribuir graus de certeza para cada comparação realizada.
 
 \begin{itemize}
-    \item Os especialistas atribuem valores linguísticos, como "Muito Alto" ou "Moderado", em vez de números precisos;
-    \item Esses valores são convertidos em \textbf{números fuzzy triangulares}, representados como \( (l, m, u) \), onde:
+    \item Além do nível de importância, os especialistas indicam um grau de certeza qualitativo, categorizado como \textit{Alta Certeza}, \textit{Média Certeza} ou \textit{Baixa Certeza};
+    \item Esses valores são convertidos em \textbf{números fuzzy triangulares}, expressos como \( (m - \sigma, m, m + \sigma) \), onde:
     \begin{itemize}
-        \item \( l \): limite inferior;
-        \item \( m \): valor modal;
-        \item \( u \): limite superior.
+        \item \( m \) representa o valor modal, conforme a escala de Saaty;
+        \item \( \sigma \) ajusta a dispersão do peso, variando conforme o grau de certeza: 0.1 para alta certeza, 0.5 para média certeza e 0.9 para baixa certeza.
     \end{itemize}
 \end{itemize}
 
-Os pesos \textit{fuzzy} são calculados usando o método dos \textbf{Mínimos Quadrados Logarítmicos Fuzzy} e, posteriormente, defuzzificados para produzir valores exatos (\textit{crisp}) que podem ser usados nas fórmulas de média ponderada. O processo de defuzzificação utiliza o método do centro de massa:
+A função de pertinência fuzzy utilizada no QATCH é definida por:
 
 \[
-F = \frac{\int x \mu(x) dx}{\int \mu(x) dx},
+\mu_A(x) = \begin{cases} 
+\frac{x - l}{m - l}, & l \leq x \leq m, \\ 
+\frac{u - x}{u - m}, & m \leq x \leq u, \\ 
+0, & \text{caso contrário}. 
+\end{cases}
 \]
 
-\noindent
-onde \( \mu(x) \) é a função de pertinência \textit{fuzzy}.
+Os pesos \textit{fuzzy} são determinados por meio do \textbf{método dos Mínimos Quadrados Logarítmicos Fuzzy} e posteriormente defuzzificados para obtenção de valores exatos (\textit{crisp}), que podem ser empregados nas fórmulas de média ponderada. O processo de defuzzificação utiliza o \textbf{método do centro de massa}:
+
+\[
+F = \frac{\int x \mu(x) dx}{\int \mu(x) dx}.
+\]
+
+
 
 Desta forma, o AHP e sua extensão \textit{fuzzy} oferecem uma abordagem robusta para elicitar pesos em problemas de decisão multicritério, permitindo que julgamentos qualitativos sejam traduzidos em medidas quantitativas. No contexto do QATCH, essa metodologia garante que os pesos refletem a percepção dos especialistas sobre a qualidade do software, resultando em avaliações mais precisas e adaptáveis.
