@@ -1,6 +1,6 @@
 \subsection{Desenvolvimento do Tratamento}
 
-A nova versão do produto foi implementada com a adição de uma condicional no código para definir a posição do filtro de nível de dificuldade. Essa condicional foi vinculada a um \textit{feature gate} denominado \textit{experiment/difficulty-filter-position} (como descrito na Subseção \ref{subsubsec:variants}). 
+A nova versão do produto foi implementada com a adição de uma condicional no código para definir a posição do filtro de nível de dificuldade. Essa condicional foi vinculada a um \textit{feature gate} denominado \textbf{experiment/difficulty-filter-position} (como descrito na Subseção \ref{subsubsec:variants}). Desta forma, como apresentado anteriormente, os usuários de controle utilizaram consistentemente a versão da Figura \ref{fig:selecao-questoes-controle} e o grupo de tratamente a versão da Figura \ref{fig:selecao-questoes-tratamento}.
 
 Na tela de criação de listas de exercícios, os três primeiros filtros são essenciais para determinados casos de uso do produto. Por essa razão, por decisão estratégica, o filtro de nível de dificuldade foi elevado apenas até a quarta posição, garantindo que fluxos críticos não fossem impactados. O trecho de código a seguir ilustra uma implementação semelhante à utilizada na versão de tratamento.
 
@@ -32,13 +32,12 @@ function FiltersComponent() {
 \end{lstlisting}
 
 
-Finalizado o desenvolvimento, seguindo o fluxo padrão da empresa para a liberação de novas versões, o código passou por revisão e análise. Após a implantação da \textit{release}, a versão de tratamento foi ativada exclusivamente para os usuários beta, iniciando assim a coleta de dados.  É importante destacar que, embora as escolas beta estejam cientes de que podem receber versões experimentais do produto ou funcionalidades em desenvolvimento, nenhum usuário foi informado sobre este experimento, evitando assim possíveis vieses em seu comportamento.
-
+Finalizado o desenvolvimento, seguindo o fluxo padrão da empresa para a liberação de novas versões, o código passou por revisão e análise. Após a realização da \textit{release}, a versão de tratamento foi ativada exclusivamente para os usuários beta, iniciando assim a coleta de dados.  É importante destacar que, embora as escolas beta estejam cientes de que podem receber versões experimentais do produto ou funcionalidades em desenvolvimento, nenhum usuário foi informado sobre este experimento, evitando assim possíveis vieses em seu comportamento.
 
 \subsection{Execução do Experimento}
 \label{subsec:experimento}
 
-Os dados de uso das diferentes versões da funcionalidade \textcolor{blue}{funcionalidade}\todo[color=yellow]{Não foi somente uma funcionalidade. Quais foram? Além disso, foi coletado a qtde. de uso do filtro de dificuldade.} foram coletados ao longo de um período de duas semanas, de 5 a 18 de novembro de 2024. Durante esse intervalo, foram registrados 80.198 eventos de filtragem e 30.731 listas de exercícios criadas. O primeiro passo da análise consistiu na segmentação dos usuários únicos, focando inicialmente na utilização do filtro de nível de dificuldade. Para evitar distorções nas medidas de tendência central, foram excluídos do conjunto de dados os usuários que não utilizaram o filtro em nenhuma ocasião, uma vez que representavam 85\% da amostra observada.
+Os dados de uso das diferentes versões do produto foram coletados ao longo de um período de duas semanas, de 5 a 18 de novembro de 2024. Durante esse intervalo, foram registrados 80198 eventos de uso de filtros e 30731 listas de exercícios criadas. O primeiro passo da análise consistiu na segmentação dos usuários únicos, focando inicialmente na utilização do filtro de nível de dificuldade. Para evitar distorções nas medidas de tendência central, foram excluídos do conjunto de dados os usuários que não utilizaram o filtro em nenhuma ocasião, uma vez que representavam 85\% da amostra observada.
 
 Após essa filtragem inicial, o conjunto original de 3.504 docentes foi reduzido para 517 usuários, dos quais 429 ($\approx$83\%) pertenciam ao grupo de controle e 88 ($\approx$17\%) ao grupo de tratamento. Para essa amostra, foram extraídas métricas referentes ao número de listas de exercícios criadas e à quantidade de questões selecionadas no período analisado. Em seguida, foram aplicadas técnicas de estatística descritiva para compreender o comportamento dos usuários, incluindo a análise de diagramas de caixa e medidas de tendência central.
 

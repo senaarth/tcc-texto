@@ -155,41 +155,26 @@ Desta forma então, os indicadores de qualidade em uso de cada usuário serão u
     \label{tab:design}
 \end{table}
 
-\subsection{Pré-estudo do Experimento}
+Além disso, foram planejadas medidas para se mitigar possíveis erros nos testes estatísticos. Para mitigar erros do tipo I foi definido um nível de significância alfa de 5\%, a fim de evitar a rejeição da hipótese nula indevidamente (95\% de confiança). Além disso, valores extremos serão removidos do conjunto antes da realização dos testes através de métodos de redução de dados, à depender de qual for mais adequado para a amostra coletada.
+
+Já com relação a erros do tipo II, onde não se rejeita a hipótese nula quando se deveria, foi planejado aumentar o conjunto de dados se possível e se necessário, a fim de aumentar o poder estatístico do teste. Ou seja, o experimento será executado durante um determinado período e, caso as análises se demonstrem inconclusivas por alguma razão, novas iterações serão realizadas. Desta maneira se diminui a probabilidade do erro tipo II sem aumentar a probabilidade de um erro tipo I.
+
+Com todas esta definições previamente realizadas seguiu-se para a instrumentação e pré-estudo do experimento, conforme planejado no processo proposto (ver Subseção \ref{sec:procedimentos}).
+
+\subsection{Instrumentação e Pré-estudo do Experimento}
 \label{subsec:pre-estudo}
 
-Planejado o experimento, antes do desenvolvimento da nova versão, foi conduzido um pré-estudo. Neste pré-estudo, foram observados dados sobre o uso do produto, incluindo a criação de atividades e a aplicação de filtros. Esses dados foram coletados ao longo de duas semanas. Esses dados foram utilizados para testes A/A \textcolor{blue}{A/A}\todo[color=yellow]{Não há definição do que é o teste A/A em nenhum lugar anté aqui.}, que verificaram a similaridade do comportamento entre os grupos de usuários. Essa análise assegurou que eventuais diferenças futuras pudessem ser atribuídas à nova versão testada com uma maior confiabilidade.
+A instrumentação deste experimento consistiu no preparo da coleta de dados para realização do experimento. Não foi necessária a configuração do Mixpanel \cite{mixpanel2024} nem adição de novos enventos, visto que o produto já teve seu ambiente preparado e já emitia eventos de uso do filtro, de atividades criadas e de exercícios selecionados previamente. Foi necessário apenas a criação de um ambiente de análise e preparação de todo o ferramental, com a criação de um \textit{Jupyter Notebook} \cite{jupyter_notebook} que consumia a API do Mixpanel \cite{mixpanel2024}.
 
-\todo[inline, color=pink]{Citar o estudo do Schermann et. al. sobre teste A/A - We're doing it live: A multi-method empirical study on continuous experimentation}
+Nesta fase também foi realizado um pré-estudo do experimento. Este procedimento, já apresentado anteriormente, visa verificar se a realização do experimento seria possível nas condições planejadas (população de usuários, métricas selecionadas, etc). Utilizando-se de um teste A/A, que consta em analisar dados de uso onde ambas as populações são apresentadas a mesma versão (de controle), para verificar se o comportamento dos dois grupos de usuários não se comportavam de maneira diferente antes mesmo da implantação da versão de tratamento \cite{SCHERMANN201841}. Este tipo de teste já foi abordado na literatura, e é utilizado para se aumentar a confiabilidade dos experimentos e avaliar o \textit{design} dos mesmos antes de sua execução \cite{fabijan_evolution_2017, fabijan_three_2019, erthal_characterization_2023, fabijan_benefits_2017, crook_seven_2009}.
 
-\begin{comment}
+Foram coletadas então as métricas já definidas no planejamento (número de usos do filtro, de atividades criadas e de exercícios selecionados) além da métrica de interesse da suposição da equipe (proporção de adoção do filtro por nível de dificuldade). Esse procedimento ocorreu entre 08 e 21 de outubro de 2024. Foram registrados 41516 eventos de uso de filtros na seleção de exercícios por 2864 usuários únicos, dos quais 401 pertenciam ao grupo de tratamento (14\%). Os dados foram processados para classificar cada uso do filtro por usuário. Isso possibilitou verificar quantos usuários escolheram a opção de nível de dificuldade pelo menos uma vez. 
 
-@article{cs5953,
-   author = {Gerald Schermann and Jürgen Cito and Philipp Leitner and Uwe Zdun and C Harald Gall},
-   doi = {10.1016/j.infsof.2018.02.010},
-   issn = {0950-5849},
-   journal = {Information and Software Technology},
-   month = {7},
-   pages = {41-57},
-   title = {We're doing it live: A multi-method empirical study on continuous experimentation},
-   volume = {99},
-   url = {http://eprints.cs.univie.ac.at/5953/},
-   year = {2018}
-}
-
-\end{comment}
-
-\todo[inline, color=pink]{Citar o estudo do Schermann et. al. sobre teste A/A - We're doing it live: A multi-method empirical study on continuous experimentation}
-
-\todo[inline, color=pink]{Aqui, houve uma quebra no encademento das ideiais. Até agora, nas subseções anteriores, tudo que foi dito diz respeito ao experimento minuciosamente planejado. Aí, "do nada" surge esse pré-estudo.  Desde que você rodou isso pela primeira vez, eu já achei estranho e tive uma sensação semelhante. Perceba o rigor da descrição necessária, feita na subseção 5.1.2. É preciso deixar claro que o pré-estudo serviu muito mais para você testar a instrumentação e coleta de dados do que para qualquer outra coisa. Por que esse pré-estudo foi necessário e quais os objetivos e resultados esperados?. Enfim, está um tanto quanto desconexo.  }
+Para realizar esta análise, utilizou-se o teste qui-quadrado para comparar os grupos, por se tratar de uma variável categórica: usuário usou ou não o filtro alguma vez no período (uma maior discussão sobre este teste é feita em \ref{subsec:chi-square}). O resultado apontou ausência de diferença significativa (p-valor \(\approx\) 0.94), como mostrado na Figura \ref{fig:pre-study-adocao}. Isso indica que a proporção de adoção do filtro era similar entre os grupos, permitindo a continuidade do experimento.
 
 
-Esse procedimento ocorreu entre 08 e 21 de outubro de 2024. Foram registrados 41516 eventos de uso de filtros na seleção de exercícios por 2864 usuários únicos, dos quais 401 pertenciam ao grupo de tratamento (14\%). Os dados foram processados para classificar cada uso do filtro por usuário. Isso possibilitou verificar quantos usuários escolheram a opção de nível de dificuldade pelo menos uma vez. Como a variável \textcolor{blue}{variável}\todo[color=yellow]{Que váriável? O que é uma variável categórica? O que isso tem a ver com o experimento planejado?} analisada era categórica, aplicou-se o teste qui-quadrado para comparar os grupos. O resultado apontou ausência de diferença significativa (p-valor \(\approx\) 0.94), como mostrado na Figura \ref{fig:pre-study-adocao}. Isso indica que a proporção de adoção do filtro era similar entre os grupos, permitindo a continuidade do experimento.
 
-\todo[inline, color=pink]{Por que esse pré-estudo foi necessário e quais os objetivos e resultados esperados?. Enfim, está um tanto quanto desconexo.  }
-
-
-\begin{figure}
+\begin{figure}[H]
     \centering
     \caption{Teste Sobre Adoção do Filtro de Nível de Dificuldade no Pré-estudo}
     \includegraphics[width=0.85\linewidth]{figuras/pre_study_adocao.png}
@@ -200,40 +185,14 @@ Esse procedimento ocorreu entre 08 e 21 de outubro de 2024. Foram registrados 41
 \end{figure}
 
 
+Em seguida, realizou-se um teste de hipótese sobre a distribuição do número de utilizações do filtro por docente no período. Um teste de hipótese pressupõe que a distribuição dos dois conjuntos é igual, então o resultado visa verificar se há diferença significativa entre os dois grupos. Como os dados não seguiam uma distribuição normal, como pode ser verificado através do histograma apresentado na Figura \ref{fig:pre-study-uses} aplicou-se o teste Mann-Whitney U, que é mais adequado para distribuições não normais (ver Subseção \ref{subsec:u-test}).
 
-\todo[inline, color=pink]{Fixe/ancore essa figura (18)  para que ela fique imediantamente após o parágrafo acima, caso ela seja automaticamente pelo latex para outra posição}
+Para um nível de significância de 5\%, não foi encontrada diferença estatisticamente significativa na distribuição do número de usos do filtro de nível de dificuldade entre os dois grupos. Os resultados obtidos foram uma estatística \textit{U} de 5511 e um p-valor de 0.7014. 
 
-Transforme essa imagem em tabelas latex como nestes exemplos: \ref{fig:tabelas-chi-quadrado1} e \ref{fig:tabelas-chi-quadrado2}
-
-\begin{figure}
-    \centering
-    \caption{Exemplo de tabelas para reportar resultado de teste chi-quadrado}
-    \includegraphics[width=0.85\linewidth]{figuras/tabelas-chi-quadrado1.png}
-    \label{fig:abelas-chi-quadrado1}
-\end{figure}
-
-\begin{figure}
-    \centering
-    \caption{Exemplo de tabelas para reportar resultado de teste chi-quadrado}
-    \includegraphics[width=0.85\linewidth]{figuras/tabelas-chi-quadrado2.png}
-    \label{fig:abelas-chi-quadrado2}
-\end{figure}
+Uma estatística \textit{U} elevada (mais distante de 0) sugere uma maior similaridade entre as distribuições dos grupos analisados. O p-valor, por sua vez, quantifica a probabilidade de se obter um resultado tão extremo quanto o observado, assumindo que a hipótese nula (de que as duas distribuições são iguais) seja verdadeira. Neste experimento, considerando um limiar de significância de 0.05, um p-valor inferior a esse valor indicaria uma diferença estatisticamente significativa entre os grupos. No entanto, como o p-valor obtido (0.7014) é muito superior a esse limite, conclui-se que não há evidências suficientes para rejeitar a hipótese nula e, portanto, não foi identificada uma diferença estatisticamente relevante entre as distribuições.
 
 
-\todo[inline, color=pink]{A propósito, todos os resultados dos testes estatístico daqui para frente precisarão ser apresentados em tabala. Nos próximos, farei esse apontamento direto: [Transformar em tabela latex ou criá-la] }
-
-Em seguida, realizou-se um teste de hipótese sobre a distribuição do número de utilizações do filtro por docente no período. \textcolor{blue}{hipótese}\todo[color=yellow]{Que hipótese é essa? Qual o objetivo deste teste???} Como os dados não seguiam uma distribuição normal, \textcolor{blue}{distribuição normal}\todo[color=yellow]{Como isso é verificado? Qual foi o teste de normalidade utilizado e quais os resultados obtidos?} aplicou-se o teste Mann-Whitney U. 
-
-\todo[inline, color=pink]{Por que é necessário testar a normalidade de uma distribuição? Se não fosse uma distribuição não-paramétrica, qual seria o teste estatístico a ser utilizado } 
-
-Não foi encontrada diferença significativa \textcolor{blue}{diferença significativa}\todo[color=yellow]{Que diferença significativa é essa? Por que isso foi testado? } entre os grupos \textcolor{blue}{que grupos? } para um nível de significância de 5\% (U = 5511, p = 0.7014).
-
-\todo[inline, color=pink]{Por que o nível de sifnificância é de 5\%. O que é U e o que siginifica U= 5511?} 
-
-\todo[inline, color=pink]{O nível de significância (alfa) é um limiar predefinido (geralmente 0,05) que determina o quão forte precisa ser a evidência contra a H0 para rejeitá-la. Considerando que no teste qui-quadrado, a H0 geralmente assume que não há associação entre as variáveis categóricas em estudo ou que a distribuição observada dos dados corresponde à distribuição esperada, qual é a interpretação para o p-valor=0.7014, obtido nesse teste?} 
-
-
- Na figura \ref{fig:pre-study-usos} é ilutratado o comportanmento das distribuições dos grupos de controle(azul) e tratamento(marrom). Foram analisados 331 docentes que utilizaram o filtro pelo menos uma vez (281 no grupo de controle e 50 no de tratamento). O resultado observado evidencia a similaridade do comportamento dessas distribuições. Ou seja,  os grupos apresentaram padrões semelhantes em relação ao uso do filtro de nível de dificuldade. Portanto, não houve evidência estatisticamente significativa para concluir que havia associação entre o uso do filtro e os diferentes tratamentos.
+% Na figura \ref{fig:pre-study-usos} é ilutratado o comportanmento das distribuições dos grupos de controle (azul) e tratamento (marrom). Foram analisados 331 docentes que utilizaram o filtro pelo menos uma vez (281 no grupo de controle e 50 no de tratamento). O resultado observado evidencia a similaridade do comportamento dessas distribuições. Ou seja, os grupos apresentaram padrões semelhantes em relação ao uso do filtro de nível de dificuldade. Portanto, não houve evidência estatisticamente significativa para concluir que havia associação entre o uso do filtro e os diferentes tratamentos.
  
 \begin{figure}
     \centering
@@ -247,9 +206,7 @@ Não foi encontrada diferença significativa \textcolor{blue}{diferença signifi
 
 Ainda no intuito de testar os procedimentos a serem utilizados na execução do experimento planejado... blá, blá, blá...
 
-Outro teste foi conduzido para avaliar a distribuição do número de listas de exercícios criadas por docente. \textcolor{blue}{docente}\todo[color=yellow]{Qual o objetivo de avaliar essa distribuição?} Novamente, utilizou-se o teste Mann-Whitney U, dada a ausência de normalidade nos dados. Para um nível de significância de 5\%, não houve diferença significativa entre os grupos (U = 4797, p = 0.3166). As distribuições são ilustradas na Figura \ref{fig:pre-study-acts}. No total, foram considerados 269 docentes que criaram ao menos uma atividade e utilizaram o filtro (224 no grupo de controle e 45 no de tratamento).
-
-\todo[inline, color=pink]{No geral, reitero todas  considerações feitas no texto e teste estatístico anterior, especificamente nos dois últimos parágrafos)} 
+Ainda no intuito de se testar a similaridade do comportamento dos dois grupos, outro teste foi conduzido para avaliar a distribuição do número de listas de exercícios criadas por docente (outra das varíaveis escolhidas para análise). Novamente, utilizou-se o teste Mann-Whitney U, dada a ausência de normalidade nos dados (como pode ser verificado no histograma apresentado na Figura \ref{fig:pre-study-acts}). Para um nível de significância de 5\%, não houve diferença significativa entre os grupos (\textit{U} = 4797, p = 0.3166). No total, foram considerados 269 docentes que criaram ao menos uma atividade e utilizaram o filtro (224 no grupo de controle e 45 no de tratamento).
 
 \begin{figure}
     \centering
@@ -261,9 +218,8 @@ Outro teste foi conduzido para avaliar a distribuição do número de listas de 
     \label{fig:pre-study-acts}
 \end{figure}
 
-Por fim, testou-se a distribuição do número de exercícios selecionados por docente no período. Utilizou-se novamente o teste Mann-Whitney U. Para um nível de significância de 5\%, não foi observada diferença significativa entre os grupos (U = 4780.5, p = 0.4772). As distribuições são apresentadas na Figura \ref{fig:pre-study-exs}. No total, 269 docentes foram analisados (224 do grupo de controle e 45 do grupo de tratamento).
+Por fim, para se finalizar este pré-estudo, testou-se a distribuição do número de exercícios selecionados por docente no período. Utilizou-se novamente o teste Mann-Whitney U (distribuições distribuições são apresentadas na Figura \ref{fig:pre-study-exs}). Para um nível de significância de 5\%, não foi observada diferença significativa entre os grupos (\textit{U} = 4780.5, p = 0.4772). No total, 269 docentes foram analisados (224 do grupo de controle e 45 do grupo de tratamento).
 
-\todo[inline, color=pink]{No geral, reitero todas  considerações feitas no texto e teste estatístico anteriores, especificamente nos três últimos parágrafos)} 
 
 \begin{figure}
     \centering
@@ -275,4 +231,4 @@ Por fim, testou-se a distribuição do número de exercícios selecionados por d
     \label{fig:pre-study-exs}
 \end{figure}
 
-Após essas análises\footnote{Os dados coletados foram anonimizados e disponibilizados em repositório público, junto com os cadernos de análise. Disponível em: \href{https://github.com/senaarth/tcc-notebooks/blob/main/pre-study.ipynb}{https://github.com/senaarth/tcc-notebooks}}, concluiu-se que não havia diferenças no comportamento dos grupos antes da introdução da nova versão. Esse processo aumentou a confiabilidade das análises subsequentes, conforme recomendado por \citeonline{erthal_characterization_2023} e \citeonline{kohavi_seven_2014}. Assim, deu-se prosseguimento a execução do experimento planejado na subseção anterior, \ref{subsec:plan_exp}.
+Após essas análises\footnote{Os dados coletados foram anonimizados e disponibilizados em repositório público, junto com os cadernos de análise. Disponível em: \href{https://github.com/senaarth/tcc-notebooks/blob/main/pre-study.ipynb}{https://github.com/senaarth/tcc-notebooks}}, concluiu-se que não havia diferenças no comportamento dos grupos antes da introdução da nova versão. Esse processo foi realizado a partir de considerações encontradas na literatura estudada e visou aumentar a confiabilidade das análises subsequentes (uma maior discussão é realizada na Subseção \ref{subsec:relacionados}) \cite{fabijan_evolution_2017, fabijan_three_2019, erthal_characterization_2023, fabijan_benefits_2017, crook_seven_2009}. Assim, prossegui-se com a execução do experimento planejado na Subseção anterior, \ref{subsec:plan_exp}.
