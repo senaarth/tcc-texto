@@ -34,28 +34,33 @@ function FiltersComponent() {
 
 Finalizado o desenvolvimento, seguindo o fluxo padrão da empresa para a liberação de novas versões, o código passou por revisão e análise. Após a realização da \textit{release}, a versão de tratamento foi ativada exclusivamente para os usuários beta, iniciando assim a coleta de dados.  É importante destacar que, embora as escolas beta estejam cientes de que podem receber versões experimentais do produto ou funcionalidades em desenvolvimento, nenhum usuário foi informado sobre este experimento, evitando assim possíveis vieses em seu comportamento.
 
+
+
+
 \subsection{Execução do Experimento}
 \label{subsec:experimento}
 
-Os dados de uso das diferentes versões do produto foram coletados ao longo de um período de duas semanas, de 5 a 18 de novembro de 2024. Durante esse intervalo, foram registrados 80198 eventos de uso de filtros e 30731 listas de exercícios criadas. O primeiro passo da análise consistiu na segmentação dos usuários únicos, focando inicialmente na utilização do filtro de nível de dificuldade. Para evitar distorções nas medidas de tendência central, foram excluídos do conjunto de dados os usuários que não utilizaram o filtro em nenhuma ocasião, uma vez que representavam 85\% da amostra observada.
+Com a versão experimental ativada para o grupo de tratamento (cerca de 10\% da base total de usuários), os dados de uso do produto foram coletados ao longo de um período de duas semanas, de 5 a 18 de novembro de 2024. Durante esse intervalo, foram registrados 80198 eventos de uso de filtros e 30731 listas de exercícios criadas (de 3504 usuários únicos). O primeiro passo da análise consistiu na segmentação dos usuários únicos, focando inicialmente na utilização do filtro de nível de dificuldade. Para evitar distorções nas medidas de tendência central, foram excluídos do conjunto de dados os usuários que não utilizaram o filtro em nenhuma ocasião, uma vez que representavam 85\% da amostra observada.
 
-Após essa filtragem inicial, o conjunto original de 3.504 docentes foi reduzido para 517 usuários, dos quais 429 ($\approx$83\%) pertenciam ao grupo de controle e 88 ($\approx$17\%) ao grupo de tratamento. Para essa amostra, foram extraídas métricas referentes ao número de listas de exercícios criadas e à quantidade de questões selecionadas no período analisado. Em seguida, foram aplicadas técnicas de estatística descritiva para compreender o comportamento dos usuários, incluindo a análise de diagramas de caixa e medidas de tendência central.
+Após essa filtragem inicial, o conjunto original de 3504 docentes foi reduzido para 517 usuários, dos quais 429 ($\approx$83\%) pertenciam ao grupo de controle e 88 ($\approx$17\%) ao grupo de tratamento. Para essa amostra, foram extraídas métricas referentes ao número de listas de exercícios criadas e à quantidade de questões selecionadas no período analisado. Em seguida, foram aplicadas técnicas de estatística descritiva para compreender o comportamento dos usuários, incluindo a análise de diagramas e das medidas de tendência central dos conjuntos.
 
-\subsection{Análises e Discussões dos Resultados}
-\label{subsec:analises_exp}
+\subsubsection{Análise de Estatística Descritiva e Tratamento dos Dados}
 
-\subsubsection{Estatística descritiva e tratamento dos dados}
+Num primeiro momentou, observou-se uma quantidade considerável de valores discrepantes (\textit{outliers}) nos conjuntos coletados (tanto para as métricas de filtros quanto para as métricas de listas e exercícios). Esses valores se distanciavam consideravelemente da mediana, havendo inclusive pontos na ordem de cinco vezes maiores que a mediana dos conjuntos de todas as três métricas.
 
-Num primeiro momentou, observou-se uma quantidade de valores discrepantes(\textit{outliers}) nos conjuntos coletados (tanto para as métricas de filtros quanto para as métricas de listas e exercícios). Esses valores discrepantes se distanciavam consideravelemente da mediana. Havia um valor discrepante em particular, que apresentou uma ordem aproximada de cinco vezes maior, do que o valor da mediana.
+Considerando este cenário, foi realizada a redução do conjunto através do método de intervalo interquartil, por ser uma técnica adequada ao se tratar amostras que não seguem uma distribuição normal (o processo é melhor detalhado na Subseção \ref{subsec:reduction}). Este procedimento resultou na exclusão de 78 \textit{outliers}, fazendo com que a amostra final passasse a contar com 439 usuários (reduzindo o conjunto em cerca de 15\%), sendo 363 ($\approx$83\%) do grupo que estavam utilizando a versão de controle e 76 ($\approx$17\%) usuários beta, aqueles que foram submetidos à versão de tratamento.
 
-\todo[inline, color=pink]{Explicar o que você constatou quando verificou os dados para entender sobre o comportamento desse outlier. Aproximadamente,  $\approx$15\% do total da amostra. Esse valor é alto e pode distorcer a representatividade, comprometendo a generalização dos resultados. Além disso, pode afetar poder estatístico do estudo e introduzir um vés na amostra. Essa discussão é muito importante de ser registrada.}
+Apesar de haverem alguns valores tão distantes do resto do conjunto, não foi verificado nenhum erro de instrumentação na coleta, constatando então que estes pontos não se tratavam de dados espúrios. Mesmo neste cenário, uma análise individual dos usuários não foi realizada, dado o cronograma limitado desta pesquisa. A amostra reduzida foi então utilizada nas análises apesar da possibilidade de se gerar um viés na mesma e nos resultados dos testes subsequentes.
 
 
-A partir dessas análises, decidimos descartar os valores discrepantes observados... 
+Após estes procedimentos, foi possível comparar os conjuntos antes e após suas reduções. Inicialmente, com relação ao número de usos do filtro, os gráficos de caixa de antes e depois da remoção dos \textit{outliers} são apresentados, respectivamente, nas Figuras \ref{fig:box-uses-before} e \ref{fig:box-uses-after}. É possível ver como haviam valores muito distantes da maior parte do conjunto que foram removidos, demonstrando uma distribuição menos positivamente enviesada (apesar de não normalizada).  
 
-Para tanto utilizamos do método de análise de intervalo interquartil. Esse método foi escolhido por ser adequado a conjuntos de dados que não seguem uma distribuição normal (o processo é melhor detalhado na Subseção \ref{subsec:reduction}). Este procedimento resultou na exclusão de 78 valores discrepantes, fazendo com que a amostra final passasse a contar com 439 usuários, sendo 363 \textcolor{blue}{363}\todo[color=yellow]{Como ocorreu essa divisão do tamanho dos grupos. Isso é importante.}  ($\approx$83\%) do grupo de controle e 76 ($\approx$17\%) do grupo de tratamento.
 
-Com relação ao número de usos do filtro, os gráficos de caixa de antes e depois da remoção dos \textit{outliers} são apresentados, respectivamente, nas Figuras \ref{fig:box-uses-before} e \ref{fig:box-uses-after}. Além disso, as medidas de tendência central podem ser verificadas nas Figuras \ref{fig:mtc-uses-before} e \ref{fig:mtc-uses-after}.
+Este resultado também é confirmado pela mudança nas medidas de tendência central, apresentadas nas Figuras \ref{fig:mtc-uses-before} e \ref{fig:mtc-uses-after}. Observa-se uma distribuição mais homogênea, com menor dispersão dos dados, o que indica que os valores estão agora mais concentrados dentro de um intervalo esperado. Uma das mudanças mais evidentes é a redução drástica dos valores máximos em ambos os grupos: no grupo de controle, o máximo passou de 491 para 25, enquanto no grupo de tratamento foi reduzido de 340 para 17.
+
+Além disso, tanto a média quanto o desvio padrão sofreram quedas significativas. No grupo de controle, a média diminuiu de 48.10 para 6.80, acompanhada por uma redução do desvio padrão de 61.61 para 5.28. De forma semelhante, no grupo de tratamento, a média caiu de 48.83 para 5.28, enquanto o desvio padrão foi reduzido de 64.30 para 4.02. Após a aplicação do método, os valores dos quartis também diminuíram e a média se aproximou da mediana, o que reforça a evidência de que a maior parte dos dados estava concentrada em uma faixa menor, e os valores atípicos estavam distorcendo a percepção da distribuição antes de sua remoção.
+
+
 
 \begin{figure}
     \centering
@@ -98,11 +103,9 @@ Com relação ao número de usos do filtro, os gráficos de caixa de antes e dep
 \end{figure}
 
 
-Após a remoção dos valores discrepantes,... 
+Em seguida, o mesmo processo de análise foi realizado para o número de listas de exercícios criadas. Os gráficos de caixa estão disponíveis nas Figuras \ref{fig:box-acts-before} e \ref{fig:box-acts-after}, e as respectivas medidas de tendência central nas Figuras \ref{fig:mtc-acts-before} e \ref{fig:mtc-acts-after}. Para esta métrica também é possível perceber a diminuição no enviesamento do conjunto já nos gráficos de caixa.
 
-\todo[inline, color=pink]{Explicar como a distruição ficou mais "comportada", ou seja como os valores desvio padrão diminuiu, a média se aproximou um pouco mais da mediana, a diferença entre os valores mínimos e máximos...}
-
-O mesmo procedimento foi realizado para o número de listas de exercícios criadas, cujos gráficos de caixa estão disponíveis nas Figuras \ref{fig:box-acts-before} e \ref{fig:box-acts-after}, e as respectivas medidas de tendência central nas Figuras \ref{fig:mtc-acts-before} e \ref{fig:mtc-acts-after}.
+Além deste fator, também é possível verificar as mudanças nas medidas de tendência central. O valores máximos foram reduzidos (de 66 para 23 no grupo de controle e de 77 para 26 no de tratamento), o desvio padrão foi reduzido (de 9.09 para 5.90 no grupo de controle e de 11.21 para 6.55 no de tratamento). Apesar de alterações menores nas medidas quando comparadas às dos conjuntos de número de usos do filtro, ainda é possível perceber que a remoção dos \textit{outliers} tornou a distribuição mais homogênea.
 
 \begin{figure}
     \centering
@@ -144,7 +147,7 @@ O mesmo procedimento foi realizado para o número de listas de exercícios criad
     \label{fig:mtc-acts-after}
 \end{figure}
 
-O mesmo procedimento de análise foi seguido para o número de exercícios selecionados, cujos resultados estão ilustrados nas Figuras \ref{fig:box-exs-before} e \ref{fig:box-exs-after} para os gráficos de caixa, e nas Figuras \ref{fig:mtc-exs-before} e \ref{fig:mtc-exs-after} para as medidas de tendência central.
+Por fim, repetiram-se os procedimentos citados para a métrica de número de exercícios selecionados. Nos gráficos de caixa, ilustrados nas Figuras \ref{fig:box-exs-before} e \ref{fig:box-exs-after}, é possível perceber a diminuição drástica no enviesamento positivo dos conjuntos. Além disso, nas medidas de tendência central (Figuras \ref{fig:mtc-exs-before} e \ref{fig:mtc-exs-after}) também é possível ver este resultado. Os valores máximo e mínimo, que eram bastante discrepantes, foram diminuidos de 491 para 142 no grupo de controle e de 340 para 102 no de tratamento. 
 
 \begin{figure}
     \centering
@@ -186,37 +189,19 @@ O mesmo procedimento de análise foi seguido para o número de exercícios selec
     \label{fig:mtc-exs-after}
 \end{figure}
 
-A remoção dos valores discrepantes foi uma etapa essencial para garantir a precisão da análise estatística.
+Esta etapa foi realizada com intuito de reduzir os dados coletados para um conjunto com um comportamento mais homogêneo, com o objetivo de se aumentar a precisão da análise estatística. Ainda assim, por se tratarem de pontos de dados reais, os \textit{outliers} não foram analisados individualmente, o que pode prejudicar a confiança do experimento mas que não foi realizado dado o cronograma limitado deste trabalho.
 
-\todo[inline, color=pink]{É preciso ter muito cuidado fazer essa afirmação acima. Não analisamos por exemplo, qual era o padrão dos dados e usuários descartados. Considerando que você deve ter acertado isso antes daqui, reescreva a frase acima}
 
- Embora esses pontos de dados não sejam inválidos, sua grande discrepância em relação ao restante do conjunto poderia enviesar os cálculos dos indicadores de qualidade em uso.
- 
- \begin{comment}
-  Após essa etapa, procedeu-se à normalização das métricas, utilizando a combinação dos métodos de máximo e mínimo com a transformação \textit{Box-Cox}. A escolha do método \textit{Box-Cox} foi motivada pela necessidade de tratar distribuições assimétricas positivamente, como observado nos gráficos de caixa apresentados anteriormente.
- \end{comment}
- 
-\todo[inline, color=pink]{Ao que eu me recorde, nunca conversamos sobre isso que eu comentei acima. Como assim? Em nenhum momento conversamos sobre a transformação das distribuições observadas em norma. Isso pode comprometer os resultados. CRITICO}
+\subsubsection{Cálculo dos Indicadores de Qualidade em Uso}
 
- Após essa etapa, procedeu-se à normalização das métricas, utilizando o método de mínimo e máximo. \textcolor{blue}{máximo}\todo[color=yellow]{Você falou sobre isso no cap. 2? Por que foi min-max e não outro tipo de normalização?} A normalização pelo método de máximo e mínimo garantiu que todas as métricas fossem convertidas para valores no intervalo entre 0 e 1, portanto, transformando os valores para uma mesma escala. Essa transformação é determinandte para o cálculo do indicador agregado de qualidade em uso, conforme definido no modelo QATCH (estes procedimentos são detalhados na Subseção \ref{subsec:normalization}).
 
-Finalizados os procedimentos de análise de estatística descritiva, redução e normalização dos dados, calculou-se o indicador agredado de qualidade em uso para cada usuário, utilizando os pesos definidos na subseção  \textcolor{blue}{XXXXX}\todo[color=yellow]{Qual? Na anterior não é} :
-
-\subsubsection{Calculo dos Indicadores de Qualidade}
-
-\todo[inline, color=pink]{Faz tempo que o assunto já não é o cáculo dos pesos. Escrever um parágrafo de introdução resgatando a ideia do QATCH e do cálculo dos pesos. Quebrou a coesão de ideias}
-
-\todo[inline, color=pink]{Aonde está o resultadao daquela matriz que você levantou com os responsáveis da geek. Agora precisa ser contada essa história. Como foram os procedimentos para que eles respondesem? Como você conciliou os conflitos? Aí, você faz uma conexão com o trecho seguinte...}
+Após a etapa de análise estatística e redução dos conjuntos, prosseguiu-se com a normalização dos dados coletados, etapa necessária para o cálculo do indicador agregado de qualidade em uso, já que o modelo QATCH propõe a agregação das métricas utilizando de valores entre 0 e 1. Esta normalização foi realiza se utilizando do método de máximo e mínimo, por ser uma técnica que resulta em valores dentro do intervalo desejado (0 e 1) (este procedimentos é detalhado na Subseção \ref{subsec:normalization}). Finalizados os procedimentos de normalização dos dados, calculou-se o indicador de qualidade em uso para cada usuário único, utilizando os pesos já definidos anteriormente. Estes pesos foram calculados a partir da opinião qualitativa dos profissionais envolvidos (ver Subseção \ref{subsec:plan_exp} e Subseção \ref{subsec:qatch}). Desta forma temos:
 
 \[
 Q = 0.8333(f) + 0.1667(0.8889(l) + 0.1111(e)),
 \]
 
-onde \textit{Q} representa o indicador final, \textit{f} corresponde ao número normalizado de usos do filtro, \textit{l} ao número normalizado de listas criadas, e \textit{e} à quantidade de exercícios selecionados. 
-
-Dessa maneira, cada usuário teve a si atribuído, um valor numérico agregado, no intervalo fechado entre 0 e 1.  Esse valor numérico representa a percepção quantitativa dos indicadores de qualidade em uso de Safistação e Eficácia, calculados a partir dos dados em uso das funcionalidade: AAA; BBB; CCC, além do filtro do nível de dificuldade. \textcolor{blue}{CCC}\todo[color=yellow]{reescrever as funcionalidades e melhorar essa escrita}
-
- A distribuição dos valores obtidos para os grupos de controle e tratamento pode ser observada na Figura \ref{fig:scores-dist}, enquanto as medidas de tendência central desses indicadores são apresentadas na Figura \ref{fig:mtc-scores}.
+onde \textit{Q} representa o indicador final, \textit{f} corresponde ao número normalizado de usos do filtro, \textit{l} ao número normalizado de listas criadas, e \textit{e} à quantidade de exercícios selecionados. Cada usuário, portanto, recebeu um valor único entre 0 e 1, refletindo sua percepção da qualidade em uso do produto no contexto das funcionalidades avaliadas (filtro por nível de dificuldade, criação de atividades e seleção de exercícios). A distribuição dos valores obtidos para os grupos de controle e tratamento pode ser observada na Figura \ref{fig:scores-dist}, enquanto as medidas de tendência central desses indicadores são apresentadas na Figura \ref{fig:mtc-scores}.
 
 \begin{figure}
     \centering
@@ -238,89 +223,13 @@ Dessa maneira, cada usuário teve a si atribuído, um valor numérico agregado, 
     \label{fig:mtc-scores}
 \end{figure}
 
+Dessa forma, os indicadores calculados demonstraram medidas de tendência central semelhantes entre os usuários que foram servidos à versão de controle e os usuários beta, com médias de 0.23 e 0.20, respectivamente, indicando valores centrais próximos. A mediana, representando o ponto central da distribuição, também se manteve similar entre os grupos, sendo 0.18 no de controle e 0.15 no de tratamento. Os valores dos quartis reforçam essa proximidade, com 25\% dos dados abaixo de 0.09 no primeiro grupo e 0.08 no segundo, enquanto 75\% dos valores não ultrapassam 0.33 e 0.28, respectivamente.  
 
-\subsubsection{Resultados do teste de hipóteses}
-
-\todo[inline, color=pink]{ Aqui vem a parte mais importante da discussão. O teste da hipótese. Recupere as hipótes e faça a discução de aceitação ou refutação da H0. Há toda uma terminologia relacionada ao teste de hipotese. Em essência, trata-se de probabilidade}
-
-% \todo[inline, color=pink]{A ideia geral é que, e o p-valor for menor ou igual a alfa (p ≤ alfa), rejeita-se a H0. Isso significa que há evidência estatisticamente significativa para concluir que há uma associação entre as variáveis ou que a distribuição observada difere da esperada.
-% Se o p-valor for maior que alfa (p > alfa), não se rejeita a H0. Isso não significa que a H0 seja verdadeira, mas sim que não há evidência suficiente para rejeitá-la. 
-% A discussão e análise do teste de hipótese precisa ser feita com esse tipo de interpretação principalmente do p-valor. 
-% A H0 do mann-whitney testa a probabilidade das distribuições de duas amostras serem iguais. Ele determina se as duas amostras foram retiradas da mesma população ou de populações com distribuições diferentes.
-
-% Inclua uma tabela com os resultados do teste }
-
-Após a realização das análises estatísticas descritivas dos conjuntos de indicadores da qualidade em uso calculados, ....
+Apesar dessas semelhanças, observa-se que os usuários da versão de controle apresentam um desvio padrão ligeiramente maior (0.19 contra 0.16), sugerindo uma dispersão um pouco mais acentuada em torno da média. Ademais, o valor máximo no controle (0.99) supera o dos usuários beta (0.76), evidenciando a ocorrência de valores extremos mais elevados nesse grupo. Feitas estas análises, para continuar com a avaliação das distribuições dos diferentes grupos, seguiu-se com um teste de hipótese.
 
 
+\subsubsection{Testes de Hipótese}
 
- foi aplicado o teste de Mann-Whitney U para comparar os dois grupos. 
+Após a realização das análises estatísticas descritivas dos conjuntos de indicadores calculados, foi aplicado o teste de Mann-Whitney U para comparar os grupos, dada a não normalidade da distribuição dos conjuntos, verificada através do histograma (Figura \ref{fig:scores-dist}). Considerando um nível de significância de 5\%, não foi identificada diferença estatisticamente significativa entre os valores encontrados nas populações analisadas (\textit{U} = 13923 e p$\approx$ 0.13)\footnote{Os dados coletados foram anonimizados e disponibilizados em repositório público, juntamente com todas as análises realizadas. Endereço: \href{https://github.com/senaarth/tcc-notebooks/blob/main/experiment.ipynb}{https://github.com/senaarth/tcc-notebooks}}.  
 
-\todo[inline, color=pink]{ Reescrever o parágrafo comentado abaixo, seguindo as últimas considerações. Além disso, incluir as discussões do erro tipo I e II. Isso afeta o poder estatístico do teste}
-
-\begin{comment}
-	
-
- Considerando um nível de significância de 5\%, não foi identificada diferença estatisticamente significativa entre os valores encontrados nas populações analisadas (U=13923 e p$\approx$ 0.13). 
- Esse resultado indica que \textbf{não foi possível detectar uma diferença na qualidade em uso entre as versões de controle e de tratamento} \footnote{Os dados coletados foram anonimizados e disponibilizados em repositório público, juntamente com todas as análises realizadas. Endereço: \href{https://github.com/senaarth/tcc-notebooks/blob/main/experiment.ipynb}{https://github.com/senaarth/tcc-notebooks}}.
- 
- \end{comment}
-
-
-\st{Diante da ausência de diferenças significativas na qualidade em uso entre as versões,}
-
-Após a conclusão do teste de hipótese, foi executado um teste estatístico complementar. O propósito foi aprofundar a investigação da suposição inicial que motivou este experimento.  Neste teste, foi avaliada a frequência de adoção da funcionalidade de filtro por nível de dificuldade entre os grupos de controle e tratamento. Essa análise também subsidiou a tomada de decisão da equipe.
-
-Adotando o mesmo procedimento de análise de variáveis categóricas, descrito na subseção do pré-estudo\ref{subsec:pre-estudo}. Para isso, a partir dos eventos de uso do filtro, foi contabilizado o número de usuários que utilizaram ao menos uma vez o filtro da categoria em questão. 
-
-\st{Por se tratar de um dado categórico, optou-se pela aplicação do teste qui-quadrado para verificar a existência de uma diferença estatisticamente significativa entre os grupos.}
-
-\todo[inline, color=pink]{ Resolver essa aparente grave incoerência. Essa amostra não foi reduzida? Eu recortei e comentei abaixo, os dados apresentados no início do capítulo.}
-
-\begin{comment}
-Após essa filtragem inicial, o conjunto original de 3.504 docentes foi reduzido para 517 usuários, dos quais 429 ($\approx$83\%) pertenciam ao grupo de controle e 88 ($\approx$17\%) ao grupo de tratamento.
-\end{comment}
-
-
-Ao considerar a amostra total, composta por 3504 usuários (sendo 508, 14,5\%, do grupo de tratamento e 2996, 85,5\%, do grupo de controle), o teste qui-quadrado resultou em um p-valor de aproximadamente 0,0896 e um valor da estatística qui-quadrado de 2,88.
-
-
- Esses resultados indicam que, para um nível de confiança de 5\%, não haviam evidências estatísticas suficientes para concluir que houve diferença na funcionalidade entre os grupos analisados.
- \todo[inline, color=pink]{ Esse é o resultado do primeiro trial do experimento Essa é o principal resultado do teste  }
- 
-
-\todo[inline, color=pink]{ Levar o parágrafo abaixo para a subseção dos resultados do teste de hipótese. Incluir um parágrafo sobre o erro tipo I e melhorar essa discussão do erro tipo II}
-
-
- No entanto, apesar do p-valor estar ligeiramente acima do limite de significância definido, ele ainda se encontrava em uma faixa próxima ao limiar. Dessa forma, para minimizar a possibilidade de um erro do tipo II, foi conduzida uma nova iteração do experimento, com uma extensão do período de coleta de dados por mais duas semanas (de 19 de novembro a 3 de dezembro de 2024).
-
-
-\todo[inline, color=pink]{Nossa Arthur! Está muito confuso esse final! Coloque as discussões sobre os erros I-II logo abaixo da conclusão da aceitação ou refutação da hipótese. Estava falando do teste chi-quadrado. Não faz sentido voltar a falar de coleta e amostra, após a conclusão do teste. Eu sei do que você está falando. Porém está uma confusão! Reescreve isso.}
-
-Ao final do novo período de coleta, o teste foi reaplicado com uma amostra ampliada, agora composta por 4467 usuários, sendo 608 (13,6\%) pertencentes ao grupo de tratamento e 3859 (86,4\%) ao grupo de controle. Os novos resultados indicaram uma diferença estatisticamente significativa na adoção da funcionalidade entre os grupos, com um p-valor de aproximadamente 0.0032 e uma estatística qui-quadrado de 8.71 (ver Figura \ref{fig:exp-adocao-dificuldade}). Esse achado indicou que a alteração na posição do filtro influenciou sua adoção pelos usuários.
-
-Por fim, visando se confirmar a suspeita de que a categoria posicionada por último seria a menos utilizada, foi realizado o mesmo teste, porém olhando para a categoria de fonte (esta, na versão de tratamento, se tornou a última). Os resultados apresentaram que sua proporção de adoção também foi maior na população de controle, contradizendo as suposições iniciais da equipe (U$\approx$3.92 e p$\approx$0.47, ver Figura \ref{fig:exp-adocao-fonte}). \textcolor{blue}{Figura}\todo[color=yellow]{Substituir essas figuras por tabelas, conforme mencionei anteriormente.}
-
-\todo[inline, color=pink]{ Substi }
-
-\begin{figure}
-    \centering
-    \caption{Teste Sobre Adoção do Filtro de Nível de Dificuldade no Experimento}
-    \includegraphics[width=0.85\linewidth]{figuras/adocao_dificuldade_experimento.png}
-    \begin{center}
-        \text{Fonte: Autor}
-    \end{center}
-    \label{fig:exp-adocao-dificuldade}
-\end{figure}
-
-
-
-\begin{figure}
-    \centering
-    \caption{Teste Sobre Adoção do Filtro de Fonte no Experimento}
-    \includegraphics[width=0.85\linewidth]{figuras/adocao_fonte_experimento.png}
-    \begin{center}
-        \text{Fonte: Autor}
-    \end{center}
-    \label{fig:exp-adocao-fonte}
-\end{figure}
+Dado o p-valor de 0.13, \textbf{não foi possível rejeitar a hipótese nula} do experimento (\(H_0\), não há diferença na percepção da qualidade em uso entre a versão de controle e a de tratamento) para o nível de significância pré-definido. Em termos estatísticos, isso implica que não há evidências suficientes para afirmar que a percepção da qualidade em uso difere entre a versão de controle e a versão de tratamento. Dessa forma, não se pode afirmar que a qualidade percebida para as características de satisfação e de eficácia da versão de controle (\(Q_a\)) seja significativamente maior ou menor do que a da versão beta (\(Q_b\)). Embora esse resultado não prove que as distribuições são idênticas, ele sugere que qualquer diferença observada pode ser atribuída à variabilidade amostral e não a um efeito real da mudança de versão.
