@@ -7,7 +7,7 @@
 *.synctex.gz
 *.tpbuild
 editaveis/.DS_Store
-/.DS_Store
+.DS_Store
 *.lof
 *.lot
 *.toc
@@ -16,3 +16,4 @@ editaveis/.DS_Store
 *.brf
 *.fdb_latexmk
 *.fls
+*.synctex
