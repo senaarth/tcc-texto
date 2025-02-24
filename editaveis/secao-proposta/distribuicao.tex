@@ -25,7 +25,7 @@ Esse modelo permite a realização de testes com versões ainda em desenvolvimen
 
 Inicialmente, será definida uma \textit{feature flag} para representar o experimento, que será ativada para os usuários beta no momento da liberação da versão de tratamento, marcando o início da coleta de dados. A remoção do \textit{toggle} será realizada, juntamente com a do código-fonte a ser descartado, após a decisão sobre a versão que será implantada definitivamente.
 
-A utilização de \textit{feature toggles} no contexto do experimento deste trabalho é exemplificada à seguir. Na linha 6 há um componente chamado \textit{SomeComponent} e o mesmo utiliza da função \textit{useFeature} (declarada na linha 1) para verificar qual versão deve retornar, o controle ou o tratamento (linha 3). A função \textit{useFeature}, por sua vez, possui a lista de \textit{flags} (linha 2) ativadas para o usuário, proveniente de uma solicitação prévia para o serviço de gerência de \textit{toggles}.
+A utilização de \textit{feature toggles} no contexto do experimento deste trabalho é exemplificada a seguir. O trecho de código apresentado refere-se ao lado do cliente na aplicação (\textit{TypeScript}). Na linha 8, há um componente denominado \textit{SomeComponent}, que utiliza a função \textit{useFeature} (declarada na linha 1) para determinar qual versão deve ser retornada: controle ou tratamento (linha 3). A função \textit{useFeature}, por sua vez, contém a lista de \textit{flags} ativadas para o usuário (linha 2), a qual é obtida a partir de uma solicitação prévia ao serviço de gerenciamento de \textit{toggles} (servidor \textit{Python}), realizada no momento em que o usuário efetua o \textit{login} (lógica abstraída para melhor compreensão).
 
 \vspace{\onelineskip}
 
@@ -74,3 +74,5 @@ function SomeComponent() {
     );
 }
 \end{lstlisting}
+
+O serviço responsável pelo gerenciamento das \textit{flags} ativadas para cada usuário consiste em uma plataforma \textit{web} utilizada pelos colaboradores da empresa para ativar funcionalidades exclusivamente para determinadas organizações clientes. Essas informações são armazenadas em um banco de dados, que é posteriormente consumido pelo produto final, conforme mencionado anteriormente.

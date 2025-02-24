@@ -1,12 +1,44 @@
-\subsection{Planejamento do Experimento}
+\subsection{Planejamento do Experimento Controlado}
+\label{subsec:plan_exp}
 
-Após a fase de ideação, inicia-se o planejamento do experimento. O teste deve responder à primeira questão específica de pesquisa do estudo de caso, avaliando a qualidade em uso de duas versões do produto por meio de métricas que representem esse aspecto no contexto funcionalidade avaliada.
+Após a fase de ideação, iniciou-se o planejamento do experimento. Este estudo busca responder à primeira questão específica de pesquisa do estudo de caso, conforme descrito na Subseção \ref{subsec:estudo-questao}. O experimento consiste na comparação entre duas versões do produto, avaliando aspectos relacionados à qualidade em uso.
 
-A literatura destaca a dificuldade em definir métricas que representem com precisão a entrega de valor desejada \cite{crook_seven_2009, larsen_statistical_2024}. Para evitar limitações de uma única medida, foram selecionadas métricas que refletem os objetivos de longo prazo do negócio, utilizando normas de referência para garantir maior confiabilidade e relevância dos resultados. 
+A literatura evidencia a complexidade na definição de métricas que representem com precisão a entrega de valor almejada \cite{crook_seven_2009, larsen_statistical_2024}. Para mitigar as limitações inerentes a uma única métrica, optou-se por adotar múltiplas medidas que refletem alguns dos objetivos estratégicos do negócio, utilizando normas de referência para assegurar maior confiabilidade e reprodutibilidade dos resultados.
 
-As métricas foram escolhidas com base na norma \citeonline{nbr9241}, considerando o contexto do filtro de nível de dificuldade e da criação de atividades, funcionalidades diretamente relacionadas à suposição analisada. As métricas adotadas incluem: o número de vezes que cada usuário utilizou o filtro, representando a satisfação por meio da subcaracterística de utilidade; o número de atividades criadas e o número de exercícios selecionados, ambos relacionados à eficácia do produto em auxiliar o usuário a alcançar seus objetivos na plataforma.
+Métricas podem ser classificadas segundo diferentes critérios. Quanto à \textbf{forma de coleta}, uma métrica pode ser \textbf{direta}, quando obtida sem necessidade de cálculos ou transformações, ou \textbf{indireta}, quando derivada a partir de outras métricas. Além disso, as métricas podem ser \textbf{objetivas}, caso sua mensuração seja independente da interpretação do avaliador, ou \textbf{subjetivas}, quando dependem da percepção do avaliador ou do próprio usuário \cite{wohlin_experimentation_2012}.
 
-Além disso, para considerar a opinião dos \textit{stakeholders} na ponderação dos resultados, o peso de cada métrica foi determinado pelo método AHP, conforme proposto pelo modelo QATCH, convertendo avaliações qualitativas em pesos quantitativos (ver Subseções \ref{subsec:qatch} e \ref{subsec:ahp}). Esse processo define a importância relativa de cada métrica e característica em diferentes níveis de agregação (ver Figura \ref{fig:qatch_experiment}). O resultado está apresentado nas Tabelas \ref{tab:ahp-metrics} e \ref{tab:ahp-characteristics}.
+Outro fator relevante é o tipo de \textbf{escala} utilizada, que influencia as análises estatísticas aplicáveis. As escalas \textbf{nominais} classificam os dados sem uma ordem definida, enquanto as escalas \textbf{ordinais} estabelecem uma hierarquia, mas sem diferenças proporcionais entre os valores. Já as escalas \textbf{intervalares} permitem quantificar diferenças, embora sem um zero absoluto, ao passo que as escalas \textbf{de razão} possuem um zero absoluto e possibilitam comparações proporcionais \cite{wohlin_experimentation_2012}.
+
+Dessa forma, na seleção das métricas para este experimento, tomou-se como base a norma \citeonline{nbr9241}, considerando o contexto do filtro de nível de dificuldade e da criação de atividades, funcionalidades diretamente relacionadas à hipótese analisada. Assim, as métricas adotadas foram definidas para capturar diferentes dimensões da qualidade em uso, sendo elas:
+
+\begin{itemize}
+  \item \textbf{Número de utilizações do filtro de nível de dificuldade}: métrica objetiva e direta, mensurada na escala ordinal. Representa um indicador quantitativo da subcaracterística de \textbf{utilidade}, relacionada à satisfação do usuário.
+  \item \textbf{Número de atividades criadas}: métrica objetiva e direta, também mensurada na escala ordinal. Relaciona-se à \textbf{eficácia} do produto, indicando se a plataforma auxilia o usuário a atingir seus objetivos.
+  \item \textbf{Número de exercícios selecionados}: métrica objetiva e direta, mensurada na escala ordinal. Assim como a métrica anterior, reflete a \textbf{eficácia} do produto, avaliando o engajamento dos usuários na realização de atividades propostas.
+\end{itemize}
+
+A escolha dessas métricas visa garantir que os dados coletados possibilitem uma análise estatística confiável e alinhada aos objetivos do estudo. Ademais, a utilização de múltiplas métricas reduz o risco de interpretações enviesadas e amplia a compreensão dos impactos das modificações no produto. A relação dessas métricas com as características e subcaracterísticas da qualidade em uso é apresentada na Tabela \ref{tab:metricas_qualidade_uso}.
+
+\begin{table}[h]
+    \centering
+    \renewcommand{\arraystretch}{1.2}
+    \setlength{\tabcolsep}{3pt}
+    \begin{tabular}{|p{3cm}|p{3.5cm}|p{3.75cm}|p{4.75cm}|}
+        \hline
+        \textbf{Característica} & \textbf{Subcaracterística} & \textbf{Métrica} & \textbf{Descrição} \\
+        \hline
+        \multirow{1}{*}{Satisfação} & Utilidade & Número de utilizações do filtro de nível de dificuldade & Mede a utilidade da funcionalidade ao quantificar a frequência de uso dentro do período observado. \\
+        \hline
+        \multirow{2}{*}{Eficácia} & Eficácia & Número de atividades criadas & Avalia a eficácia do produto em auxiliar o usuário a alcançar seus objetivos, especificamente na criação de listas de exercícios. \\
+        \cline{2-4}
+        & Eficácia & Número de exercícios selecionados & Mede a eficácia do produto na seleção de exercícios para atividades, refletindo o engajamento do usuário. \\
+        \hline
+    \end{tabular}
+    \caption{Métricas Escolhidas de Qualidade em Uso}
+    \label{tab:metricas_qualidade_uso}
+\end{table}
+
+Além disso, para incluir a percepção dos profissionais envolvidos na ponderação dos resultados, o peso de cada métrica foi determinado pelo método AHP, conforme proposto pelo modelo QATCH, convertendo avaliações qualitativas em pesos quantitativos (ver Subseções \ref{subsec:qatch} e \ref{subsec:ahp}). Para isso, foi realizada uma reunião para se definir a importância relativa de cada métrica e característica em diferentes níveis de agregação. Essa avaliação foi feita por pares, considerando a relação entre satisfação e eficácia (no nível de característica, para calcular a qualidade em uso) e entre o número de listas criadas e exercícios selecionados (no nível de métrica, para calcular a eficácia). Essa relação é ilustrada na Figura \ref{fig:qatch_experiment}.
 
 \begin{figure}
     \centering
@@ -18,74 +50,180 @@ Além disso, para considerar a opinião dos \textit{stakeholders} na ponderaçã
     \label{fig:qatch_experiment}
 \end{figure}
 
-\begin{table}[ht]
+Após discussões, os pesos relativos foram definidos em consenso, sendo os resultados apresentados nas Tabelas \ref{tab:ahp-metrics} e \ref{tab:ahp-characteristics} (a importância relativa é discutida na Subseção \ref{subsec:ahp}). Com esses valores estabelecidos, foi possível calcular os pesos quantitativos. A métrica de número de listas de exercícios criadas possui peso de 0,8889, enquanto a métrica de número de exercícios selecionados tem peso de 0,1111. Juntas, representam a característica de eficácia. Para as características, os pesos são 0,8333 para satisfação e 0,1667 para eficácia. A soma desses valores gera um indicador único de qualidade em uso para cada usuário (este cálculo é detalhado na Subseção \ref{subsec:qatch}). Essa relação é apresentada visualmente na Figura \ref{fig:qatch_pesos}.
+
+\begin{table}[h]
     \centering
+    \caption{Importância Relativa das Métricas de Eficácia}
     \begin{tabular}{|p{4cm}|p{4cm}|p{6.5cm}|}
         \hline
         Métrica & Nº de Listas Criadas & Nº de Exercícios Selecionados \\ \hline
-        Nº de Listas Criadas & - & Muito Mais Importante \\ \hline
+        Nº de Listas Criadas & - & Muito Mais Importante, Média Certeza \\ \hline
         Nº de Exercícios Selecionados & - & - \\ \hline
     \end{tabular}
-    \caption{Importância Relativa das Métricas de Eficácia}
-    \label{tab:ahp-metrics}
-\end{table}
-
-\begin{table}[ht]
-    \centering
-    \begin{tabular}{|p{4cm}|p{4cm}|p{6.5cm}|}
-        \hline
-        Característica & Satisfação & Eficácia \\ \hline
-        Satisfação & - & Moderadamente Mais Importante \\ \hline
-        Eficácia & - & - \\ \hline
-    \end{tabular}
-    \caption{Importância Relativa das Características de Qualidade em Uso}
-    \label{tab:ahp-characteristics}
-\end{table}
-
-Com os níveis de importância estabelecidos, é possível calcular os pesos quantitativos. A métrica de número de listas de exercícios criadas possui peso de 0.8889, enquanto a métrica de número de exercícios selecionados tem peso de 0.111. Juntas, representam a característica de eficácia. Para as características, os pesos são 0.8333 para satisfação e 0.1667 para eficácia. Esses valores, somados, geram um indicador único de qualidade em uso para um usuário específico (para mais detalhes sobre o cálculo, ver Subseção \ref{subsec:qatch}).
-
-O experimento foi estruturado da seguinte forma:
-
-\begin{itemize}
-    \item \textbf{Sujeitos:} Os participantes serão docentes que criam listas de exercícios na plataforma. Eles serão divididos em dois grupos: o de tratamento, composto pelos usuários beta, e o de controle, formado pelos demais usuários da base;
-    
-    \item \textbf{Fator:} O fator analisado será a posição do filtro de nível de dificuldade no banco de questões. Dois tratamentos serão aplicados: um em que o filtro permanece na última posição (grupo de controle) e outro em que o filtro aparece em posição superior na listagem (grupo de tratamento);
-    
-    \item \textbf{Variáveis Independentes:} A posição do filtro será mantida de forma persistente para cada grupo, garantindo que cada usuário visualize sempre o filtro na mesma posição;
-    
-    \item \textbf{Variáveis Dependentes:} Número de vezes que cada docente utilizou o filtro, número de listas de exercícios criadas e número de exercícios selecionados. Esses dados serão agregados para compor o indicador \textit{Q} de qualidade em uso;
-    
-    \item \textbf{Hipóteses:}
-    \begin{itemize}
-        \item $H_0$: Não há diferença na percepção da qualidade em uso entre a versão de controle e a de tratamento ($Q_a = Q_b$);
-        \item $H_1$: A percepção da qualidade em uso é maior na versão de controle em comparação à versão de tratamento ($Q_a > Q_b$);
-        \item $H_2$: A percepção da qualidade em uso é menor na versão de controle em comparação à versão de tratamento ($Q_a < Q_b$).
-    \end{itemize}
-\end{itemize}
-
-Desta forma, para além de se estudar as suposições dos colaboradores sobre o produto, deve ser possível responder a primeira questão de pesquisa específica deste estudo de caso, aprensentada na Subseção \ref{subsec:estudo-questao} (\textit{Durante o experimento, foi possível identificar diferença de qualidade em uso entre as versões de controle (A) e de tratamento (B) do produto, a partir de seu uso?}).
-
-
-\subsection{Pré-estudo do Experimento}
-\label{subsec:pre-estudo}
-
-Planejado o experimento, antes do desenvolvimento da nova versão, foi conduzido um pré-estudo: dados sobre o uso da plataforma, incluindo a criação de atividades e a aplicação de filtros, foram coletados ao longo de duas semanas. Esses dados foram utilizados para testes A/A, que verificaram a similaridade do comportamento entre os grupos de usuários. Essa análise assegurou que eventuais diferenças futuras pudessem ser atribuídas à nova versão testada com uma maior confiabilidade.
-
-Esse procedimento ocorreu entre 08 e 21 de outubro de 2024. Foram registrados 41516 eventos de uso de filtros na seleção de exercícios por 2864 usuários únicos, dos quais 401 pertenciam ao grupo de tratamento (14\%). Os dados foram processados para classificar cada uso do filtro por usuário. Isso possibilitou verificar quantos usuários escolheram a opção de nível de dificuldade pelo menos uma vez. Como a variável analisada era categórica, aplicou-se o teste qui-quadrado para comparar os grupos. O resultado apontou ausência de diferença significativa (p-valor \(\approx\) 0.94), como mostrado na Figura \ref{fig:pre-study-adocao}. Isso indica que a proporção de adoção do filtro era similar entre os grupos, permitindo a continuidade do experimento.
-
-\begin{figure}
-    \centering
-    \caption{Teste Sobre Adoção do Filtro de Nível de Dificuldade no Pré-estudo}
-    \includegraphics[width=0.85\linewidth]{figuras/pre_study_adocao.png}
     \begin{center}
         \text{Fonte: Autor}
     \end{center}
-    \label{fig:pre-study-adocao}
-\end{figure}
+    \label{tab:ahp-metrics}
+\end{table}
 
-Em seguida, realizou-se um teste de hipótese sobre a distribuição do número de utilizações do filtro por docente no período. Como os dados não seguiam uma distribuição normal, aplicou-se o teste Mann-Whitney U. Não foi encontrada diferença significativa entre os grupos para um nível de significância de 5\% (U = 5511, p = 0.7014). A Figura \ref{fig:pre-study-usos} apresenta as distribuições, sendo azul para o grupo de controle e marrom para o de tratamento. Foram analisados 331 docentes que utilizaram o filtro pelo menos uma vez (281 no grupo de controle e 50 no de tratamento). O resultado confirma que, além da similaridade na adoção do filtro, os grupos apresentavam padrões semelhantes de uso da funcionalidade.
+\begin{table}[h]
+    \centering
+    \caption{Importância Relativa das Características de Qualidade em Uso}
+    \begin{tabular}{|p{4cm}|p{4cm}|p{6.5cm}|}
+        \hline
+        Característica & Satisfação & Eficácia \\ \hline
+        Satisfação & - & Moderadamente Mais Importante, Média Certeza \\ \hline
+        Eficácia & - & - \\ \hline
+    \end{tabular}
+    \begin{center}
+        \text{Fonte: Autor}
+    \end{center}
+    \label{tab:ahp-characteristics}
+\end{table}
 
 \begin{figure}
+    \centering
+    \caption{Pesos da Ponderação Agregada QATCH no Experimento}
+    \includegraphics[width=1\linewidth]{figuras/tabela_exemplo_agregacao.png}
+    \begin{center}
+        \text{Fonte: Autor}
+    \end{center}
+    \label{fig:qatch_pesos}
+\end{figure}
+
+
+Desta forma então, os indicadores de qualidade em uso de cada usuário serão utilizados para se testar a hipótese formulada neste experimento, que servirá para responder a primeira questão específica deste estudo de caso, aprensentada na Subseção \ref{subsec:estudo-questao} (\textit{Durante o experimento, foi possível identificar diferença na percepção da qualidade em uso entre as versões do produto, A (controle) e B (tratamento)?}). Temos então as seguintes definições do experimento:
+
+
+\begin{enumerate}
+    \item \textbf{Escopo:} Analisar as versões A e B do produto com o propósito de avaliar sua efetividade e usabilidade das funcionalidads de filtragem de exercícios e criação de atividades, do ponto de vista do usuário final, no contexto do ambiente real de uso do sistema;
+    
+    \item \textbf{Objeto:} Eventos de uso da plataforma, gerada a partir do uso por parte dos usuários finais (a instrumentação desta coleta é apresentada na Subseção \ref{subsec:instrument});
+    
+    \item \textbf{Sujeitos:} Os participantes serão apenas os usuários docentes, já que são estes que criam listas de exercícios na plataforma. 
+    
+    \item \textbf{Populações:} Os sujeitos serão divididos em dois grupos: o de tratamento, composto pelos usuários beta, e o de controle, formado pelos demais usuários da base; Hoje os usuários beta representam cerca de 10\% (10 mil de 100 mil usuários totais estimados) da base total de usuários, uma maior discussão sobre esta divisão foi apresentada na Subseção \ref{subsubsec:variants};
+
+    \item \textbf{Amostra:} A amostra coletada irá se referir a todos os docentes que criaram atividades no período e usaram algum dos filtros disponíveis; Não é possível estimar a proporção do tamanho da amostra dado que o mesmo dependerá do nível de atividade dos usuários durante o período;
+
+    \item \textbf{Fator:} O fator analisado será do comportamento em uso do produto, observado em termos das características qualidade em uso de satisfação e eficácia;
+    
+    \item \textbf{Variável Independentes:} A posição do filtro será mantida de forma persistente para cada grupo, garantindo que cada usuário visualize sempre o filtro na mesma posição; A versão de controle será a mesma que já existe hoje, onde ele é o último da lista, como já abordado na Subseção \ref{subsec:plan_exp} e apresentado na Figura \ref{fig:selecao-questoes-controle}, já a versão de tratamento é apresentada na Figura \ref{fig:selecao-questoes-tratamento}, onde o filtro se torna o quarto da lista (esta posição foi escolhida por que as três primeiras categorias são importantes para determinados fluxos de uso da aplicação, fazendo com que a equipe preferisse não alterá-los de lugar);
+    
+    \item \textbf{Variáveis Dependentes:} Número de vezes que cada docente utilizou o filtro, número de listas de exercícios criadas e número de exercícios selecionados. Essas variáveis serão normalizadas, ponderadas e agregadas para compor o indicador quantitativo \textit{Q}, conforme definido no modelo QATCH e apresentado anteriormente. Esse indicador busca expressar a percepção da qualidade em uso, observada em uma determinada versão do produto;
+
+    \item \textbf{\textit{Design}:} O \textit{design} escolhido se trata de um experimento de um fator e dois tratamentos, ou seja, haverão dois grupos onde cada um receberá um tratamento para o fator analisado, conforme apresentado na Tabela \ref{tab:design}; 
+    
+    \item \textbf{Hipóteses:} A hipótese nula neste experimento será referente ao indicador qualidade em uso das duas versões analisadas, utilizando das métricas apresentadas anteriormente (Figura \ref{fig:qatch_pesos}) para analisar o contexto da funcionalidade avaliada, esta provém da suposição selecionada para teste que se refere à utilização do filtro de nível de dificuldade. A hipótese a ser refutada é que não há diferença na percepção da qualidade em uso entre a versão de controle (A) e a de tratamento(B). Em desfavor dessa hipótese nula, são testadas as hipóteses alternativas: 1) a percepção da qualidade em uso é maior na versão de controle(A) em comparação à versão de tratamento(B) e 2) a percepção da qualidade em uso é menor na versão de controle(A) em comparação à versão de tratamento(B).
+    
+    \begin{itemize}
+        \item $H_0$: $Q_a = Q_b$;
+        \item $H_1$: $Q_a > Q_b$;
+        \item $H_2$: $Q_a < Q_b$.
+    \end{itemize}
+\end{enumerate}
+
+
+\begin{figure}
+    \centering
+    \caption{Versão de Tratamento do Produto Analisado}
+    \includegraphics[width=1\linewidth]{figuras/selecao-questoes-tratamento.png}
+    \begin{center}
+        \text{Fonte: Autor}
+    \end{center}
+    \label{fig:selecao-questoes-tratamento}
+\end{figure}
+
+\begin{table}[]
+\centering
+
+    \caption{\textit{Design} do Experimento}
+
+    \begin{tabular}{|c|cl|}
+        \hline
+        \multirow{2}{*}{Grupos} & \multicolumn{2}{c|}{Tratamento} \\ \cline{2-3} 
+         & \multicolumn{2}{c|}{Posição do Filtro} \\ \hline
+        Controle (cerca de 90 mil usuários) & \multicolumn{2}{c|}{Tratamento A (Última Posição)} \\ \hline
+        Tratamento (cerca de 10 mil usuários) & \multicolumn{2}{c|}{Tratamento B (Quarta Posição)} \\ \hline
+    \end{tabular}
+
+    \begin{center}
+        \text Fonte: Autor
+    \end{center}
+
+    \label{tab:design}
+\end{table}
+
+Além disso, foram planejadas estratégias para se mitigar possíveis erros nos testes estatísticos. Para tratar erros do tipo I foi definido um nível de significância \(\alpha\) de 5\%, a fim de evitar a rejeição da hipótese nula indevidamente (95\% de confiança). Além disso, os valores extremos serão descartados antes da realização dos testes através de métodos de redução de dados, à depender de qual for mais adequado para a amostra coletada (estes métodos são detalhados nas Subseções \ref{subsec:reduction} e \ref{subsec:normalization}).
+
+Já com relação a erros do tipo II, onde não se rejeita a hipótese nula quando se deveria, foi planejado aumentar o conjunto de dados se possível e se necessário, a fim de aumentar o poder estatístico do teste. Ou seja, o experimento será executado durante um determinado período e, caso as análises se demonstrem inconclusivas por alguma razão, novas iterações serão realizadas. Desta maneira se diminui a probabilidade do erro tipo II sem aumentar a probabilidade de um erro tipo I.
+
+Com todas esta definições previamente realizadas seguiu-se para a instrumentação e pré-estudo do experimento, conforme planejado no processo proposto (apresentado na Subseção \ref{sec:procedimentos}).
+
+\subsection{Instrumentação e Pré-estudo do Experimento}
+\label{subsec:pre-estudo}
+
+A instrumentação deste experimento consistiu no preparo da coleta de dados para realização do experimento. Não foi necessária a configuração do Mixpanel \cite{mixpanel2024} nem adição de novos enventos, visto que o produto já teve seu ambiente preparado e já emitia eventos de uso do filtro, de atividades criadas e de exercícios selecionados previamente. Foi necessário apenas a criação de um ambiente de análise e preparação de todo o ferramental, com a criação de um Jupyter Notebook \cite{jupyter_notebook} que consumia a API do Mixpanel \cite{mixpanel2024}.
+
+Nesta fase também foi realizado um pré-estudo do experimento. Este procedimento, já apresentado anteriormente (ver Seção \ref{sec:procedimentos}), visa verificar se a realização do experimento seria possível nas condições planejadas (população de usuários, métricas selecionadas, etc). Utilizando-se de um teste A/A, que consta em analisar dados de uso onde ambas as populações são apresentadas a mesma versão (de controle), para verificar se os dois grupos de usuários não se comportavam de maneira diferente antes mesmo da implantação da versão de tratamento. Este tipo de teste já foi abordado na literatura, e é utilizado para se aumentar a confiabilidade dos experimentos e avaliar o \textit{design} dos mesmos antes de sua execução \cite{fabijan_evolution_2017, fabijan_three_2019, erthal_characterization_2023, fabijan_benefits_2017, crook_seven_2009}.
+
+Enta, foram coletadas as métricas já definidas no planejamento (número de usos do filtro, de atividades criadas e de exercícios selecionados) além da métrica de interesse da suposição da equipe (proporção de adoção do filtro por nível de dificuldade). Esse procedimento ocorreu entre 08 e 21 de outubro de 2024. Foram registrados 41516 eventos de uso de filtros na seleção de exercícios por 2864 usuários únicos, dos quais 401 pertenciam ao grupo de tratamento (14\%). Os dados foram processados para classificar cada uso do filtro por usuário. Isso possibilitou verificar quantos usuários escolheram a opção de nível de dificuldade pelo menos uma vez. 
+
+Para esta análise, utilizou-se o teste qui-quadrado para comparar os grupos, dado que a variável é categórica: uso ou não do filtro no período (o teste é melhor detalhado na Subseção \ref{subsec:chi-square}). O resultado não indicou diferença significativa (\( p-valor \approx 0,94 \)), conforme apresenta a Tabela \ref{tab:pre-study-adocao}.  O p-valor de 0,94 representa a probabilidade de 94\% de se obter um resultado tão extremo quanto o observado, assumindo a hipótese nula de que as frequências são iguais entre os grupos. Como esse valor está muito acima do limiar de 0,05, conclui-se que a adoção do filtro foi semelhante nos grupos, permitindo a continuidade do experimento.  
+
+
+
+
+% \begin{figure}[H]
+%     \centering
+%     \caption{Teste Sobre Adoção do Filtro de Nível de Dificuldade no Pré-estudo}
+%     \includegraphics[width=0.85\linewidth]{figuras/pre_study_adocao.png}
+%     \begin{center}
+%         \text{Fonte: Autor}
+%     \end{center}
+%     \label{fig:pre-study-adocao}
+% \end{figure}
+
+\begin{table}[h]
+    \centering
+    \caption{Resultados do Teste Qui-Quadrado Sobre Adoção no Pré-estudo}
+    \begin{tabular}{lcc}
+        \hline
+        Estatística & Valor \\ \hline
+        $\chi^2$ (Qui-quadrado) &0,0057 \\
+        p-valor & 0,9397 \\  
+        Graus de liberdade & 1 \\ \hline
+    \end{tabular}
+
+    \vspace{0.5cm} % Espaço entre tabelas
+
+    \begin{tabular}{lcc}
+        \hline
+        Grupo & Frequências esperadas (Não adotou) & Frequências esperadas (Adotou) \\ \hline
+        Controle & 2142,97 & 280,03 \\
+        Tratamento & 390,03 & 50,97 \\ \hline
+    \end{tabular}
+
+    \vspace{0.5cm} % Espaço entre tabelas
+
+    \begin{tabular}{lcc}
+        \hline
+        Grupo & Frequências observadas (Não adotou) & Frequências observadas (Adotou) \\ \hline
+        Controle & 2142 & 281 \\
+        Tratamento & 391 & 50 \\ \hline
+    \end{tabular}
+    \label{tab:pre-study-adocao}
+
+    \begin{center}
+        \text{Fonte: Autor}
+    \end{center}
+\end{table}
+
+
+Em seguida, realizou-se um teste de hipótese sobre a distribuição do número de utilizações do filtro por docente no período. Um teste de hipótese pressupõe que a distribuição dos dois conjuntos é igual, então o resultado visa verificar se há diferença significativa entre os dois grupos. Como os dados não seguiam uma distribuição normal, como pode ser verificado através do histograma apresentado na Figura \ref{fig:pre-study-usos} aplicou-se o teste Mann-Whitney U, que é mais adequado para distribuições não normais (ver Subseção \ref{subsec:u-test}).
+
+\begin{figure}[h]
     \centering
     \caption{Distribuições do Número de Utilizações do Filtro no Pré-estudo}
     \includegraphics[width=0.85\linewidth]{figuras/pre-study-usos.png}
@@ -95,9 +233,17 @@ Em seguida, realizou-se um teste de hipótese sobre a distribuição do número 
     \label{fig:pre-study-usos}
 \end{figure}
 
-Outro teste foi conduzido para avaliar a distribuição do número de listas de exercícios criadas por docente. Novamente, utilizou-se o teste Mann-Whitney U, dada a ausência de normalidade nos dados. Para um nível de significância de 5\%, não houve diferença significativa entre os grupos (U = 4797, p = 0.3166). As distribuições são ilustradas na Figura \ref{fig:pre-study-acts}. No total, foram considerados 269 docentes que criaram ao menos uma atividade e utilizaram o filtro (224 no grupo de controle e 45 no de tratamento).
+Para um nível de significância de 5\%, não foi encontrada diferença estatisticamente significativa na distribuição do número de usos do filtro de nível de dificuldade entre os dois grupos. Os resultados obtidos foram uma estatística \textit{U} de 5511 e um p-valor de 0,7014. 
 
-\begin{figure}
+Uma estatística \textit{U} elevada (mais distante de 0) sugere uma maior similaridade entre as distribuições dos grupos analisados. O p-valor, por sua vez, quantifica a probabilidade de se obter um resultado tão extremo quanto o observado, assumindo que a hipótese nula (de que as duas distribuições são iguais) seja verdadeira. Neste experimento, considerando um limiar de significância de 0,05, um p-valor inferior a esse valor indicaria uma diferença estatisticamente significativa entre os grupos. No entanto, como o p-valor obtido (0,7014) é muito superior a esse limite, conclui-se que não há evidências suficientes para rejeitar a hipótese nula e, portanto, não foi identificada uma diferença estatisticamente relevante entre as distribuições.
+
+
+% Na figura \ref{fig:pre-study-usos} é ilutratado o comportanmento das distribuições dos grupos de controle (azul) e tratamento (marrom). Foram analisados 331 docentes que utilizaram o filtro pelo menos uma vez (281 no grupo de controle e 50 no de tratamento). O resultado observado evidencia a similaridade do comportamento dessas distribuições. Ou seja, os grupos apresentaram padrões semelhantes em relação ao uso do filtro de nível de dificuldade. Portanto, não houve evidência estatisticamente significativa para concluir que havia associação entre o uso do filtro e os diferentes tratamentos.
+ 
+
+Ainda no intuito de se testar a similaridade do comportamento dos dois grupos, outro teste foi conduzido para avaliar a distribuição do número de listas de exercícios criadas por docente (outra das varíaveis escolhidas para análise). Novamente, utilizou-se o teste Mann-Whitney U, dada a ausência de normalidade nos dados (como pode ser verificado no histograma apresentado na Figura \ref{fig:pre-study-acts}). Para um nível de significância de 5\%, não houve diferença significativa entre os grupos (\textit{U} = 4797, p-valor 0,3166). No total, foram considerados 269 docentes que criaram ao menos uma atividade e utilizaram o filtro (224 no grupo de controle e 45 no de tratamento).
+
+\begin{figure}[h]
     \centering
     \caption{Distribuições do Número de Listas de Exercícios Criadas no Pré-estudo}
     \includegraphics[width=0.85\linewidth]{figuras/pre-study-acts.png}
@@ -107,9 +253,10 @@ Outro teste foi conduzido para avaliar a distribuição do número de listas de 
     \label{fig:pre-study-acts}
 \end{figure}
 
-Por fim, testou-se a distribuição do número de exercícios selecionados por docente no período. Utilizou-se novamente o teste Mann-Whitney U. Para um nível de significância de 5\%, não foi observada diferença significativa entre os grupos (U = 4780.5, p = 0.4772). As distribuições são apresentadas na Figura \ref{fig:pre-study-exs}. No total, 269 docentes foram analisados (224 do grupo de controle e 45 do grupo de tratamento).
+Por fim, para se finalizar este pré-estudo, testou-se a distribuição do número de exercícios selecionados por docente no período. Utilizou-se novamente o teste Mann-Whitney U (distribuições são apresentadas na Figura \ref{fig:pre-study-exs}). Para um nível de significância de 5\%, não foi observada diferença significativa entre os grupos (\textit{U} = 4780,5, p-valor 0,4772). No total, 269 docentes foram analisados (224 do grupo de controle e 45 do grupo de tratamento).
 
-\begin{figure}
+
+\begin{figure}[h]
     \centering
     \caption{Distribuições do Número de Exercícios Selecionados no Pré-estudo}
     \includegraphics[width=0.85\linewidth]{figuras/pre-study-exs.png}
@@ -119,4 +266,4 @@ Por fim, testou-se a distribuição do número de exercícios selecionados por d
     \label{fig:pre-study-exs}
 \end{figure}
 
-Após essas análises\footnote{Os dados coletados foram anonimizados e disponibilizados em repositório público, junto com os cadernos de análise. Disponível em: \href{https://github.com/senaarth/tcc-notebooks/blob/main/pre-study.ipynb}{https://github.com/senaarth/tcc-notebooks}}, concluiu-se que não havia diferenças no comportamento dos grupos antes da introdução da nova versão. Esse processo aumentou a confiabilidade das análises subsequentes, conforme recomendado por \citeonline{erthal_characterization_2023} e \citeonline{kohavi_seven_2014}. Assim, deu-se prosseguimento o experimento.
+Após essas análises\footnote{Os dados coletados foram anonimizados e disponibilizados em repositório público, junto com os cadernos de análise. Disponível em: \href{https://github.com/senaarth/tcc-notebooks/blob/main/pre-study.ipynb}{https://github.com/senaarth/tcc-notebooks}}, concluiu-se que não havia diferenças no comportamento dos grupos antes da introdução da nova versão. Esse processo foi realizado a partir de considerações encontradas na literatura estudada e visou aumentar a confiabilidade das análises subsequentes (uma maior discussão é realizada na Subseção \ref{subsec:relacionados}) \cite{fabijan_evolution_2017, fabijan_three_2019, erthal_characterization_2023, fabijan_benefits_2017, crook_seven_2009}. Assim, prossegui-se com a execução do experimento planejado na Subseção anterior, \ref{subsec:plan_exp}.
