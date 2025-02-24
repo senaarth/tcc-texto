@@ -99,26 +99,22 @@ Os valores \( a_{ij} \) são determinados com base na escala de razão conforme 
 7 & Muito mais importante \\ \hline
 9 & Extremamente mais importante \\ \hline
 \end{tabular}
-
-\begin{center}
-    \text{Fonte: \citeonline{qatch}}
-\end{center}
 \end{table}
 
 \subsection{Extensão \textit{Fuzzy} do AHP}
 
-O \textit{Fuzzy} AHP aprimora o método ao incorporar conceitos da lógica \textit{fuzzy}, permitindo a modelagem da incerteza inerente aos julgamentos subjetivos dos especialistas \cite{qatch}. Essa abordagem possibilita uma avaliação mais realista e flexível ao atribuir graus de certeza para cada comparação realizada.
+O \textit{Fuzzy} AHP aprimora o método ao incorporar conceitos da lógica \textit{fuzzy} (difusa), permitindo a modelagem da incerteza inerente aos julgamentos subjetivos dos especialistas \cite{qatch}. Essa abordagem possibilita uma avaliação mais realista e flexível ao atribuir graus de certeza para cada comparação realizada.
 
 \begin{itemize}
     \item Além do nível de importância, os especialistas indicam um grau de certeza qualitativo, categorizado como \textit{Alta Certeza}, \textit{Média Certeza} ou \textit{Baixa Certeza};
-    \item Esses valores são convertidos em \textbf{números fuzzy triangulares}, expressos como \( (m - \sigma, m, m + \sigma) \), onde:
+    \item Esses valores são convertidos em \textbf{números \textit{fuzzy} triangulares}, expressos como \( (m - \sigma, m, m + \sigma) \), onde:
     \begin{itemize}
-        \item \( m \) representa o valor modal, conforme a escala de Saaty;
-        \item \( \sigma \) ajusta a dispersão do peso, variando conforme o grau de certeza: 0.1 para alta certeza, 0.5 para média certeza e 0.9 para baixa certeza.
+        \item \( m \) representa o valor modal, conforme a escala apresentada na Tabela \ref{tab:ahp_scale};
+        \item \( \sigma \) ajusta a dispersão do peso, variando conforme o grau de certeza: 0,1 para alta certeza, 0,5 para média certeza e 0,9 para baixa certeza.
     \end{itemize}
 \end{itemize}
 
-A função de pertinência fuzzy utilizada no QATCH é definida por:
+A função de pertinência \textit{fuzzy} utilizada no QATCH é definida por:
 
 \[
 \mu_A(x) = \begin{cases} 
@@ -127,6 +123,25 @@ A função de pertinência fuzzy utilizada no QATCH é definida por:
 0, & \text{caso contrário}. 
 \end{cases}
 \]
+
+Desta forma, os valores numéricos apresentados na Tablea \ref{tab:ahp_scale} convertidos em números triangulares podem ser verificados na Tablea \ref{tab:ahp_fuzzy_scale}.
+
+
+\begin{table}[h]
+\centering
+\caption{Escala de comparação do AHP no QATCH com lógica Fuzzy}
+\label{tab:ahp_fuzzy_scale}
+\begin{tabular}{|p{1cm}|p{3.75cm}|p{2.75cm}|p{2.75cm}|p{2.75cm}|}
+\hline
+\textbf{Valor} & \textbf{Nível de Importância} & \textbf{Alta Certeza} & \textbf{Média Certeza} & \textbf{Baixa Certeza} \\ \hline
+1 & Igualmente importante & (0,9, 1, 1,1) & (0,5, 1, 1,5) & (0,1, 1, 1,9) \\ \hline
+3 & Pouco mais importante & (2,7, 3, 3,3) & (1,5, 3, 4,5) & (0,3, 3, 5,7) \\ \hline
+5 & Moderadamente mais importante & (4,5, 5, 5,5) & (2,5, 5, 7,5) & (0,5, 5, 9,5) \\ \hline
+7 & Muito mais importante & (6,3, 7, 7,7) & (3,5, 7, 10,5) & (0,7, 7, 13,3) \\ \hline
+9 & Extremamente mais importante & (8,1, 9, 9,9) & (4,5, 9, 13,5) & (0,9, 9, 17,1) \\ \hline
+\end{tabular}
+\end{table}
+
 
 Os pesos \textit{fuzzy} são determinados por meio do \textbf{método dos Mínimos Quadrados Logarítmicos Fuzzy} e posteriormente defuzzificados para obtenção de valores exatos (\textit{crisp}), que podem ser empregados nas fórmulas de média ponderada. O processo de defuzzificação utiliza o \textbf{método do centro de massa}:
 

@@ -9,9 +9,9 @@ Visando rejeitar a hipótese nula, se analisa a diferença entre as amostras col
 
 Quando a hipótese nula é rejeitada quando não deveria, se caracteriza um \textbf{erro do tipo I}, ou seja, um falso positivo. Quando o contrário acontece e a hipótese nula é aceita quando não deveria, um falso negativo, se tem um \textbf{erro do tipo II}. O risco de acontecimento de ambos os erros podem ser mitigados através do aumento da amostra, porém, isso nem sempre é possivel \cite{wohlin_experimentation_2012}.
 
-Ao se realizar um teste de hipótese, é definido um \textbf{nível de significância}, que seria o nível máximo que o pesquisador está disposto a arriscar cometer um erro de tipo I. Ou seja, caso seja definido um nível de 0.05 (5\%), é aceito que a cada 100 análises, 5 rejeitarão a hipótese nula quando ela deveria ser aceita. Normalmente este nível é representado pela letra grega alfa (\( \alpha \)) \cite{juristo_basics_2001}.
+Ao se realizar um teste de hipótese, é definido um \textbf{nível de significância}, que seria o nível máximo que o pesquisador está disposto a arriscar cometer um erro de tipo I. Ou seja, caso seja definido um nível de 0,05 (5\%), é aceito que a cada 100 análises, 5 rejeitarão a hipótese nula quando ela deveria ser aceita. Normalmente este nível é representado pela letra grega alfa (\( \alpha \)) \cite{juristo_basics_2001}.
 
-Já os erros de tipo II dependem de outros fatores, como a diferença nas observações das diferentes hipóteses e poder do teste estatístico, representada por beta (\( \beta \)). O \textbf{poder de um teste} é definido pela probabilidade de se rejeitar corretamente a hipótese nula, representado por 1 - \( \beta \). Por exemplo, um nível de poder de 0.4 indica que se um experimento for executado 10 vezes um efeito causado por algum fator alternativo será descoberto apenas em 4 delas \cite{juristo_basics_2001}.
+Já os erros de tipo II dependem de outros fatores, como a diferença nas observações das diferentes hipóteses e poder do teste estatístico, representada por beta (\( \beta \)). O \textbf{poder de um teste} é definido pela probabilidade de se rejeitar corretamente a hipótese nula, representado por 1 - \( \beta \). Por exemplo, um nível de poder de 0,4 indica que se um experimento for executado 10 vezes um efeito causado por algum fator alternativo será descoberto apenas em 4 delas \cite{juristo_basics_2001}.
 
 \subsection{Estatística Descritiva}
 \label{subsec:descritiva}
@@ -102,8 +102,8 @@ IQR = Q_3 - Q_1.
 Os limites inferior e superior são então estabelecidos a partir do valor de \textit{IQR}, e quaisquer valores que ultrapassem esses limites são classificados como \textit{outliers}. O cálculo desses limites é dado por:
 
 \begin{align*}
-\text{Limite Inferior} &= Q_1 - 1.5 \cdot IQR, \\
-\text{Limite Superior} &= Q_3 + 1.5 \cdot IQR.
+\text{Limite Inferior} &= Q_1 - 1,5 \cdot IQR, \\
+\text{Limite Superior} &= Q_3 + 1,5 \cdot IQR.
 \end{align*}
 
 Essa técnica não pressupõe que a distribuição do conjunto seja normal, pois a identificação de \textit{outliers} baseia-se na ordenação dos dados. Por isso, ela apresenta um bom desempenho em conjuntos de dados assimétricos.
@@ -194,7 +194,7 @@ Para calcular o valor de \textit{z} se utiliza a seguinte fórmula, onde \textit
 z = \frac{S - \mu_S}{\sigma_S} \text{.}
 \]
 
-Assim, os valores mais distantes se encontram nas regiões críticas, como apresentado na Figure \ref{fig:z-score}, que demonstra que os valores encontrados nelas teriam um \textit{z-score} maior que 1.96 ou menor que -1.96 (no exemplo o nível de significância é de 0.05, ou 5\%).
+Assim, os valores mais distantes se encontram nas regiões críticas, como apresentado na Figure \ref{fig:z-score}, que demonstra que os valores encontrados nelas teriam um \textit{z-score} maior que 1,96 ou menor que -1,96 (no exemplo o nível de significância é de 0,05, ou 5\%).
 
 
 
@@ -273,7 +273,7 @@ Já o valor \(z\) é calculado como:
 z = \frac{u - \bar{x}}{s} \text{.}
 \]
 
-Esse valor \(z\) é então comparado com os valores críticos da tabela padrão normal para determinar se a diferença observada entre as amostras é estatisticamente significativa. Se \(z\) cair fora do intervalo crítico definido (por exemplo, -1.96 a 1.96 para um nível de significância de 0.05), rejeita-se a hipótese nula e conclui-se que há uma diferença significativa entre as amostras \cite{juristo_basics_2001}.
+Esse valor \(z\) é então comparado com os valores críticos da tabela padrão normal para determinar se a diferença observada entre as amostras é estatisticamente significativa. Se \(z\) cair fora do intervalo crítico definido (por exemplo, -1,96 a 1,96 para um nível de significância de 0,05), rejeita-se a hipótese nula e conclui-se que há uma diferença significativa entre as amostras \cite{juristo_basics_2001}.
 
 \subsubsection{Teste Qui-Quadrado}
 \label{subsec:chi-square}
@@ -287,4 +287,4 @@ O teste qui-quadrado também é um teste não paramétrico. É utilizado para an
 \noindent
 onde \(o_i\) são as frequências observadas, \(e_i\) são as frequências esperadas sob a hipótese nula, e \(k\) é o número de eventos ou categorias. O valor calculado de \(\chi^2\) é então comparado a um valor crítico da tabela qui-quadrado, que varia de acordo com o número de graus de liberdade (\(\nu = k - 1\)) e o nível de significância escolhido \cite{juristo_basics_2001}.
 
-Se o valor calculado de \(\chi^2\) for maior que o valor crítico da tabela (como \(\chi^2_{0.95}\), para um nível de significância de 0,05), a hipótese nula é rejeitada, indicando uma diferença significativa entre as frequências observadas e esperadas. Caso contrário, não há evidência suficiente para rejeitar a hipótese nula \cite{juristo_basics_2001}.
+Se o valor calculado de \(\chi^2\) for maior que o valor crítico da tabela (como \(\chi^2_{0,95}\), para um nível de significância de 0,05), a hipótese nula é rejeitada, indicando uma diferença significativa entre as frequências observadas e esperadas. Caso contrário, não há evidência suficiente para rejeitar a hipótese nula \cite{juristo_basics_2001}.

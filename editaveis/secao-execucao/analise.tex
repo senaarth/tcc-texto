@@ -1,25 +1,123 @@
-\subsection{Tomada de Decisão sobre a aceitação da versão.}
+\subsubsection{Ameaças à Validade}
 
-Concluídas as análises, a equipe reuniu-se para deliberar sobre a versão a ser definitivamente implementada. Considerando o contexto da qualidade em uso, os indicadores calculados para cada versão não apresentaram diferenças estatisticamente significativas. No entanto, outros fatores foram considerados a partir dos dados coletados.
+\citeonline{cook1979} categorizam as ameaças à validade de um experimento em quatro dimensões: conclusão, interna, externa e de construto. Esta seção examina cada uma dessas categorias no contexto deste estudo, além de discutir ameaças adicionais conforme descrito por \citeonline{wohlin_experimentation_2012}.
 
-A suposição inicial era de que a alteração na posição do filtro poderia influenciar sua adoção, ou seja, caso este fosse posicionado mais acima, os docentes utilizariam mais a categoria em questão. Esta ideia foi corroborada pelos dados quantitativos, conforme demonstrado na subseção anterior. No entanto, essa métrica isolada não é suficiente para embasar a decisão, pois a mudança no posicionamento da categoria analisada impacta também as demais. Por essa razão, foram conduzidos testes adicionais para a categoria de fonte, que, na versão de tratamento, passou a ocupar a última posição na lista. Contrariando a suposição inicial de que filtros em posições inferiores seriam menos utilizados, também observou-se um aumento na adoção desse filtro pelos usuários beta.
+A \textbf{validade da conclusão}, que avalia a relação estatística entre o tratamento e os resultados observados, foi reforçada pela definição de uma amostra adequada e pela condução de um pré-estudo com teste A/A, garantindo a equivalência entre os grupos antes da intervenção. Além disso, foram empregados métodos estatísticos apropriados para cada distribuição, tanto na normalização e redução dos dados quanto na aplicação dos testes estatísticos. A ameaça de erro por \textit{fishing} (realização de múltiplas análises em busca de um resultado significativo) foi mitigada por meio do respeito ao limiar de significância predefinido (\(\alpha\) = 0,05) e pela ausência de coletas adicionais ou modificações na coleta original. Adicionalmente, a persistência da versão servida aos usuários foi assegurada por meio do sistema de \textit{feature gates} da empresa, garantindo que todos os participantes recebessem a mesma implementação do tratamento.
 
-Essa contradição na adoção dos filtros, em relação à hipótese inicial, revela que a posição na lista pode não ser o único fator determinante para a escolha dos usuários. Assim, a equipe decidiu manter a versão de tratamento devido aos resultados positivos observados para o filtro de nível de dificuldade e de fonte. No entanto, optou por seguir com novas iniciativas antes de escolher uma versão definitiva. Para aprimorar a compreensão do impacto das mudanças, planeja-se a realização de pesquisas qualitativas com docentes que utilizam a plataforma, ampliando a base de evidências relacionadas à funcionalidade de filtros.
+A \textbf{validade interna}, que examina a relação causal entre o tratamento e os efeitos observados, foi preservada pelo uso de um teste A/A e pela coleta de dados anterior à intervenção, minimizando riscos como viés de histórico e aprendizado dos participantes. Além disso, a remoção de \textit{outliers} foi conduzida de forma criteriosa, evitando distorções sem comprometer a representatividade da amostra. No entanto, como os \textit{outliers} não eram necessariamente erros nos dados, sua exclusão sem análise individual pode ter influenciado os resultados. Para mitigar esse risco, foi realizada uma avaliação prévia do impacto dessa remoção sobre as amostras.
 
-Dada a grande quantidade de categorias de filtros, testar todas as variações de posicionamento seria inviável e contraproducente. Dessa forma, a equipe optou por planejar estudos mais amplos sobre a interface apresentada, como avaliar se a disposição em uma barra vertical, que é a disposição atual, é realmente a mais adequada ou se, do ponto de vista do negócio, faz sentido desenvolver uma funcionalidade que permita a personalização da ordenação, seja por meio da priorização automática dos filtros mais utilizados pelo usuário ou por ordenação manual realizada pelo próprio docente.
+Outras ameaças à validade interna incluem a ambiguidade na direção causal, pois não foi explorado se fatores distintos da posição do filtro poderiam ter influenciado a qualidade em uso percebida pelos usuários. Além disso, a possibilidade de interação entre seleção e maturação não foi completamente descartada, uma vez que os grupos de tratamento e controle podem ter evoluído de maneira diferente ao longo do experimento. No que diz respeito à difusão do tratamento, isto é, a possibilidade de os participantes do grupo controle obterem informações sobre a versão experimental por meio de colegas, nenhuma medida específica foi implementada. Entretanto, dado que a seleção dos usuários beta ocorre dentro de organizações educacionais, espera-se que a interação ocorra predominantemente entre indivíduos expostos à mesma versão do sistema. Adicionalmente, a ausência de análise sobre possíveis desistências durante o experimento representa uma ameaça de mortalidade, podendo influenciar a interpretação dos achados.
+
+A \textbf{validade do construto}, que investiga se o experimento efetivamente mediu o que se propôs a avaliar, foi fortalecida pelo uso de normas de referência e pelo modelo QATCH \cite{nbr9241, qatch}. No entanto, o estudo pode ter sido afetado por viés de mono-operação, pois apenas um tratamento foi testado, restringindo a compreensão de outros fatores que poderiam influenciar a adoção da funcionalidade. Da mesma forma, a exclusividade de métricas quantitativas implica um risco de viés de mono-método, uma vez que não foram coletados dados qualitativos, como percepções subjetivas dos usuários por meio de questionários ou entrevistas. A ausência de triangulação metodológica pode, portanto, limitar a robustez das inferências realizadas.
+
+A \textbf{validade externa}, que trata da generalização dos achados, apresenta limitações associadas ao perfil dos participantes, como docentes já familiarizados com a plataforma, e também ao período de realização do experimento, que ocorreu no meio do ano letivo. Isso pode restringir a aplicabilidade dos resultados a outros perfis, como novos usuários da plataforma. Além disso, há o risco de interação entre histórico e tratamento, pois a replicação do experimento em outro momento, como no início do ano letivo, poderia produzir resultados distintos. Eventos externos, como mudanças institucionais ou acadêmicas, também podem ter impactado os comportamentos observados.
+
+Outro fator relevante para a validade externa é a interação entre a configuração experimental e o tratamento. O ambiente do experimento reflete fielmente o uso real da funcionalidade, já que o mesmo é realizado em contexto operacional, sem o conhecimento dos participantes. Ademais, a interação entre seleção e tratamento pode comprometer a generalização caso os participantes possuam características que os diferenciem significativamente do restante da população.
+
+Diante dessas considerações, observa-se que, embora diversas medidas tenham sido implementadas para mitigar ameaças à validade do experimento, algumas limitações ainda podem influenciar a interpretação dos resultados. A replicação do estudo em diferentes períodos, com grupos de usuários mais diversos e a adoção de métodos complementares de análise, contribuiria para fortalecer a confiabilidade e a generalização dos achados.
 
 
-A literatura indica que, em experimentos controlados \textit{online}, apenas um terço das hipóteses testadas são aceitas. No entanto, esse resultado não deve ser visto como negativo, pois o processo de avaliação estatística possibilita a construção de um conhecimento mais estruturado, indo além da mera intuição dos \textit{stakeholders} \cite{kohavi_oce_and_ab_tests_2017, erthal_characterization_2023}. No contexto deste estudo, além da validação da versão de tratamento, os experimentos forneceram novos subsídios para aprimorar a funcionalidade avaliada, abrindo possibilidades para investigações futuras que transcendam a mera ordenação dos filtros, incluindo potenciais melhorias na interface e na experiência do usuário.
+\subsubsection{Discussões Adicionais}
+
+Diante da ausência de diferenças significativas na qualidade em uso entre as versões, foram conduzidas análises adicionais para servir de insumos para a tomada de decisão da equipe. Com base na suposição inicial que motivou este experimento, foram realizados testes para avaliar a frequência de adoção da funcionalidade de filtro por nível de dificuldade entre os grupos. Para isso, a partir dos eventos de uso do filtro, foi contabilizado o número de usuários que utilizaram ao menos uma vez o filtro da categoria em questão. Por se tratar de um dado categórico (usuário adotou ou não a funcionalidade), optou-se pela aplicação do teste qui-quadrado para verificar a existência de uma diferença estatisticamente significativa entre os grupos.
+
+Este teste visa analisar a diferença entre as frequências observadas e esperadas de uma variável nominal, com o objetivo de se rejeitar a hipótese nula de que a frequência observada no conjunto total é igual nos grupos que utilizaram os diferentes tratamentos (este procedimento é melhor detalhado na Subseção \ref{subsec:chi-square}). Desta forma, foram utilizados então, os mesmos eventos de uso do filtro utilizados no experimento para compor a amostra, como relatado no início desta seção, foram coletados 80198 pontos de filtragem de todas as categorias disponíveis. Dos dados encontrados, apresentaram-se 3504 usuários únicos (sendo 508, 14,5\%, do grupo de tratamento e 2996, 85,5\%, do grupo de controle).
 
 
-\subsection{Ameaças à Validade}
+Os dados foram então tratados de forma a verificar quais usuários utilizaram a categoria de nível de dificuldade ao menos uma vez no período, sendo possível então a aplicação do teste. Este, por sua vez, resultou em um p-valor de aproximadamente 0,0896, ou seja, para um nível de confiança de 5\%, não haviam evidências estatísticas suficientes para afirmar diferença na adoção da funcionalidade em abos os conjuntos. No entanto, apesar do p-valor estar ligeiramente acima do limite de significância definido, ele ainda se encontrava em uma faixa próxima ao limiar. Dessa forma, para minimizar a possibilidade de um erro do tipo II, foi conduzida uma nova iteração do experimento, com uma extensão do período de coleta de dados por mais duas semanas (de 19 de novembro a 3 de dezembro de 2024).
 
-\citeonline{cook1979} define quatro tipos de ameaças à validade de um experimento: conclusão, interna, externa e constructo. No que tange à validade da conclusão, que avalia a relação estatística entre tratamento e resultado, o estudo adotou uma amostra adequada e conduziu um pré-estudo com teste A/A para garantir a equivalência entre os grupos antes da intervenção, fortalecendo a validade estatística. Além disso, os testes estatísticos foram corretamente selecionados para dados não normalmente distribuídos. A confiabilidade das medições foi assegurada pelo uso de normas de referência e modelos estabelecidos de avaliação de qualidade. No entanto, a extensão do estudo para aumentar o conjunto de dados e o poder estatístico dos testes pode indicar um risco de \textit{fishing}, ainda que não tenham sido realizadas análises exploratórias adicionais.
+Ao final do novo período de coleta, o teste foi reaplicado com uma amostra ampliada, agora composta por 4467 usuários, sendo 608 (13,6\%) pertencentes ao grupo de tratamento e 3859 (86,4\%) ao grupo de controle. Os novos resultados indicaram uma diferença estatisticamente significativa na adoção da funcionalidade entre os grupos, com um p-valor de aproximadamente 0,0032 e uma estatística qui-quadrado de 8,71 (ver Tabela \ref{tab:exp-adocao-dificuldade}). Esse achado indicou que a alteração na posição do filtro influenciou positivamente sua adoção pelos usuários.
 
-Quanto à validade interna, que assegura a relação causal entre tratamento e efeito, o uso de teste A/A e a coleta de dados antes da intervenção reduziram riscos como viés de histórico ou aprendizado dos participantes. A exclusão de \textit{outliers} também evitou distorções nas análises sem comprometer a representatividade da amostra. Entretanto, a interação entre a posição do filtro e outros elementos do ambiente pode ter influenciado os resultados, comprometendo a clareza da relação causal. A observação de que o último filtro também teve aumento de uso, contrariando a hipótese inicial, sugere a presença de variáveis não controladas que podem ter afetado os resultados.
+\begin{table}[h]
+    \centering
+    \caption{Resultados do Teste Sobre Adoção do Filtro de Nível de Dificuldade }
+    \begin{tabular}{lcc}
+        \hline
+        Estatística & Valor \\ \hline
+        $\chi^2$ (Qui-quadrado) & 11,7882 \\
+        p-valor &0,000596 \\  
+        Graus de liberdade & 1 \\ \hline
+    \end{tabular}
 
-A validade do construto, que verifica se o experimento mediu corretamente o que se propôs, foi reforçada pelo uso de normas de referência na definição das métricas e pelo modelo QATCH. Contudo, há um risco de mono-operação, pois apenas um tratamento foi testado, limitando a compreensão de outros fatores que poderiam impactar a adoção da funcionalidade. Em contrapartida, a não comunicação aos participantes sobre o experimento mitigou o viés de resposta, fortalecendo essa dimensão da validade.
+    \vspace{0.5cm} % Espaço entre tabelas
 
-A validade externa, que trata da generalização dos achados, foi limitada pelo perfil específico dos participantes, docentes já familiarizados com a plataforma, e pelo período de realização do experimento, no meio do período letivo. Isso pode restringir a aplicabilidade dos resultados a outros perfis de usuários, como docentes recém-introduzidos ao sistema. Além disso, há o risco de interação entre histórico e tratamento, uma vez que a replicação do experimento em outro período acadêmico, como o início do ano letivo, poderia produzir resultados distintos.
+    \begin{tabular}{lcc}
+        \hline
+        Grupo & Frequências esperadas (Não adotou) & Frequências esperadas (Adotou) \\ \hline
+        Controle & 3825,73 & 1080,27 \\
+        Tratamento & 530,27 & 149,73 \\ \hline
+    \end{tabular}
 
-Desta forma, é conclui-se que experimento adotou diversas estratégias para mitigar ameaças à validade, mas melhorias poderiam ser incorporadas. A realização de entrevistas qualitativas com os docentes possibilitaria uma compreensão mais aprofundada de seus critérios na escolha dos filtros utilizados. Embora essa atividade tenha sido considerada no planejamento, restrições de cronograma impediram sua implementação nesta etapa do estudo.
+    \vspace{0.5cm} % Espaço entre tabelas
+
+    \begin{tabular}{lcc}
+        \hline
+        Grupo & Frequências observadas (Não adotou) & Frequências observadas (Adotou) \\ \hline
+        Controle & 3861 & 1045 \\
+        Tratamento & 495 & 185 \\ \hline
+    \end{tabular}
+    \label{tab:exp-adocao-dificuldade}
+
+    \begin{center}
+        \text{Fonte: Autor}
+    \end{center}
+\end{table}
+
+Por fim, visando se confirmar a suspeita de que a categoria posicionada por último seria a menos utilizada, foi realizado o mesmo teste, porém olhando para a categoria de fonte, já que esta, na versão de tratamento, se tornou a última da listagem. Os resultados apresentaram que sua proporção de adoção também foi maior na população de controle, contradizendo as suposições iniciais da equipe (p-valor $\approx $0,47, ver Tabela \ref{tab:exp-adocao-fonte}).
+
+
+\begin{table}[h]
+    \centering
+    \caption{Resultados do Teste Sobre Adoção do Filtro de Fonte}
+    \begin{tabular}{lcc}
+        \hline
+        Estatística & Valor \\ \hline
+        $\chi^2$ (Qui-quadrado) & 3,9270 \\
+        p-valor &0,0475 \\  
+        Graus de liberdade & 1 \\ \hline
+    \end{tabular}
+
+    \vspace{0.5cm} % Espaço entre tabelas
+
+    \begin{tabular}{lcc}
+        \hline
+        Grupo & Frequências esperadas (Não adotou) & Frequências esperadas (Adotou) \\ \hline
+        Controle & 4507,27 & 398,73 \\
+        Tratamento & 624,73 & 55,27 \\ \hline
+    \end{tabular}
+
+    \vspace{0.5cm} % Espaço entre tabelas
+
+    \begin{tabular}{lcc}
+        \hline
+        Grupo & Frequências observadas (Não adotou) & Frequências observadas (Adotou) \\ \hline
+        Controle & 4521 & 385 \\
+        Tratamento & 611 & 69 \\ \hline
+    \end{tabular}
+
+
+    \begin{center}
+        \text{Fonte: Autor}
+    \end{center}
+        \label{tab:exp-adocao-fonte}
+\end{table}
+
+
+
+O resultado destes testes inferenciais demonstraram que a proporção de adoção da funcionalidade de filtro por nível de dificuldade foi sim aumentada na população, porém na de categoria de fonte, que tomou o seu lugar, não foi percebido um efeito oposto, o que contradiz a suposição inicial escolhida para avaliação de que a posição do filtro era o que causava sua sub-utilização.
+
+\subsection{Decisão Sobre Implantação da Versão Definitiva}
+
+Concluídas as análises, a equipe reuniu-se para deliberar sobre a versão a ser implementada definitivamente. No contexto da qualidade em uso, os indicadores calculados para cada versão não revelaram diferenças estatisticamente significativas nas características avaliadas, especificamente satisfação e eficácia. A avaliação foi conduzida por meio da aplicação de diferentes métricas e sua agregação, permitindo uma análise mais ampla e integrada das funcionalidades examinadas. Esse procedimento visou captar com maior precisão o engajamento dos usuários na plataforma, assegurando que os indicadores refletissem não apenas a experiência de uso, mas também o impacto do produto no contexto de negócio.  
+
+Na empresa, a definição de parâmetros para avaliação do desempenho do produto ocorre de maneira não sistematizada. No entanto, a adoção de normas de referência e modelos de qualidade possibilitou uma discussão mais aprofundada sobre os aspectos da qualidade do \textit{software}, destacando a relevância de cada característica e subcaracterística. Ainda que a análise tenha sido aplicada a um subconjunto específico de funcionalidades, essa abordagem proporcionou um embasamento mais sólido para a tomada de decisão, reforçando a importância de uma avaliação estruturada da qualidade do produto.  
+
+Em um experimento controlado, a não rejeição da hipótese nula normalmente levaria ao abandono da versão de tratamento. No entanto, a decisão final não se baseou exclusivamente nos resultados quantitativos, mas também em fatores estratégicos e qualitativos fundamentais para o produto.  
+
+A hipótese inicial postulava que a alteração na posição do filtro poderia influenciar sua adoção, isto é, ao ser posicionado mais acima na interface, os docentes tenderiam a utilizá-lo com maior frequência. Essa suposição foi corroborada pelos dados quantitativos apresentados na subseção anterior. Contudo, essa métrica isoladamente não seria suficiente para fundamentar a decisão, uma vez que a alteração na posição de uma categoria impacta diretamente a visibilidade das demais. Assim, foram conduzidos testes adicionais para o filtro de fonte, que, na versão de tratamento, passou a ocupar a última posição na lista. Contrariando a conjectura inicial de que filtros posicionados em locais inferiores seriam menos utilizados, os resultados indicaram um aumento na adoção desse filtro pelos usuários beta.  
+
+Essa aparente contradição sugere que a posição na lista pode não ser o único fator determinante para a escolha dos usuários. Diante desse cenário, a equipe decidiu \textbf{manter a versão de tratamento}, uma vez que os resultados obtidos foram positivos tanto para o filtro de nível de dificuldade quanto para o de fonte. No entanto, optou-se por conduzir novas investigações antes de definir uma versão definitiva. Para aprofundar a compreensão sobre o impacto das mudanças implementadas, planeja-se a realização de pesquisas qualitativas com docentes que utilizam a plataforma, a fim de ampliar a base de evidências sobre a funcionalidade dos filtros.  
+
+Devido à grande quantidade de categorias de filtros, testar exaustivamente todas as possíveis variações de posicionamento seria inviável e contraproducente. Assim, a equipe optou por planejar estudos mais amplos sobre a interface, explorando, por exemplo, se a disposição atual em uma barra vertical é a solução mais adequada ou se, do ponto de vista do negócio, seria mais vantajoso desenvolver uma funcionalidade que permitisse a personalização da ordenação. Entre as possibilidades a serem investigadas, destacam-se a priorização automática dos filtros mais utilizados por cada usuário e a opção de ordenação manual realizada pelo próprio docente.  
+
+A literatura indica que, em experimentos controlados \textit{online}, apenas um terço das hipóteses testadas são confirmadas. No entanto, esse resultado não deve ser interpretado de maneira negativa, pois a avaliação estatística permite a construção de um conhecimento mais estruturado, indo além da mera intuição dos especialistas de negócio \cite{kohavi_oce_and_ab_tests_2017, erthal_characterization_2023}. No contexto deste estudo, além da validação da versão de tratamento, os experimentos forneceram novos subsídios para o aprimoramento da funcionalidade analisada, abrindo caminho para investigações futuras que transcendem a mera ordenação dos filtros, contemplando possíveis melhorias na interface e na experiência do usuário.  

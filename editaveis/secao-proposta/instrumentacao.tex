@@ -1,4 +1,5 @@
 \subsection{Instrumentação}
+\label{subsec:instrument}
 
 Nesta seção, são apresentadas as ferramentas utilizadas na realização do estudo de caso. As soluções abordadas incluem o versionamento do código-fonte, a coleta de métricas de uso da plataforma, a análise de dados para testes de hipótese, a gestão e documentação das hipóteses geradas e a coleta de opiniões dos colaboradores envolvidos.
 
@@ -24,7 +25,7 @@ O JupyterHub, que já é um padrão no produto investigado, é uma plataforma qu
 
 O MixPanel é uma plataforma de análise de engajamento que facilita o rastreamento e a compreensão do comportamento dos usuários em aplicações \textit{web} e \textit{mobile} \cite{mixpanel2024}. Esta plataforma será utilizada para instrumentalizar a coleta de métricas de comportamento em uso dos usuários, que serão utilizados nos testes de hipótese. Como já é utilizada no produto investigado, não será necessária a configuração da ferramenta adicional, apenas a definição dos eventos a serem observados durante o experimento.
 
-A plataforma fornece bibliotecas que viabilizam o disparo de eventos diretamente no código-fonte do produto, e, além da coleta da métrica em si, também é possível adicionar propriedades específicas ao evento, como informações sobre o usuário, sobre seu comportamento, entre outras. Além disso, o MixPanel fornece uma API de consumo desses dados, permitindo ao desenvolvedor filtrá-los conforme necessário. Esta união de fatores permite que os dados além de computados, carreguem metadados que viabilizem filtragens e manipulações.
+A plataforma fornece bibliotecas que viabilizam o disparo de eventos diretamente no código-fonte do produto, e, além da coleta da métrica em si, também é possível adicionar propriedades específicas ao evento, como informações sobre o usuário, sobre seu comportamento, entre outras. Além disso, o MixPanel fornece uma API de consumo destes dados, permitindo ao desenvolvedor filtrá-los conforme necessário. Esta união de fatores permite que os dados além de computados, carreguem metadados que viabilizem filtragens e manipulações.
 
 No trecho de código abaixo é possível verificar o disparo do evento no lado do cliente, onde o mesmo carrega o nome do evento e os metadados necessários para manipulação e análise do mesmo (linhas 10 a 18).
 
@@ -85,7 +86,7 @@ params = {
     "where": "properties['Versao utilizada'] == 'Tratamento'",
 }
 
-# faz a chamada a api do mixpanel e realizada o parser dos dados
+# chama a api do mixpanel e parseia dados
 response = requests.post(api_url, data=params, auth=HTTPBasicAuth(api_secret, ''))
 data = response.text.splitlines()
 events = [json.loads(rec) for rec in data]
