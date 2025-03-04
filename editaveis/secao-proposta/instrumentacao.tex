@@ -27,16 +27,24 @@ O MixPanel é uma plataforma de análise de engajamento que facilita o rastreame
 
 A plataforma fornece bibliotecas que viabilizam o disparo de eventos diretamente no código-fonte do produto, e, além da coleta da métrica em si, também é possível adicionar propriedades específicas ao evento, como informações sobre o usuário, sobre seu comportamento, entre outras. Além disso, o MixPanel fornece uma API de consumo destes dados, permitindo ao desenvolvedor filtrá-los conforme necessário. Esta união de fatores permite que os dados além de computados, carreguem metadados que viabilizem filtragens e manipulações.
 
-No trecho de código abaixo é possível verificar o disparo do evento no lado do cliente, onde o mesmo carrega o nome do evento e os metadados necessários para manipulação e análise do mesmo (linhas 10 a 18).
+No Trecho de Código \ref{code:mixpanel} é possível verificar o disparo do evento no lado do cliente, onde o mesmo carrega o nome do evento e os metadados necessários para manipulação e análise do mesmo (linhas 10 a 18).
 
-\vspace{\onelineskip}
-\begin{lstlisting}[style=customJS]
+
+\begin{code}[!ht]
+    \caption{Disparo de Eventos no Mixpanel}
+    \begin{lstlisting}[
+        frame=single,
+        basicstyle=\footnotesize\ttfamily,
+        style=customJS
+    ]
 import Mixpanel from 'react-mixpanel-browser';
 
 function SomeComponent() {
     # variavel booleana verifica se flag
     # esta ativada para o usuario
-    const isFeatureTreatmentEnabled = useFeature('experiment/study-case-treatment');
+    const isFeatureTreatmentEnabled = useFeature(
+        'experiment/study-case-treatment'
+    );
 
     return (
         <button
@@ -46,8 +54,8 @@ function SomeComponent() {
                     # envia nome do evento
                     'Botao do experimento clicado',
                     # envia objeto com as propriedades desejadas,
-                    # como por exemplo qual versao o usuario estava utilizando
-                    # ao clicar no botao
+                    # como por exemplo qual versao o usuario estava
+                    # utilizando ao clicar no botao
                     {
                     'Versao utilizada':
                         isFeatureTreatmentEnabled
@@ -61,12 +69,20 @@ function SomeComponent() {
         </button>
     );
 }
-\end{lstlisting}
+    \end{lstlisting}
+    \fonte{Autor}
+    \label{code:mixpanel}
+\end{code}
 
-Já no trecho seguinte é apresentado um exemplo do consumo da API da plataforma onde se solicitam os eventos disparados pelo exemplo anterior. Desta forma é possível ver como se pretende instrumentalizar a coleta das métricas e também o consumo das mesmas para a realização da análise através da ferramenta MixPanel.
+Já no Trecho de Código \ref{code:mixpanel-api} é apresentado um exemplo do consumo da API da plataforma onde se solicitam os eventos disparados pelo exemplo anterior. Desta forma é possível ver como se pretende instrumentalizar a coleta das métricas e também o consumo das mesmas para a realização da análise através da ferramenta MixPanel.
 
-\vspace{\onelineskip}
-\begin{lstlisting}[style=customJS]
+\begin{code}[!ht]
+    \caption{Consumo da API do Mixpanel}
+    \begin{lstlisting}[
+        frame=single,
+        basicstyle=\footnotesize\ttfamily,
+        style=customJS
+    ]
 import requests
 from requests.auth import HTTPBasicAuth
 import json
@@ -87,15 +103,24 @@ params = {
 }
 
 # chama a api do mixpanel e parseia dados
-response = requests.post(api_url, data=params, auth=HTTPBasicAuth(api_secret, ''))
+response = requests.post(
+    api_url, 
+    data=params, 
+    auth=HTTPBasicAuth(api_secret, '')
+)
 data = response.text.splitlines()
 events = [json.loads(rec) for rec in data]
 
 # deve apresentar uma lista semelhante a seguinte:
-# [{'event': 'Botao do experimento clicado', 'properties': {'Versao utilizada': 'Tratamento'}}]
+# [{
+#   'event': 'Botao do experimento clicado',
+#   'properties': {'Versao utilizada': 'Tratamento'}
+# }]
 print(events)
-\end{lstlisting}
-
+    \end{lstlisting}
+    \fonte{Autor}
+    \label{code:mixpanel-api}
+\end{code}
 
 \subsubsection{Notion}
 

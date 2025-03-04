@@ -32,8 +32,9 @@
 \usepackage{xcolor}
 \usepackage{soul}
 \usepackage{ulem}
-
-
+\usepackage{tocloft}
+\usepackage{xpatch}
+\usepackage{caption}
 % \usepackage{etoolbox}
 \usepackage{ragged2e}
 \usepackage{amsmath}
@@ -55,6 +56,41 @@
 \clubpenalty=10000
 \widowpenalty=10000
 
+% Códigos
+\newcommand{\codename}{Trecho de Código}
+\newcommand{\listofcodesname}{Lista de trechos de código}
+
+\floatstyle{plaintop}
+
+
+\newfloat{code}{htbp}{loc}[chapter]
+\floatname{code}{\codename}
+\newlistof{listofcodes}{loc}{\listofcodesname}
+\newlistentry{code}{loc}{0}
+\DeclareCaptionListFormat{listofcodes}{#1 #2 \textendash} 
+
+\renewcommand{\cftcodename}{\codename\space} 
+\renewcommand*{\cftcodeaftersnum}{\hfill\hfill}
+
+% --> OBS.: configurações para atender às regras da ABNT para o float QUADRO.
+% (passarão a funcionar a partir do momento que o pacote CAPTION for carregaddo).
+
+\setfloatadjustment{code}{\centering}
+\counterwithout{code}{chapter}
+%\captionsetup[quadro]{labelsep=endash}
+\captionsetup[code]{%
+        name=Trecho de Código,
+	justification=justified,
+	position=above,
+        skip=\onelineskip,
+	width=0.95\linewidth,
+	labelsep=endash, %% ABNT thing requires to use dash
+	labelfont={normalfont},
+	font={footnotesize},
+	listformat=listofcodes
+}
+
+
 \input{fixos/comandos}
 \usepackage{fixos/customizacoes}
 
@@ -68,10 +104,10 @@
 \imprimircapa
 \imprimirfolhaderosto*
 
-%\input{fixos/fichaCatalografica}
+\input{fixos/fichaCatalografica}
 % \input{editaveis/errata}
 \input{fixos/folhaDeAprovacao}
-%\input{editaveis/dedicatoria}
+% \input{editaveis/dedicatoria}
 \input{editaveis/agradecimentos}
 \input{editaveis/epigrafe}
 \input{editaveis/resumo}

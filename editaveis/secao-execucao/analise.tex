@@ -27,85 +27,73 @@ Diante dessas considerações, observa-se que, embora diversas medidas tenham si
 
 Diante da ausência de diferenças significativas na qualidade em uso entre as versões, foram conduzidas análises adicionais para servir de insumos para a tomada de decisão da equipe. Com base na suposição inicial que motivou este experimento, foram realizados testes para avaliar a frequência de adoção da funcionalidade de filtro por nível de dificuldade entre os grupos. Para isso, a partir dos eventos de uso do filtro, foi contabilizado o número de usuários que utilizaram ao menos uma vez o filtro da categoria em questão. Por se tratar de um dado categórico (usuário adotou ou não a funcionalidade), optou-se pela aplicação do teste qui-quadrado para verificar a existência de uma diferença estatisticamente significativa entre os grupos.
 
-Este teste visa analisar a diferença entre as frequências observadas e esperadas de uma variável nominal, com o objetivo de se rejeitar a hipótese nula de que a frequência observada no conjunto total é igual nos grupos que utilizaram os diferentes tratamentos (este procedimento é melhor detalhado na Subseção \ref{subsec:chi-square}). Desta forma, foram utilizados então, os mesmos eventos de uso do filtro utilizados no experimento para compor a amostra, como relatado no início desta seção, foram coletados 80198 pontos de filtragem de todas as categorias disponíveis. Dos dados encontrados, apresentaram-se 3504 usuários únicos (sendo 508, 14,5\%, do grupo de tratamento e 2996, 85,5\%, do grupo de controle).
+Este teste visa analisar a diferença entre as frequências observadas e esperadas de uma variável nominal. O objetivo é verificar se há uma diferença significativa entre as frequências esperadas, sob uma hipótese nula \(h_0\), e as frequências observadas (este procedimento é melhor detalhado na Subseção \ref{subsec:chi-square}). Desta forma, foram utilizados então, os mesmos eventos de uso do filtro utilizados no experimento para compor a amostra, como relatado no início desta seção, foram coletados 80198 pontos de filtragem de todas as categorias disponíveis. Dos dados encontrados, apresentaram-se 3504 usuários únicos (sendo 508, 14,5\%, do grupo de tratamento e 2996, 85,5\%, do grupo de controle).
 
 
-Os dados foram então tratados de forma a verificar quais usuários utilizaram a categoria de nível de dificuldade ao menos uma vez no período, sendo possível então a aplicação do teste. Este, por sua vez, resultou em um p-valor de aproximadamente 0,0896, ou seja, para um nível de confiança de 5\%, não haviam evidências estatísticas suficientes para afirmar diferença na adoção da funcionalidade em abos os conjuntos. No entanto, apesar do p-valor estar ligeiramente acima do limite de significância definido, ele ainda se encontrava em uma faixa próxima ao limiar. Dessa forma, para minimizar a possibilidade de um erro do tipo II, foi conduzida uma nova iteração do experimento, com uma extensão do período de coleta de dados por mais duas semanas (de 19 de novembro a 3 de dezembro de 2024).
+Os dados foram então tratados de forma a verificar quais usuários utilizaram a categoria de nível de dificuldade ao menos uma vez no período, sendo possível então a aplicação do teste. Este, por sua vez, resultou em um p-valor de aproximadamente 0,0896, ou seja, para um nível de confiança de 5\%, não haviam evidências estatísticas suficientes para afirmar diferença na adoção da funcionalidade em abos os conjuntos. No entanto, apesar do p-valor estar ligeiramente acima do limite de significância definido, ele ainda se encontrava em uma faixa próxima ao limiar. Dessa forma, para minimizar a possibilidade de um erro do tipo II, foi conduzida uma nova iteração da coleta, com uma extensão do período de coleta de dados por mais duas semanas (de 19 de novembro a 3 de dezembro de 2024).
 
 Ao final do novo período de coleta, o teste foi reaplicado com uma amostra ampliada, agora composta por 4467 usuários, sendo 608 (13,6\%) pertencentes ao grupo de tratamento e 3859 (86,4\%) ao grupo de controle. Os novos resultados indicaram uma diferença estatisticamente significativa na adoção da funcionalidade entre os grupos, com um p-valor de aproximadamente 0,0032 e uma estatística qui-quadrado de 8,71 (ver Tabela \ref{tab:exp-adocao-dificuldade}). Esse achado indicou que a alteração na posição do filtro influenciou positivamente sua adoção pelos usuários.
 
 \begin{table}[h]
     \centering
-    \caption{Resultados do Teste Sobre Adoção do Filtro de Nível de Dificuldade }
-    \begin{tabular}{lcc}
+    \caption{Resultados do Teste Sobre Adoção do Filtro de Nível de Dificuldade}
+    \label{tab:exp-adocao-dificuldade}
+
+    \begin{tabular}{lc}
         \hline
-        Estatística & Valor \\ \hline
+        \textbf{Estatística} & \textbf{Valor} \\ \hline
         $\chi^2$ (Qui-quadrado) & 11,7882 \\
-        p-valor &0,000596 \\  
+        p-valor & 0,000596 \\  
         Graus de liberdade & 1 \\ \hline
     \end{tabular}
 
     \vspace{0.5cm} % Espaço entre tabelas
 
-    \begin{tabular}{lcc}
+    \begin{tabular}{lcccc}
         \hline
-        Grupo & Frequências esperadas (Não adotou) & Frequências esperadas (Adotou) \\ \hline
-        Controle & 3825,73 & 1080,27 \\
-        Tratamento & 530,27 & 149,73 \\ \hline
+        \multirow{2}{*}{\textbf{Grupo}} & \multicolumn{2}{c}{\textbf{Não adotou}} & \multicolumn{2}{c}{\textbf{Adotou}} \\ 
+        \cline{2-5}
+        & Esperado & Observado & Esperado & Observado \\ \hline
+        Controle & 3825,73 & 3861 & 1080,27 & 1045 \\
+        Tratamento & 530,27 & 495 & 149,73 & 185 \\ \hline
     \end{tabular}
-
-    \vspace{0.5cm} % Espaço entre tabelas
-
-    \begin{tabular}{lcc}
-        \hline
-        Grupo & Frequências observadas (Não adotou) & Frequências observadas (Adotou) \\ \hline
-        Controle & 3861 & 1045 \\
-        Tratamento & 495 & 185 \\ \hline
-    \end{tabular}
-    \label{tab:exp-adocao-dificuldade}
 
     \begin{center}
         \text{Fonte: Autor}
     \end{center}
+
 \end{table}
 
-Por fim, visando se confirmar a suspeita de que a categoria posicionada por último seria a menos utilizada, foi realizado o mesmo teste, porém olhando para a categoria de fonte, já que esta, na versão de tratamento, se tornou a última da listagem. Os resultados apresentaram que sua proporção de adoção também foi maior na população de controle, contradizendo as suposições iniciais da equipe (p-valor $\approx $0,47, ver Tabela \ref{tab:exp-adocao-fonte}).
-
+Por fim, visando se confirmar a suspeita de que a categoria posicionada por último seria a menos utilizada, foi realizado o mesmo teste, porém olhando para a categoria de fonte, já que esta, na versão de tratamento, se tornou a última da listagem. Os resultados apresentaram que sua proporção de adoção também foi maior na população de tratamento, contradizendo as suposições iniciais da equipe (p-valor$\approx $0,047, ver Tabela \ref{tab:exp-adocao-fonte}).
 
 \begin{table}[h]
     \centering
     \caption{Resultados do Teste Sobre Adoção do Filtro de Fonte}
-    \begin{tabular}{lcc}
+    \label{tab:exp-adocao-fonte}
+
+    \begin{tabular}{lc}
         \hline
-        Estatística & Valor \\ \hline
+        \textbf{Estatística} & \textbf{Valor} \\ \hline
         $\chi^2$ (Qui-quadrado) & 3,9270 \\
-        p-valor &0,0475 \\  
+        p-valor & 0,0475 \\  
         Graus de liberdade & 1 \\ \hline
     \end{tabular}
 
     \vspace{0.5cm} % Espaço entre tabelas
 
-    \begin{tabular}{lcc}
+    \begin{tabular}{lcccc}
         \hline
-        Grupo & Frequências esperadas (Não adotou) & Frequências esperadas (Adotou) \\ \hline
-        Controle & 4507,27 & 398,73 \\
-        Tratamento & 624,73 & 55,27 \\ \hline
+        \multirow{2}{*}{\textbf{Grupo}} & \multicolumn{2}{c}{\textbf{Não adotou}} & \multicolumn{2}{c}{\textbf{Adotou}} \\ 
+        \cline{2-5}
+        & Esperado & Observado & Esperado & Observado \\ \hline
+        Controle & 4507,27 & 4521 & 398,73 & 385 \\
+        Tratamento & 624,73 & 611 & 55,27 & 69 \\ \hline
     \end{tabular}
-
-    \vspace{0.5cm} % Espaço entre tabelas
-
-    \begin{tabular}{lcc}
-        \hline
-        Grupo & Frequências observadas (Não adotou) & Frequências observadas (Adotou) \\ \hline
-        Controle & 4521 & 385 \\
-        Tratamento & 611 & 69 \\ \hline
-    \end{tabular}
-
 
     \begin{center}
         \text{Fonte: Autor}
     \end{center}
-        \label{tab:exp-adocao-fonte}
+
 \end{table}
 
 

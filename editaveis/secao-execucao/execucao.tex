@@ -2,34 +2,42 @@
 
 A nova versão do produto foi implementada com a adição de uma condicional no código para definir a posição do filtro de nível de dificuldade. Essa condicional foi vinculada a um \textit{feature gate} denominado \textbf{experiment/difficulty-filter-position} (como descrito na Subseção \ref{subsubsec:variants}). Desta forma, como apresentado anteriormente, os usuários de controle utilizaram consistentemente a versão da Figura \ref{fig:selecao-questoes-controle} e o grupo de tratamente a versão da Figura \ref{fig:selecao-questoes-tratamento}.
 
-Na tela de criação de listas de exercícios, os três primeiros filtros são essenciais para determinados casos de uso do produto. Por essa razão, por decisão estratégica, o filtro de nível de dificuldade foi elevado apenas até a quarta posição, garantindo que fluxos críticos não fossem impactados. O trecho de código a seguir ilustra uma implementação semelhante à utilizada na versão de tratamento.
+Na tela de criação de listas de exercícios, os três primeiros filtros são essenciais para determinados casos de uso do produto. Por essa razão, por decisão estratégica, o filtro de nível de dificuldade foi elevado apenas até a quarta posição, garantindo que fluxos críticos não fossem impactados. O trecho de código \ref{code:treatment} ilustra uma implementação semelhante à utilizada na versão de tratamento.
 
-\vspace{\onelineskip}
-\begin{lstlisting}[style=customJS]
+\begin{code}[!ht]
+    \caption{Versão de Tratamento}
+    \begin{lstlisting}[
+        frame=single,
+        basicstyle=\footnotesize\ttfamily,
+        style=customJS
+    ]
 function FiltersComponent() {
     const isFiltersOrderExperimentEnabled = useFeature(
         'experiment/difficulty-filter-position'
     );
 
     return (
-      <div>
-        {otherFilter1}
-        {otherFilter2}
-        {otherFilter3}
-        {isFiltersOrderExperimentEnabled 
-            ? estimatedDifficultyFilter 
-            : null}
-        {otherFilter4}
-        {otherFilter5}
-        {otherFilter6}
-        {otherFilter7}
-        {isFiltersOrderExperimentEnabled 
-            ? null 
-            : estimatedDifficultyFilter}
-      </div>
+        <div>
+            {otherFilter1}
+            {otherFilter2}
+            {otherFilter3}
+            {isFiltersOrderExperimentEnabled 
+                ? estimatedDifficultyFilter 
+                : null}
+            {otherFilter4}
+            {otherFilter5}
+            {otherFilter6}
+            {otherFilter7}
+            {isFiltersOrderExperimentEnabled 
+                ? null 
+                : estimatedDifficultyFilter}
+        </div>
     );
 }
-\end{lstlisting}
+    \end{lstlisting}
+    \fonte{Autor}
+    \label{code:treatment}
+\end{code}
 
 
 Finalizado o desenvolvimento, seguindo o fluxo padrão da empresa para a liberação de novas versões, o código passou por revisão e análise. Após a realização da \textit{release}, a versão de tratamento foi ativada exclusivamente para os usuários beta, iniciando assim a coleta de dados.  É importante destacar que, embora as escolas beta estejam cientes de que podem receber versões experimentais do produto ou funcionalidades em desenvolvimento, nenhum usuário foi informado sobre este experimento, evitando assim possíveis vieses em seu comportamento.

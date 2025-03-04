@@ -23,6 +23,7 @@ A escolha dessas métricas visa garantir que os dados coletados possibilitem uma
     \centering
     \renewcommand{\arraystretch}{1.2}
     \setlength{\tabcolsep}{3pt}
+    \caption{Métricas Escolhidas de Qualidade em Uso}
     \begin{tabular}{|p{3cm}|p{3.5cm}|p{3.75cm}|p{4.75cm}|}
         \hline
         \textbf{Característica} & \textbf{Subcaracterística} & \textbf{Métrica} & \textbf{Descrição} \\
@@ -34,8 +35,11 @@ A escolha dessas métricas visa garantir que os dados coletados possibilitem uma
         & Eficácia & Número de exercícios selecionados & Mede a eficácia do produto na seleção de exercícios para atividades, refletindo o engajamento do usuário. \\
         \hline
     \end{tabular}
-    \caption{Métricas Escolhidas de Qualidade em Uso}
     \label{tab:metricas_qualidade_uso}
+
+    \begin{center}
+        \text{Fonte: Autor}
+    \end{center}
 \end{table}
 
 Além disso, para incluir a percepção dos profissionais envolvidos na ponderação dos resultados, o peso de cada métrica foi determinado pelo método AHP, conforme proposto pelo modelo QATCH, convertendo avaliações qualitativas em pesos quantitativos (ver Subseções \ref{subsec:qatch} e \ref{subsec:ahp}). Para isso, foi realizada uma reunião para se definir a importância relativa de cada métrica e característica em diferentes níveis de agregação. Essa avaliação foi feita por pares, considerando a relação entre satisfação e eficácia (no nível de característica, para calcular a qualidade em uso) e entre o número de listas criadas e exercícios selecionados (no nível de métrica, para calcular a eficácia). Essa relação é ilustrada na Figura \ref{fig:qatch_experiment}.
@@ -188,32 +192,26 @@ Para esta análise, utilizou-se o teste qui-quadrado para comparar os grupos, da
 \begin{table}[h]
     \centering
     \caption{Resultados do Teste Qui-Quadrado Sobre Adoção no Pré-estudo}
-    \begin{tabular}{lcc}
+    \label{tab:pre-study-adocao}
+
+    \begin{tabular}{lc}
         \hline
         Estatística & Valor \\ \hline
-        $\chi^2$ (Qui-quadrado) &0,0057 \\
+        $\chi^2$ (Qui-quadrado) & 0,0057 \\
         p-valor & 0,9397 \\  
         Graus de liberdade & 1 \\ \hline
     \end{tabular}
 
     \vspace{0.5cm} % Espaço entre tabelas
 
-    \begin{tabular}{lcc}
+    \begin{tabular}{lcccc}
         \hline
-        Grupo & Frequências esperadas (Não adotou) & Frequências esperadas (Adotou) \\ \hline
-        Controle & 2142,97 & 280,03 \\
-        Tratamento & 390,03 & 50,97 \\ \hline
+        \multirow{2}{*}{Grupo} & \multicolumn{2}{c}{Não adotou} & \multicolumn{2}{c}{Adotou} \\ 
+        \cline{2-5}
+        & Esperado & Observado & Esperado & Observado \\ \hline
+        Controle & 2142,97 & 2142 & 280,03 & 281 \\
+        Tratamento & 390,03 & 391 & 50,97 & 50 \\ \hline
     \end{tabular}
-
-    \vspace{0.5cm} % Espaço entre tabelas
-
-    \begin{tabular}{lcc}
-        \hline
-        Grupo & Frequências observadas (Não adotou) & Frequências observadas (Adotou) \\ \hline
-        Controle & 2142 & 281 \\
-        Tratamento & 391 & 50 \\ \hline
-    \end{tabular}
-    \label{tab:pre-study-adocao}
 
     \begin{center}
         \text{Fonte: Autor}

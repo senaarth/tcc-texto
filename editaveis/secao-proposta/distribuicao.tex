@@ -25,38 +25,45 @@ Esse modelo permite a realização de testes com versões ainda em desenvolvimen
 
 Inicialmente, será definida uma \textit{feature flag} para representar o experimento, que será ativada para os usuários beta no momento da liberação da versão de tratamento, marcando o início da coleta de dados. A remoção do \textit{toggle} será realizada, juntamente com a do código-fonte a ser descartado, após a decisão sobre a versão que será implantada definitivamente.
 
-A utilização de \textit{feature toggles} no contexto do experimento deste trabalho é exemplificada a seguir. O trecho de código apresentado refere-se ao lado do cliente na aplicação (\textit{TypeScript}). Na linha 8, há um componente denominado \textit{SomeComponent}, que utiliza a função \textit{useFeature} (declarada na linha 1) para determinar qual versão deve ser retornada: controle ou tratamento (linha 3). A função \textit{useFeature}, por sua vez, contém a lista de \textit{flags} ativadas para o usuário (linha 2), a qual é obtida a partir de uma solicitação prévia ao serviço de gerenciamento de \textit{toggles} (servidor \textit{Python}), realizada no momento em que o usuário efetua o \textit{login} (lógica abstraída para melhor compreensão).
+A utilização de \textit{feature toggles} no contexto do experimento deste trabalho é exemplificada no Trecho de Código \ref{code:feature-gate}. O trecho de código apresentado refere-se ao lado do cliente na aplicação (\textit{TypeScript}). Na linha 8, há um componente denominado \textit{SomeComponent}, que utiliza a função \textit{useFeature} (declarada na linha 1) para determinar qual versão deve ser retornada: controle ou tratamento (linha 3). A função \textit{useFeature}, por sua vez, contém a lista de \textit{flags} ativadas para o usuário (linha 2), a qual é obtida a partir de uma solicitação prévia ao serviço de gerenciamento de \textit{toggles} (servidor \textit{Python}), realizada no momento em que o usuário efetua o \textit{login} (lógica abstraída para melhor compreensão).
 
 \vspace{\onelineskip}
 
-% Definição de estilo para o código
-\definecolor{backgroundGray}{rgb}{0.95, 0.95, 0.95} % Cinza suave
-\definecolor{commentColor}{rgb}{0.5,0.5,0.5}       % Cinza para comentários
-\definecolor{keywordColor}{rgb}{0.75,0.2,0.2}      % Vermelho para palavras-chave
-\definecolor{stringColor}{rgb}{0.1,0.5,0.9}        % Azul para strings
-\definecolor{functionColor}{rgb}{1,0.5,0}          % Laranja para funções
+\definecolor{backgroundSoft}{rgb}{0.97, 0.97, 0.97} % Cinza quase branco
+\definecolor{keywordColor}{rgb}{0.0, 0.28, 0.67} % Azul escuro vibrante
+\definecolor{stringColor}{rgb}{0.5, 0.2, 0.7} % Roxo suave
+\definecolor{commentColor}{rgb}{0.3, 0.5, 0.3} % Verde apagado
+\definecolor{functionColor}{rgb}{0.8, 0.2, 0.2} % Vermelho escuro
 
 \lstdefinestyle{customJS}{
-  language=Python,
-  backgroundcolor=\color{backgroundGray},
-  basicstyle=\ttfamily\small,
-  keywordstyle=\color{keywordColor}\bfseries,
-  stringstyle=\color{stringColor},
-  commentstyle=\color{commentColor}\itshape,
-  identifierstyle=\color{functionColor},
-  morekeywords={function, const, return, if, else},
-  numbers=left,
-  showspaces=false,
-  showstringspaces=false,
-  showtabs=false,
-  tabsize=2,
-  breaklines=true,
-  frame=single, % Borda ao redor do código
-  rulecolor=\color{black},
-  captionpos=b
+    language=Python,
+    backgroundcolor=\color{backgroundSoft},
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{keywordColor}\bfseries,
+    stringstyle=\color{stringColor},
+    commentstyle=\color{commentColor}\itshape,
+    identifierstyle=\color{functionColor},
+    morekeywords={self, return, if, else, for, while, def, class, import, from, as, function, const},
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    frame=single,
+    rulecolor=\color{black},
+    captionpos=b,
+    breaklines=true,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=4
 }
 
-\begin{lstlisting}[style=customJS]
+
+\begin{code}[!ht]
+    \caption{Uso do \textit{Feature Gate}}
+    \begin{lstlisting}[
+        frame=single,
+        basicstyle=\footnotesize\ttfamily,
+        style=customJS
+    ]
 function useFeature(featureFlag: string) {
     const userAvailableFeatures = [];
     return userAvailableFeatures.some(
@@ -65,7 +72,9 @@ function useFeature(featureFlag: string) {
 }
 
 function SomeComponent() {
-    const isFeatureTreatmentEnabled = useFeature('experiment/study-case-treatment');
+    const isFeatureTreatmentEnabled = useFeature(
+        'experiment/study-case-treatment'
+    );
 
     return (
         isFeatureTreatmentEnabled
@@ -73,6 +82,9 @@ function SomeComponent() {
             : <SomeComponentControl />
     );
 }
-\end{lstlisting}
+    \end{lstlisting}
+    \fonte{Autor}
+    \label{code:feature-gate}
+\end{code}
 
 O serviço responsável pelo gerenciamento das \textit{flags} ativadas para cada usuário consiste em uma plataforma \textit{web} utilizada pelos colaboradores da empresa para ativar funcionalidades exclusivamente para determinadas organizações clientes. Essas informações são armazenadas em um banco de dados, que é posteriormente consumido pelo produto final, conforme mencionado anteriormente.
